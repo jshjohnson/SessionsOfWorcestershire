@@ -2,68 +2,12 @@
    Components
    ========================================================================== */
 
-// Structure
-@import "partials/layout";
-@import "partials/offcanvas";
-@import "partials/window";
-@import "partials/wells";
-@import "partials/header";
-@import "partials/page";
-@import "partials/navs";
-@import "partials/header";
-@import "partials/post";
-@import "partials/columns";
-@import "partials/matrix";
-@import "partials/profiles";
+@import "partials/container";
 @import "partials/media";
 @import "partials/flag";
-@import "partials/chat";
-@import "partials/tabs"; // Possible combine with '.well'
-@import "partials/list-group"; // Needs refactoring
-
-// User Interactions
-@import "partials/dropdowns";
-@import "partials/button-groups";
-@import "partials/input-groups";
-@import "partials/pagination";
 @import "partials/back-to-top";
-
-// Dialog
-@import "partials/labels";
-@import "partials/badge";
-@import "partials/alerts";
-@import "partials/notices";
-@import "partials/tooltip";
-@import "partials/popover";
-@import "partials/notification";
-@import "partials/splash";
-@import "partials/modals";
-@import "partials/loading";
-
-// Visual indicators
-@import "partials/close";
-@import "partials/icons";
-@import "partials/circle";
-@import "partials/overlay";
-
-// Data handling
-@import "partials/data-table";
-@import "partials/data-graph";
-
-// Module specific
-@import "partials/cal";
-@import "partials/task-list";
-@import "partials/polls";
-@import "partials/theme-picker";
-@import "partials/sortable";
-@import "partials/transient";
-@import "partials/lanyard";
-@import "partials/insights";
-@import "partials/surveys"; // Needs refactoring
-@import "partials/component";
-@import "partials/search";
-@import "partials/toolbar";
-
-// Miscellaneous
+@import "partials/section";
 @import "partials/logo";
-@import "partials/shame";
+@import "partials/nav";
+@import "partials/hero";
+@import "partials/content";

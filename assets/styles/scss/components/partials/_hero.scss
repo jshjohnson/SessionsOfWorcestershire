@@ -1,0 +1,13 @@
+/*
+* Name: Hero
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.hero {}
+
+.hero__title {
+    font-size: $global-font-size-lead;
+    color: $brand-white;
+    text-align: center;
+}

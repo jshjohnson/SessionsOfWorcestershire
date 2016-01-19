@@ -1,71 +1,13 @@
 /*
 * Name: Logo
-* Use: N/A
-* Notes: N/A
+* Use: 
+* Notes: 
 -------------------------------------------------------------- */
 
-.logo {
-    @include respond-min($global-screen-sm) { will-change: transform; }
-}
+$logo-dimensions: 175px;
 
-.logo__img {}
-
-.logo__img--constrain {
-    width: 150px;
-    @include respond-min($global-screen-sm) {
-        // Double size and scaled down to keep clarity on Safari
-        width: 300px;
-        height: 80px;
-        transform: scale3d(.5, .5, 1);
-        margin-bottom: 0;
-        transform-origin: top left;
-        .no-csstransforms3d &, .no-csstransforms &  {
-            width: 150px;
-            height: 40px;
-            transform: none;
-        }
-    }
-}
-
-.logo__intro {
-    margin-top: $global-guttering/2;
-    transition: opacity .4s ease-in-out;
-    @include respond-max($global-screen-sm) { display: none; }
-}
-
-
-.logo--start {
-    @include respond-min($global-screen-sm) {
-        margin-top: -3em; // Offset .layout__content padding
-        max-width: 150px;
-        max-height: 40px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0) scale3d(2, 2, 2);
-        transition: all .4s ease-in-out;
-        .no-csstransforms3d & {
-            position: relative;
-            margin-top: 0;
-            margin-bottom: $global-guttering;
-            top: 0;
-            left: 0;
-        }
-    }
-    // For shallow screens, move logo further up screen to ensure it fits within viewport
-    @media (max-height: 800px) and (min-width: $global-screen-sm) { top: 25%; }
-}
-
-.logo--end {
-    @include respond-min($global-screen-sm) {
-        margin-top: 0;
-        top: 0;
-        left: 0;
-        transform: translate3d(0, -68px, 0) scale3d(1, 1, 1);
-        transition: all .4s ease-in-out;
-        .logo__intro {
-            opacity: 0;
-            transition: opacity .4s ease-in-out;
-        }
-    }
+.logo {}
+.logo__image {
+    width: $logo-dimensions;
+    height: $logo-dimensions;
 }

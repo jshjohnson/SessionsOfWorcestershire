@@ -2,6 +2,39 @@
    Variables
    ========================================================================== */
 
+
+/* Colours
+-------------------------------------------------------------- */
+
+// Greyscale
+$brand-black: black;
+$brand-grey-dark: #3d3d3d;
+$brand-grey: #4e4e4e;
+$brand-grey-light: #7d838a;
+$brand-grey-lighter: #f9f9f9;
+$brand-white: white;
+
+// Palette
+$brand-primary: #641c31;
+$brand-secondary: #861e41;
+$brand-tertiary: #8c6954;
+$brand-lowlight: #bfaf7f;
+$brand-highlight: #f2eeb3;
+
+// Generic
+$brand-keyline: #EAEAEA;
+$brand-text: #50595c;
+$brand-link: $brand-primary;
+
+// Backgrounds
+$brand-body-bg: #FFFFFF;
+
+/* Text colouring
+-------------------------------------------------------------- */
+$text-muted: lighten($brand-grey-light, 10%);
+$text-disabled-color: $brand-grey-light;
+$text-disabled-hover-color: $brand-grey-light;
+
 /* Spacing
 -------------------------------------------------------------- */
 $global-guttering: 2.4rem;
@@ -9,13 +42,12 @@ $global-guttering: 2.4rem;
 
 /* Typography
 -------------------------------------------------------------- */
-$global-font-family-sans-serif: "soleil", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$global-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
-$global-font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
-$global-font-family-base: $global-font-family-sans-serif !default;
+$global-font-family-primary: 'Georgia', "Times New Roman", Times, serif;
+$global-font-family-secondary: 'Crimson Text', "Times New Roman", Times, serif;
+$global-font-family-base: $global-font-family-primary;
 
-$global-font-size-lead: 4.2rem;
-$global-font-size-sub: 3rem;
+$global-font-size-lead: 6.2rem;
+$global-font-size-sub: 4.2rem;
 
 $global-font-size-xl: 2.2rem;      // 22px
 $global-font-size-lg: 1.8rem;      // 18px
@@ -39,63 +71,52 @@ $global-line-height-sm: 1.4;
 $global-line-height-xs: 1.2;
 
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$global-line-height-computed: floor($global-font-size-base * $global-line-height-base) !default;
+$global-line-height-computed: floor($global-font-size-base * $global-line-height-base);
 
 //** By default, this inherits from the `<body>`.
-$global-headings--font-family: inherit !default;
-$global-headings--font-weight: 500;
-$global-headings--line-height: 1.4;
-$global-headings--color: inherit !default;
+$global-headings-font-family: $global-font-family-secondary;
+$global-headings-font-weight: 700;
+$global-headings-line-height: 1.4;
+$global-headings-color: inherit;
 
 
 /* Component spacing
 -------------------------------------------------------------- */
-$global-padding-vertical-base: .6rem;
-$global-padding-horizontal-base: 1.2rem;
+// $global-padding-vertical-base: .6rem;
+// $global-padding-horizontal-base: 1.2rem;
 
-$global-padding-vertical-lg: 1rem;
-$global-padding-horizontal-lg: 2rem;
+// $global-padding-vertical-lg: 1rem;
+// $global-padding-horizontal-lg: 2rem;
 
-$global-padding-vertical-sm: .4rem;
-$global-padding-horizontal-sm: 1.4rem;
+// $global-padding-vertical-sm: .4rem;
+// $global-padding-horizontal-sm: 1.4rem;
 
-$global-padding-vertical-xs: .1rem;
-$global-padding-horizontal-xs: 1rem;
+// $global-padding-vertical-xs: .1rem;
+// $global-padding-horizontal-xs: 1rem;
 
 $global-border-radius-xl: .75em;
 $global-border-radius-lg: .5em;
 $global-border-radius-base: .25em;
 $global-border-radius-sm: .125em;
 
-
-/* Profile avatar sizes
--------------------------------------------------------------- */
-$twine-media-xxs-size: 30px;
-$twine-media-xs-size: 40px;
-$twine-media-sm-size: 50px;
-$twine-media-base-size: 60px;
-$twine-media-md-size: 75px;
-$twine-media-lg-size: 85px;
-
-
 /* Inputs
 -------------------------------------------------------------- */
 $global-input-bg: $brand-grey-lighter;
-$global-input-bg-disabled: $brand-grey-lighter !default;
+$global-input-bg-disabled: $brand-grey-lighter;
 
 $global-input-border: $brand-grey-lighter;
 $global-input-border-radius: $global-border-radius-base;
 $global-input-border-focus: $brand-primary;
 
-$global-input-color: $text-color;
-$global-input-color-placeholder: $brand-grey-light !default;
+$global-input-color: $brand-text;
+$global-input-color-placeholder: $brand-grey-light;
 
 $global-input-height-lg: 2;
 $global-input-height-base: 1.7;
 $global-input-height-sm: 1.5;
 
-$legend-color: $brand-grey-dark !default;
-$legend-border-color: #e5e5e5 !default;
+$legend-color: $brand-grey-dark;
+$legend-border-color: #e5e5e5;
 
 $global-input-group-addon-bg: $brand-white;
 $global-input-group-addon-border-color: darken($global-input-bg, 7.5%);
@@ -104,36 +125,31 @@ $global-input-group-addon-border-color: darken($global-input-bg, 7.5%);
 /* Breakpoints
 -------------------------------------------------------------- */
 $global-screen-xxs: 360px;
-$global-screen-xxs-min: $global-screen-xxs !default;
+$global-screen-xxs-min: $global-screen-xxs;
 
-$global-screen-xs: 480px !default;
-$global-screen-xs-min: $global-screen-xs !default;
+$global-screen-xs: 480px;
+$global-screen-xs-min: $global-screen-xs;
 
-$global-screen-sm: 770px !default;
-$global-screen-sm-min: $global-screen-sm !default;
+$global-screen-sm: 770px;
+$global-screen-sm-min: $global-screen-sm;
 
-$global-screen-md: 1000px !default;
-$global-screen-md-min: $global-screen-md !default;
+$global-screen-md: 1000px;
+$global-screen-md-min: $global-screen-md;
 
-$global-screen-lg: 1250px !default;
-$global-screen-lg-min: $global-screen-lg !default;
+$global-screen-lg: 1250px;
+$global-screen-lg-min: $global-screen-lg;
 
-$global-screen-xl: 1600px !default;
-$global-screen-xl-min: $global-screen-xl !default;
+$global-screen-xl: 1600px;
+$global-screen-xl-min: $global-screen-xl;
 
 $global-screen-xxl: 1800px;
-$global-screen-xxl-min: $global-screen-xxl !default;
+$global-screen-xxl-min: $global-screen-xxl;
 
 // So media queries don't overlap when required, provide a maximum
-$global-screen-xs-max: $global-screen-sm-min !default;
-$global-screen-sm-max: $global-screen-md-min - 1 !default;
-$global-screen-md-max: $global-screen-lg-min - 1 !default;
-$global-screen-lg-max: $global-screen-xl-min - 1 !default;
-
-// Point at which the header links/icons become a fixed navbar
-$global-screen-header-nav-fixed: $global-screen-sm;
-$global-screen-layout-full-screen: 1400px;
-
+$global-screen-xs-max: $global-screen-sm-min;
+$global-screen-sm-max: $global-screen-md-min - 1;
+$global-screen-md-max: $global-screen-lg-min - 1;
+$global-screen-lg-max: $global-screen-xl-min - 1;
 
 /* Grid
 -------------------------------------------------------------- */
@@ -168,20 +184,3 @@ $global-zindex-popover-focus: 1010;
 $global-zindex-popover-icon: 1000;
 $global-zindex-component-head: 1000;
 $global-zindex-notification: 1000;
-
-/* Header
--------------------------------------------------------------- */
-$global-header-nav-fixed-height: 48px;
-
-
-/* Arrow
--------------------------------------------------------------- */
-$global-arrow-size: 12px;
-$global-arrow-border: 1 !default;
-
-
-/* Triangle
--------------------------------------------------------------- */
-$global-triangle-size: 12px;
-$global-triangle-border: 1;
-$global-triangle-arrow: $global-triangle-size - $global-triangle-border;

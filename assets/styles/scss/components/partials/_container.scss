@@ -1,0 +1,17 @@
+/*
+* Name: Container
+* Note: N/A
+-------------------------------------------------------------- */
+
+$container-base: 80em;
+$container-sm: 60em;
+$container-xs: 50em;
+
+.container {
+    width: 100%;
+    max-width: $container-base;
+    @include center-block;
+}
+
+.container--sm { max-width: $container-sm; }
+.container--xs { max-width: $container-xs; }

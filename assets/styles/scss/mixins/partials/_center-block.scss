@@ -1,0 +1,11 @@
+/*
+* Mixin name: Center block
+* Use: Blocked content with flexible margins
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

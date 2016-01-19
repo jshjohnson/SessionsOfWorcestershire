@@ -89,18 +89,6 @@
     @include responsive-invisibility(".hidden-lg");
 }
 
-
-.visible-fixed-nav {
-    @include respond-min($global-screen-header-nav-fixed) { display: none; }
-}
-
-.hidden-fixed-nav {
-    @include respond-max($global-screen-header-nav-fixed) { display: none; }
-}
-
-%clear-left { clear: left; }
-%clear-right { clear: right; }
-
 // Responsive clearing
 .clear-left-xs {
     @include respond-max($global-screen-sm-min) { clear: left; }

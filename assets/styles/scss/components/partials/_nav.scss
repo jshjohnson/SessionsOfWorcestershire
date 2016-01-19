@@ -1,0 +1,28 @@
+/*
+* Name: Nav
+* Use: For site-wide navigation areas
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    @include clearfix;
+}
+
+.nav--primary {
+    @include respond-min($global-screen-md) { float: right; }
+    .nav__item { 
+        font-family: $global-headings-font-family; 
+        margin-right: $global-guttering*2;
+        font-size: $global-font-size-lg;
+    }
+    .nav__link {
+        color: $brand-white;
+        opacity: 0.75;
+        @include on-interaction { color: $brand-white; }
+    }
+    .nav__link--active { opacity: 1; }
+}
+

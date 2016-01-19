@@ -18,13 +18,6 @@
     }
 }
 
-// Button sizes
-@mixin button-size($global-padding-vertical, $global-padding-horizontal, $global-line-height, $global-border-radius) {
-    padding: $global-padding-vertical $global-padding-horizontal;
-    line-height: $global-line-height;
-    border-radius: $global-border-radius;
-}
-
 @mixin button-reset {
     -webkit-appearance: none;
     background-color: transparent;

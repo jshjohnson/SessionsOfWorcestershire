@@ -49,13 +49,7 @@
 @mixin form-control-focus($color: $brand-primary) {
     &:focus {
         @if $color {
-            @each $theme, $map in $brand-primary {
-                $brand-primary: map-get($map, color);
-
-                .#{$theme} & {
-                    border-color: $brand-primary;
-                }
-            };
+            border-color: $brand-primary;
         }
         @if $color == '' {
             border-color: $color;

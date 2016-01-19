@@ -1,0 +1,33 @@
+/*
+* Name: Section
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.section {
+    display: block;
+    width: 100%;
+    padding: $global-guttering*2;
+}
+
+.section--lg {
+    padding: $global-guttering*4;
+}
+
+.section--md {
+    padding: $global-guttering;
+}
+
+.section--sm {
+    padding: $global-guttering/2;
+}
+
+.section--plain { background-color: $brand-white; }
+.section--primary { background-color: $brand-primary; }
+.section--secondary { background-color: $brand-secondary; }
+.section--tertiary { background-color: $brand-tertiary; }
+.section--lowlight { 
+    background-color: $brand-lowlight; 
+    color: $brand-white;
+}
+.section--highlight { background-color: $brand-highlight; }

@@ -22,17 +22,11 @@ html {
 body {
     line-height: $global-line-height-base;
     font-family: $global-font-family-base;
-    font-size: $global-font-size-base;
+    font-size: 16px;
+    // font-size: $global-font-size-base;
     overflow-x: hidden;
-    @each $theme, $map in $brand-body {
-        $brand-bg: map-get($map, background);
-        $text-color: map-get($map, text);
-
-        .#{$theme} > & {
-            background-color: $brand-bg;
-            color: $text-color;
-        }
-    }
+    background-color: $brand-body-bg;
+    color: $brand-text;
     @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
 }
 
@@ -40,22 +34,15 @@ body {
 // Typography
 // --------------------------------------------------
 
-// Headings
-// -------------------------
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: $global-headings--font-family;
-    font-weight: $global-headings--font-weight;
-    line-height: $global-headings--line-height;
+    font-family: $global-headings-font-family;
+    font-weight: $global-headings-font-weight;
+    line-height: $global-headings-line-height;
     margin-top: 0;
     margin-bottom: $global-guttering/1.5;
-    .t-solar & {
-        font-family: $t-solar-font-family;
-        font-weight: 500;
-    }
-    small:not(.label),
-    .small:not(.label) {
+    small,
+    .small {
         font-weight: normal;
         line-height: 1;
     }
@@ -69,15 +56,15 @@ h1, h2, h3, h4,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-    small:not(.label),
-    .small:not(.label) { font-size: 65%; }
+    small,
+    .small { font-size: 65%; }
 }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    small:not(.label),
-    .small:not(.label) { font-size: 75%; }
+    small,
+    .small { font-size: 75%; }
 }
 
 h1, .h1 {
@@ -115,12 +102,8 @@ h6, .h6 {
 a {
     text-decoration: none;
     transition: .15s color ease-in-out;
-    @each $theme, $map in $brand-link {
-        .#{$theme} & {
-            color: map-get($map, color);
-            @include on-interaction { color: darken(map-get($map, color), 5%);}
-        }
-    }
+    color: $brand-link;
+    @include on-interaction { color: darken($brand-link, 5%);}
     &:hover { text-decoration: underline; }
     &:hover,
     &:focus { transition: .15s color ease-in-out; }
@@ -185,56 +168,8 @@ cite { font-style: normal; }
 
 // Contextual colors
 .text-primary, %text-primary {
-    @each $theme, $map in $brand-primary {
-        .#{$theme} & {
-            $brand-primary: map-get($map, color);
-            color: $brand-primary;
-        }
-    }
-}
-
-.text-success, %text-success {
-    .t-generic & { color: $brand-success; }
-    &[href] {
-        @include on-interaction { color: darken($brand-success, 5%); }
-    }
-}
-
-.text-warning, %text-warning {
-    .t-generic & { color: $brand-warning; }
-    &[href] {
-        @include on-interaction { color: darken($brand-warning, 5%); }
-    }
-}
-
-.text-danger, %text-danger {
-    .t-generic & { color: $brand-danger; }
-    &[href] {
-        @include on-interaction { color: darken($brand-danger, 5%); }
-    }
-}
-
-.text-link {
-    @each $theme, $map in $brand-link {
-        .#{$theme} & {
-            $link-color: map-get($map, color);
-            $link-hover-color: darken(map-get($map, color), 5%);
-            color: $link-color;
-            a { @include on-interaction { color: $link-hover-color; }}
-        }
-    }
-}
-
-
-// Contextual colors
-.text-inverse {
-    color: $brand-text-inverse;
-    // Links
-    a {
-        color: $brand-link-inverse;
-        &:hover,
-        &:focus { color: $brand-link-inverse; }
-    }
+    color: $brand-primary;
+    &[href] { @include on-interaction { color: darken($brand-primary, 5%); }}
 }
 
 // Addresses

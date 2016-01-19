@@ -52,11 +52,11 @@ gulp.task('styles', function () {
         .pipe(plugins.sass().on('error', sass.logError))
         .pipe(plugins.autoprefixer('last 2 versions', '> 1%', 'ie 8'))
         .pipe(plugins.header(banner, { package : package }))
-        .pipe(gulp.dest('/assets/styles/css/'))
+        .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.csso())
         .pipe(plugins.rename({suffix: '.min'}))
         .pipe(plugins.header(banner, { package : package }))
-        .pipe(gulp.dest('/assets/styles/css/'))
+        .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.connect.reload());
 });
 

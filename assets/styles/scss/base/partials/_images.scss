@@ -41,12 +41,3 @@ svg { fill: currentColor; }
 
 // Perfect circle to be super down with the Shoreditch kids amirite!?
 .img-circle { border-radius: 50%; }
-
-.img-logo {
-    @each $theme, $map in $brand-primary {
-        .#{$theme} & {
-            $brand-primary: map-get($map, color);
-            fill: $brand-primary;
-        }
-    }
-}
