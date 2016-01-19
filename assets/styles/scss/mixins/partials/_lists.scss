@@ -1,0 +1,22 @@
+/*
+* Mixin name: Lists
+* Use: Unsetting lists / Inline list items
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin unset-list {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    li {
+        margin-left: 0;
+        list-style-type: none;
+        &:before {
+            background-color: transparent !important;
+        }
+    }
+}
+
+@mixin inline-list {
+    li { display: inline-block; }
+}

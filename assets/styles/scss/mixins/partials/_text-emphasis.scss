@@ -1,0 +1,12 @@
+/*
+* Mixin name: Text emphasis
+* Use: Matching hover colour with intitial element text colour
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin text-emphasis-variant($parent, $color) {
+    #{$parent} {
+        color: $color;
+        a { @include on-interaction { color: $color; }}
+    }
+}

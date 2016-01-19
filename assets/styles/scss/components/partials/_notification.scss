@@ -1,0 +1,38 @@
+/*
+* Name: Notification
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$notification-font-size: 1.1rem;
+$notification-background: $brand-danger;
+
+.notification {
+    position: absolute;
+    top: 45%;
+    right: -45%;
+    border-radius: 10em;
+    background-color: $notification-background;
+    display: block;
+    z-index: $global-zindex-notification;
+    @include respond-min($global-screen-header-nav-fixed) {
+        border: 2px solid;
+        @each $theme, $map in $brand-notification {
+            .#{$theme} & {
+                $global-border-color: map-get($map, outline);
+                border-color: $global-border-color;
+            }
+        }
+    }
+}
+
+.notification__inner {
+    position: relative;
+    font-size: $notification-font-size;
+    color: white;
+    padding: .25rem .5rem;
+    line-height: 1;
+    min-width: 1.75rem;
+    min-height: 1.75rem;
+    .no-borderradius & { display: none; }
+}

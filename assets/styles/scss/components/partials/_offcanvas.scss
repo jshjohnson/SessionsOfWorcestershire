@@ -1,0 +1,48 @@
+/*
+* Name: Off-canvas
+* Use: Handling off canvas menu/sidebar
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.offcanvas { position: relative; }
+
+.offcanvas__main {
+    position: relative;
+    transform: none;
+    transition: all .2s cubic-bezier(0.56, 1.09, 0.7, 1.05);
+    .no-csstransforms & { left: 0; }
+    .offcanvas-wrapper & { overflow: hidden; }
+    @include respond-max($global-screen-xs) { height: 100%; }
+}
+
+.offcanvas--active {
+    .offcanvas__main {
+        will-change: transform;
+        transition: all .4s cubic-bezier(0.32,1.25,0.375,1.15);
+        @include respond-max($global-screen-md) {
+            transform: translate3d($layout-aside-width-sm, 0, 0);
+            .no-csstransforms3d & { transform: translateX($layout-aside-width-sm); }
+            .no-csstransforms.no-csstransforms3d & { left: $layout-aside-width-sm; }
+        }
+        @include respond-max($global-screen-xs) {
+            box-shadow: 0 0 10px rgba($brand-black, 0.15);
+            transform: translate3d($layout-aside-width-xs, 0, 0) scale3d(.9, .9, .9);
+            .no-csstransforms3d & { transform: translateX($layout-aside-width-xs) scale(.9,.9); }
+            .no-csstransforms.no-csstransforms3d & { left: $layout-aside-width-xs; }
+        }
+    }
+    .offcanvas__aside { z-index: auto; }
+}
+
+.offcanvas__aside {
+    @include respond-max($global-screen-md) {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        // max-width: $layout-aside-width-sm;
+    }
+    @include respond-max($global-screen-xs) {
+        z-index: -1;
+        max-width: 100%;
+    }
+}

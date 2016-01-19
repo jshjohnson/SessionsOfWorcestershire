@@ -1,0 +1,94 @@
+/*
+* Name: Search
+* Use: Area containing an inline search field + advanced options
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.search {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: $global-guttering;
+    will-change: scroll-position, contents;
+    transition: all .2s ease-in-out;
+}
+
+.search--blocked {
+    @include respond-max($global-screen-md) { margin-bottom: 0; }
+    .search__area {
+        position: relative;
+        background-color: $brand-grey-lighter;
+        border-bottom: 1px solid $brand-keyline;
+        padding: $global-guttering/1.5;
+        @include respond-min($global-screen-md) {
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            border: 1px solid $brand-keyline;
+            border-top: 0;
+        }
+    }
+}
+
+.search--force-down { @include respond-min($global-screen-md) { margin-bottom: $global-guttering*2; } }
+
+.search--flush {
+    .search__area {
+        margin-bottom: $global-guttering;
+        @include respond-max($global-screen-md) {
+            border-radius: 0;
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.search__container {
+    @extend %clearfix;
+    display: inline;
+    width: 100%;
+}
+
+.search__area {
+    margin: auto;
+    @include respond-min($global-screen-md) { width: 675px; }
+}
+
+.search__toggle { @include button-reset; }
+
+.search__field { width: 100%; }
+
+.search__field--inline {
+    @include respond-min($global-screen-md) {
+        width: 75%;
+        float: left;
+    }
+}
+
+.search__label {
+    @include respond-min($global-screen-md) {
+        width: 25%;
+        float: left;
+        padding: $global-guttering/2.4 0 $global-guttering/3 $global-guttering;
+        text-align: center;
+        white-space: nowrap;
+    }
+    @include respond-max($global-screen-md) { margin-top: $global-guttering/2; }
+}
+
+.search__options {
+    margin-top: 1rem;
+    margin-bottom: -$global-guttering/2;
+    max-height: 0;
+    overflow: hidden;
+    will-change: max-height, contents, scroll-position;
+    transition: max-height .4s cubic-bezier(0.4, 0, 0.2, 1);
+    .search--open & { max-height: 400px; }
+    .search__label { margin-bottom: 1rem; }
+    .form-control { margin-bottom: $global-guttering/2; }
+}
+
+.search__target {
+    display: block;
+    margin-top: 1em;
+}

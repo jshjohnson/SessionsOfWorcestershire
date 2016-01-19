@@ -1,0 +1,126 @@
+/*
+* Name: Matrix
+* Use: Alternative grid system to accomodate clear fixing
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.matrix {
+    @include make-row;
+    display: inline-block;
+    width: 100%;
+    margin: -$global-guttering -1.4rem;
+}
+
+.matrix--responsive-align { @include respond-max($global-screen-xs) { margin: -$global-guttering 0;}}
+
+.matrix--no-align {
+    @include respond-min($global-screen-xs) { margin: 0 -1.4rem; }
+}
+
+.matrix--less-pad {
+    margin: -$global-guttering/1.5 0;
+    @include respond-min($global-screen-xs) { margin: -$global-guttering/1.5 -1.4rem; }
+    .matrix__cell { margin-top: $global-guttering/1.5; }
+}
+
+.matrix__cell {
+    margin-top: $global-guttering;
+    @include guttering-all;
+    .lt-ie9 & { min-height: 7.5em !important; }
+    .lt-ie9 &.profile { min-height: 10em !important; }
+}
+
+// 2 up at xs breakpoint
+.matrix--xs-2-up .matrix__cell {
+    @include respond-max($global-screen-xs) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+}
+
+.matrix--sm-2-up .matrix__cell {
+    @include respond-min($global-screen-xs-min) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+}
+
+// 4-up at lg breakpoint
+.matrix--lg-4-up .matrix__cell {
+    @include respond-min-max($global-screen-xs-min, $global-screen-sm-max) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-md-column(4);
+    @include respond-min-max($global-screen-md-min, $global-screen-lg-max) {
+        @include nth-child(3, 1) { clear: left; }
+    }
+
+    @include make-xl-column(3);
+    @include respond-min($global-screen-xl-min) {
+        @include nth-child(4, 1) { clear: left; }
+    }
+}
+
+// 3-up at lg breakpoint
+.matrix--lg-3-up .matrix__cell {
+    @include respond-min-max($global-screen-xs-min + 60px, $global-screen-sm-max) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-md-column(6);
+    @include respond-min-max($global-screen-md-min, $global-screen-md-max) {
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-lg-column(4);
+    @include respond-min($global-screen-lg-min) {
+        @include nth-child(3, 1) { clear: left; }
+    }
+}
+
+// 2-up at lg breakpoint
+.matrix--lg-2-up .matrix__cell {
+    @include respond-min-max($global-screen-xs-min + 60px, $global-screen-sm-max) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-md-column(6);
+    @include respond-min-max($global-screen-md-min, $global-screen-md-max) {
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-lg-column(6);
+    @include respond-min($global-screen-lg-min) {
+        @include nth-child(2, 1) { clear: left; }
+    }
+}
+
+// 3-up at xl breakpoint
+.matrix--xl-3-up .matrix__cell {
+    @include respond-min-max($global-screen-xs-min + 60px, $global-screen-sm-max) {
+        // This needs to go inside the media query, as it doesn’t have its own
+        @include make-xs-column(6);
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-md-column(6);
+    @include make-lg-column(6);
+    @include respond-min-max($global-screen-md-min, $global-screen-lg-max) {
+        @include nth-child(2, 1) { clear: left; }
+    }
+
+    @include make-xl-column(4);
+    @include respond-min($global-screen-xl-min) {
+        @include nth-child(3, 1) { clear: left; }
+    }
+}
+

@@ -1,0 +1,149 @@
+/*
+* Name: Tabs
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.tab {}
+
+.tab__menu {
+    position: relative;
+    z-index: $global-zindex-tab-menu;
+    display: table;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.tab__input {
+    border: 0;
+    display: inline-block;
+    padding: 0 $global-guttering;
+    line-height: 5.4rem;
+    height: 5.4rem;
+    @include respond-max($global-screen-xs) {
+        line-height: 4rem;
+        height: 4rem;
+    }
+}
+
+.tab__item {
+    float: left;
+    margin-bottom: -1px;
+    margin-left: -1px;
+}
+
+.tab__item--active {
+    border-bottom: 1px solid $brand-white;
+    margin-bottom: -1px;
+}
+
+.tab__link {
+    @extend %no-decoration;
+    display: block;
+    padding: $global-guttering/1.75 $global-guttering*1.25;
+    // text-align: center;
+    transition: background-color .2s ease-in-out;
+    @each $theme, $map in $brand-body {
+        $text-color: map-get($map, text);
+        .#{$theme} & {
+            color: $text-color;
+            &:hover { color: $text-color; }
+        }
+    }
+}
+
+.tab__link--less-pad { padding: $global-guttering/2 $global-guttering; }
+
+.tab__panel {
+    clear: left;
+    display: none;
+    padding: $global-guttering/1.5;
+    border: 1px solid $brand-keyline;
+    @include guttering;
+}
+
+.tab__panel--less-pad { padding: $global-guttering/1.2; }
+
+.tab__panel--active { display: block; }
+
+// Variations
+
+.tab--bordered {
+    .tab__item {
+        border: 1px solid $brand-keyline;
+        &:first-child { margin-left: 0; }
+    }
+    .tab__item--active { border-bottom: 1px solid $brand-white; }
+}
+
+.tab--in-window {
+    overflow: hidden;
+    .tab__panel {
+        position: absolute;
+        left: 0;
+        top: 5.4rem;
+        width: 100%;
+        border-left: 0;
+        border-right: 0;
+        display: block;
+        z-index: $global-zindex-tab-hidden;
+        .tab__inner {
+            opacity: 0;
+            visibility: hidden;
+            transition: all .2s ease-in-out;
+        }
+    }
+    .tab__panel--active {
+        position: relative;
+        top: 0;
+        z-index: $global-zindex-tab-visible;
+        .tab__inner {
+            visibility: visible;
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+    }
+    .tab__item {
+        margin-right: 0;
+        border: 1px solid transparent;
+        border-top: 0;
+        @include respond-min($global-screen-md) { height: 5.4rem; }
+        @include respond-max($global-screen-md) { width: 50%; }
+    }
+    .tab__item--active {
+        background-color: $brand-grey-lighter;
+        border: 1px solid $brand-keyline;
+        border-top: 0;
+        border-bottom-color: $brand-grey-lighter;
+    }
+    .tab__link {
+        @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+        &:hover { background-color: rgba($brand-grey-lighter, .25); }
+    }
+}
+
+
+.tab--with-input {
+    .tab__menu {
+        display: table;
+        width: 100%;
+    }
+    .tab__item {
+        float: none;
+        display: table-cell;
+        width: 100%;
+        // text-align: center;
+        padding: 0;
+        white-space: nowrap;
+        position: relative;
+        vertical-align: middle;
+    }
+    .tab__item--active {
+        width: 200px;
+        border-left: 0;
+    }
+    .tab__panel { margin-top: -1px; }
+    .tab__panel, .tab__panel--active { z-index: auto; }
+}

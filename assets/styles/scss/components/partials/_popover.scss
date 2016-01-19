@@ -1,0 +1,244 @@
+/*
+* Name: Popover
+* Use: Displaying contextual secondary content on click
+* Notes: See http://getbootstrap.com/javascript/#popovers
+-------------------------------------------------------------- */
+
+$popover-bg: $brand-white;
+$popover-min-width: 250px;
+$popover-max-width: 400px;
+$popover-border-color: rgba(0, 0, 0, 0.2);
+$popover-fallback-border-color: #cccccc;
+$popover-title-bg: darken($popover-bg, 3%);
+
+$popover-arrow-width: 8px;
+$popover-arrow-color: $popover-title-bg;
+$popover-arrow-outer-width: $popover-arrow-width + 1;
+$popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
+$popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%);
+$popover-restricted-height: 250px;
+
+.popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $global-zindex-popover;
+    display: none;
+    min-width: $popover-min-width;
+    max-width: $popover-max-width;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba($brand-grey, 0.25);
+    border-radius: .75rem;
+    background-color: $brand-white;
+    white-space: normal;
+    // Offset the popover to account for the popover arrow
+    &.top { margin-top: -8px; }
+    &.right { margin-left: 12px; }
+    &.bottom { margin-top: 12px; }
+    &.left {
+        margin-left: -8px;
+        .popover__close {
+            left: 0;
+            right: auto;
+            margin-left: -.75em;
+        }
+    }
+}
+
+.popover--flexible { width: auto; }
+
+.popover-title, .popover__title {
+    margin: 0;
+    padding: $global-guttering/2;
+    font-size: $global-font-size-sm;
+    font-weight: 600;
+    background-color: $popover-title-bg;
+    border-bottom: 1px solid $brand-keyline;
+    @include border-top-radius(0.75rem);
+}
+
+.popover-content, .popover__content {
+    font-size: $global-font-size-sm;
+    font-weight: normal;
+    // Reset given new insertion method
+    background-color: $popover-bg;
+    background-clip: padding-box;
+    @include guttering;
+    @include border-bottom-radius(0.75rem);
+    .popover__title:empty + & {@include border-top-radius(0.75rem); }
+}
+
+.popover__sticky {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid $brand-keyline;
+    overflow: hidden;
+    font-weight: 600;
+    @include border-bottom-radius(.75rem);
+    .popover__link { border-bottom: 0; }
+}
+
+.popover__text {
+    padding: $global-guttering/2;
+    @include guttering;
+}
+
+.popover__list {}
+
+.popover__list--restrict {
+    max-height: $popover-restricted-height;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 100%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+}
+
+.popover__item {
+    position: relative;
+    display: block;
+    &:last-child { .popover__link { border-bottom: 0; } }
+}
+
+.popover__link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    color: $text-color;
+    margin: 0;
+    padding: $global-guttering/2 $global-guttering/1.5 $global-guttering/2 $global-guttering/2;
+    font-size: $global-font-size-sm;
+    transition: background .25s ease-in-out;
+    background-color: $brand-white;
+    border-bottom: 1px solid $brand-keyline;
+    @include on-interaction {
+        color: inherit;
+        text-decoration: none;
+        transition: background .2s ease-in-out;
+    }
+}
+
+.popover__link--first-child { @include border-top-radius(0.75rem); }
+.popover__link--last-child { @include border-bottom-radius(0.75rem);}
+
+.popover__link--transparent { background-color: transparent; }
+
+.popover__link--interaction {
+    @include on-interaction {
+        background-color: $brand-subtle-highlight;
+        @each $theme, $map in $brand-primary {
+            .#{$theme} & {
+                $brand-primary: map-get($map, color);
+                color: $brand-primary;
+            }
+        };
+    }
+}
+
+.popover__footer {
+    padding: $global-guttering/2;
+    border-top: 1px solid $brand-keyline;
+    background-color: $brand-white;
+    @include border-bottom-radius(0.75rem);
+}
+
+// Arrows
+// .arrow is outer, .arrow:after is inner
+
+.popover > .arrow {
+    &,
+    &:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+}
+
+.popover > .arrow { border-width: $popover-arrow-outer-width; }
+
+.popover > .arrow:after {
+    border-width: $popover-arrow-width;
+    content: "";
+}
+
+.popover {
+    &.top > .arrow {
+        left: 50%;
+        margin-left: -$popover-arrow-outer-width + 1.25px;
+        border-bottom-width: 0;
+        border-top-color: $brand-white;
+        border-top-color: $brand-white;
+        bottom: -$popover-arrow-outer-width;
+        &:after {
+            content: " ";
+            bottom: 1px;
+            margin-left: -$popover-arrow-width;
+            border-bottom-width: 0;
+            border-top-color: $popover-arrow-color;
+        }
+    }
+    &.bottom > .arrow {
+        left: 50%;
+        margin-left: -$popover-arrow-outer-width + 1.25px;
+        border-top-width: 0;
+        border-bottom-color: $popover-title-bg;
+        border-bottom-color: $popover-title-bg;
+        top: -$popover-arrow-outer-width;
+        &:after {
+            content: " ";
+            top: 1px;
+            margin-left: -$popover-arrow-width;
+            border-top-width: 0;
+            border-bottom-color: $popover-arrow-color;
+        }
+    }
+    &.right > .arrow {
+        top: 50%;
+        left: -$popover-arrow-outer-width;
+        margin-top: -$popover-arrow-outer-width + 1.25px;
+        border-left-width: 0;
+        border-right-color: $popover-arrow-outer-fallback-color;
+        border-right-color: $popover-arrow-outer-color;
+        &:after {
+            content: " ";
+            left: 1px;
+            bottom: -$popover-arrow-width;
+            border-left-width: 0;
+            border-right-color: $popover-arrow-color;
+        }
+    }
+    &.left > .arrow {
+        top: 50%;
+        right: -$popover-arrow-outer-width;
+        margin-top: -$popover-arrow-outer-width + 1.25px;
+        border-right-width: 0;
+        border-left-color: $popover-arrow-outer-fallback-color;
+        border-left-color: $popover-arrow-outer-color;
+        &:after {
+            content: " ";
+            right: 1px;
+            border-right-width: 0;
+            border-left-color: $popover-arrow-color;
+            bottom: -$popover-arrow-width;
+        }
+    }
+}
+
+.popover__focus {
+    position: relative;
+    z-index: $global-zindex-popover-focus;
+}
+
+.popover__icon {
+    position: absolute;
+    top: $global-guttering/4;
+    right:  $global-guttering/2;
+    z-index: $global-zindex-popover-icon;
+    color: darken($brand-grey-lighter, 4%);
+    font-size: 3.6rem;
+}

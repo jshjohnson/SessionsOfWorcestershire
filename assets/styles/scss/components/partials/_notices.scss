@@ -1,0 +1,65 @@
+/*
+* Name: Notice
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.notice {}
+
+.notice--offset { margin-top: -1px; }
+
+.notice--primary {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $brand-primary: map-get($map, color);
+            border: 1px solid tint($brand-primary, 75%);
+            background-color: rgba($brand-primary, .1);
+            .notice__content { color: $brand-primary; }
+            .notice__overlay:hover { background-color: rgba($brand-primary, .05); }
+        }
+    }
+}
+
+.notice--success {
+    border: 1px solid tint($brand-success, 75%);
+    background-color: rgba($brand-success, .1);
+    .notice__content { color: $brand-success; }
+    .notice__overlay:hover { background-color: rgba($brand-success, .05); }
+}
+
+.notice--warning {
+    border: 1px solid tint($brand-warning, 75%);
+    background-color: rgba($brand-warning, .1);
+    .notice__content { color: $brand-warning; }
+    .notice__overlay:hover { background-color: rgba($brand-warning, .05); }
+}
+
+.notice--danger {
+    border: 1px solid tint($brand-danger, 75%);
+    background-color: rgba($brand-danger, .1);
+    .notice__content { color: $brand-danger; }
+    .notice__overlay:hover { background-color: rgba($brand-danger, .05); }
+}
+
+.notice--muted {
+    border: 1px solid tint($brand-grey-light, 75%);
+    background-color: rgba($brand-grey-light, .1);
+    .notice__content { color: $brand-grey-light; }
+    .notice__overlay:hover { background-color: rgba($brand-grey-light, .05); }
+}
+
+.notice__overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: transparent;
+    position: absolute;
+    text-indent: -9999px;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    &:focus { outline: 0; }
+}

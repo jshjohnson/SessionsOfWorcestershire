@@ -1,0 +1,242 @@
+/*
+* Pattern name: Page
+* Use: Content handling
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.page {
+    @include guttering;
+    > .page__content {
+        border: 1px solid $brand-keyline;
+        border-top: 0;
+         @include respond-max($global-screen-lg) {
+            border-right: 0;
+            border-left: 0;
+         }
+     }
+}
+
+.page__header {
+    background-color: $brand-white;
+    margin-bottom: 0;
+    padding: $global-guttering;
+    position: relative;
+    border-bottom: 1px solid $brand-keyline;
+    @include respond-min($global-screen-lg) {
+        padding: 0 $global-guttering * 1.3333333333;
+        height: 6em;
+        .no-csstransforms & {
+            padding-top: 1.75em;
+            padding-bottom: 1.75em;
+        }
+    }
+    @include respond-max($global-screen-lg) { padding: $global-guttering / 1.2; }
+    @include respond-max($global-screen-sm) { padding: $global-guttering / 1.25; }
+}
+
+.page__content {
+    background-color: $brand-white;
+    padding: $global-guttering;
+    border-top: 0;
+    margin-left: -1px;
+    margin-right: -1px;
+    @include guttering;
+    @include respond-min($global-screen-lg) {
+        padding: $global-guttering * 1.3333333333;
+        border: 1px solid $brand-keyline;
+        border-top: 0;
+    }
+    @include respond-max(1400px) {
+        border: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: $global-guttering / 1.2;
+    }
+    @include respond-max($global-screen-sm) { padding: $global-guttering / 1.25; }
+}
+
+.page__content--less-pad { padding: $global-guttering/1.5; }
+
+.page__title {
+    line-height: 1.5;
+    margin-bottom: 0;
+    float: left;
+    position: relative;
+    @include respond-min($global-screen-lg) {
+        float: none;
+        position: absolute;
+        @include vertical-align-unprefixed;
+    }
+}
+
+.page__title--long {
+    font-size: $global-font-size-lg;
+    @include respond-min($global-screen-lg) { width: 60%; }
+}
+
+.page__subtitle {
+    line-height: 1.5;
+    margin-bottom: 0;
+    position: relative;
+    @include respond-min($global-screen-lg) {
+        float: right;
+        text-align: right;
+        @include vertical-align-unprefixed;
+    }
+    @include respond-max($global-screen-lg) {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        margin-top: $global-guttering/4;
+    }
+}
+
+.page__control-panel {
+    position: relative;
+    &:empty { display: none; }
+    @include respond-min($global-screen-lg) {
+        right: $global-guttering * 1.3333333333;
+        position: absolute;
+        height: 6em;
+    }
+    @include respond-max($global-screen-lg) {
+        display: inline-block;
+        width: 100%;
+        margin-top: .75em;
+        margin-bottom: -.75em;
+    }
+}
+
+.page__control-panel-inner {
+    // @include guttering;
+    @include respond-min($global-screen-lg) {
+        height: 6em;
+        position: relative;
+        @include vertical-align-unprefixed;
+    }
+}
+
+// This looks suspicious
+.page__control-panel-inner--avatar { height: auto; }
+
+.page__control {
+    margin-right: .5em;
+    margin-bottom: 0;
+    margin-top: 5px;
+    vertical-align: middle;
+    &:last-child { margin-right: 0; }
+    @include respond-max($global-screen-lg) {
+        margin: 0 1em .75em 0;
+        text-align: left;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background-color: transparent;
+        .page__control-panel & { background: transparent; }
+        @each $theme, $map in $brand-primary {
+            .#{$theme} &.btn--primary {
+                $brand-primary: map-get($map, color);
+                &:link, &:active, &:visited, &:hover, &:focus { color: $brand-primary; }
+            }
+        };
+    }
+    @include respond-min($global-screen-lg) {
+        position: relative;
+        margin-top: 0;
+        @include vertical-align-unprefixed;
+    }
+    @include respond-max($global-screen-xs) { width: 100%; }
+}
+
+.page__inner {
+    position: relative;
+    padding: $global-guttering;
+    @include respond-min($global-screen-lg) { padding: 3.2rem; }
+    @include respond-max($global-screen-sm) { padding: $global-guttering / 1.25; }
+    @include guttering;
+}
+
+.page__inner--half-pad {
+    padding: $global-guttering/2 $global-guttering;
+    @include respond-min($global-screen-lg) { padding: $global-guttering/1.5 3.2rem; }
+    @include respond-max($global-screen-sm) { padding: $global-guttering / 1.25; }
+}
+
+.page__group {
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid $brand-keyline;
+    @include guttering;
+    &:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+.page__stats {
+    @include respond-min($global-screen-md) {
+        width: 75%;
+        margin: auto;
+    }
+}
+
+.page__custom-content {
+    margin-right: -$global-guttering/1.2;
+    margin-bottom: $global-guttering/1.2;
+    margin-left: -$global-guttering/1.2;
+    border-bottom: 1px solid $brand-keyline;
+    padding: 0 $global-guttering/1.2 $global-guttering/1.2;
+    @include guttering;
+    @include respond-min($global-screen-lg) {
+        margin-left: -($global-guttering * 1.3333333333);
+        margin-right: -($global-guttering * 1.3333333333);
+        margin-bottom: $global-guttering * 1.3333333333;
+        padding: 0 $global-guttering * 1.3333333333 $global-guttering * 1.3333333333;
+    }
+    @include respond-max($global-screen-sm) {
+        margin-left: -($global-guttering / 1.25);
+        margin-right: -($global-guttering / 1.25);
+        margin-bottom: $global-guttering / 1.25;
+        padding: 0 $global-guttering/1.25 $global-guttering/1.25;
+    }
+}
+
+.page__custom-content--wide {
+    @include respond-max($global-screen-sm) {
+        margin-left: -($global-guttering);
+        margin-right: -($global-guttering);
+        margin-bottom: $global-guttering;
+        padding: 0 $global-guttering $global-guttering;
+    }
+    @include respond-min($global-screen-sm) {
+        margin-left: -($global-guttering * 1.5);
+        margin-right: -($global-guttering * 1.5);
+        margin-bottom: $global-guttering * 1.5;
+        padding: 0 $global-guttering * 1.5 $global-guttering * 1.5;
+    }
+}
+
+.page__custom-content--last {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.page__footer {
+    .page__footer-link {
+        bottom: -1.2rem;
+        position: relative;
+        @include respond-max($global-screen-layout-full-screen) { display: none; }
+        .t-generic & {
+            color: $text-muted;
+            @include on-interaction { color: $text-muted; }
+        }
+    }
+    .page__footer-link--transient {
+         .transient--on & {
+            color: $brand-white;
+            @include on-interaction { color: $brand-white; }
+        }
+    }
+}

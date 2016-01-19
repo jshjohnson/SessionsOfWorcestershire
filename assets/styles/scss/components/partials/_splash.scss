@@ -1,0 +1,26 @@
+/*
+* Name: Splash
+* Use: Displaying intro/placeholder text in the event of a webpage holding no content
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.splash {
+    width: 100%;
+    padding: $global-guttering;
+    text-align: center;
+    @include respond-max($global-screen-sm) { padding: 1.5em .5em; }
+}
+
+.splash--valign {
+    display: table;
+    width: 100%;
+    height: 100%;
+    .splash__inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.splash__title { @include respond-max($global-screen-sm) { font-size: $global-font-size-h3; }}
+
+.splash__body { @include guttering; }

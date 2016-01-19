@@ -1,0 +1,16 @@
+/*
+* Mixin name: Text overflow
+* Use: Append an ellipsis to the end of overflowing text
+* Notes:  Requires inline-block or block for proper styling
+-------------------------------------------------------------- */
+
+@mixin text-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+}

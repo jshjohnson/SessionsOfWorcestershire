@@ -1,0 +1,35 @@
+/*
+* Name: Back to top
+* Use: An achor link to the top of the page that appears after user scroll
+* Notes: A back to top link has scope to be incorporated into the indicator bar
+-------------------------------------------------------------- */
+
+.back-to-top {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.25s, opacity .25s;
+    will-change: opacity;
+    .lt-ie9 & { display: none; }
+}
+
+.back-to-top--static {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    z-index: $global-zindex-back-to-top;
+    right: $global-guttering;
+    bottom: $global-guttering;
+    text-align: center;
+    @include respond-max($global-screen-md) {
+        top: $global-guttering/1.4;
+        right: $global-guttering/1.4;
+        left: auto;
+        bottom: auto;
+    }
+}
+
+.back-to-top--active {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.25s, opacity .25s;
+}

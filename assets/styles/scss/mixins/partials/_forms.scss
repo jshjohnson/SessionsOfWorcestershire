@@ -1,0 +1,89 @@
+/*
+* Mixin name: Forms
+* Use: Form validation states
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin form-control-validation($text-color: #555555, $global-border-color: #cccccc, $background-color: $brand-grey-lighter) {
+    // Color the label and help text
+    .form-support,
+    .control-label,
+    .radio,
+    .checkbox,
+    .radio--inline,
+    .checkbox--inline {
+        color: $text-color;
+    }
+    // Set the border and box shadow on specific inputs to match
+    .form__control {
+        border-color: rgba($global-border-color, 0.25);
+        background-color: rgba($background-color, 0.2);
+        &:focus {
+            border-color: darken($global-border-color, 10%);
+        }
+    }
+    // Set validation states also for addons
+    .input-group__addon {
+        color: $text-color;
+        border-color: $global-border-color;
+        background-color: $background-color;
+    }
+    // Optional feedback icon
+    .form__feedback {
+        color: $text-color;
+    }
+}
+
+// Form control focus state
+//
+// Generate a customized focus state and for any input with the specified color,
+// which defaults to the `$global-input-border-focus` variable.
+//
+// We highly encourage you to not customize the default value, but instead use
+// this to tweak colors on an as-needed basis. This aesthetic change is based on
+// WebKit's default styles, but applicable to a wider range of browsers. Its
+// usability and accessibility should be taken into account with any change.
+//
+// Example usage: change the default blue border and shadow to white for better
+// contrast against a dark grey background.
+@mixin form-control-focus($color: $brand-primary) {
+    &:focus {
+        @if $color {
+            @each $theme, $map in $brand-primary {
+                $brand-primary: map-get($map, color);
+
+                .#{$theme} & {
+                    border-color: $brand-primary;
+                }
+            };
+        }
+        @if $color == '' {
+            border-color: $color;
+        }
+        outline: 0;
+    }
+}
+
+// Form control sizing
+//
+// Relative text size, padding, and border-radii changes for form controls. For
+// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
+// element gets special love because it's special, and that's a fact!
+// [converter] $parent hack
+@mixin input-size($parent, $global-input-height, $global-padding-vertical, $global-padding-horizontal, $global-font-size, $global-line-height, $global-border-radius) {
+    #{$parent} {
+        height: $global-input-height;
+        padding: $global-padding-vertical $global-padding-horizontal;
+        font-size: $global-font-size;
+        line-height: $global-line-height;
+        border-radius: $global-border-radius;
+    }
+    select#{$parent} {
+        height: $global-input-height;
+        line-height: $global-input-height;
+    }
+    textarea#{$parent},
+    select[multiple]#{$parent} {
+        height: auto;
+    }
+}

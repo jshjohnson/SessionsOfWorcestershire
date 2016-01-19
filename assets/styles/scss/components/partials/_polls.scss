@@ -1,0 +1,92 @@
+/*
+* Name: Poll
+* Use: Displaying interactive poll questions and results in the form of a bar graph
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.poll {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.poll--flexible { width: auto; }
+
+.poll__label {
+    font-size: $global-font-size-sm;
+    line-height: $global-line-height-xs;
+}
+
+.poll__list {
+    @include unset-list;
+    margin-bottom: 0;
+}
+
+.poll__list--voted { margin-bottom: $global-guttering/1.5; }
+
+.poll__item--nth-1 .poll__result { background-color: $brand-red; }
+.poll__item--nth-2 .poll__result { background-color: $brand-orange; }
+.poll__item--nth-3 .poll__result { background-color: $brand-turquoise; }
+.poll__item--nth-4 .poll__result { background-color: $brand-green; }
+.poll__item--nth-5 .poll__result { background-color: $brand-purple; }
+
+.poll__item {
+    overflow: hidden;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.poll__item--voted { padding: $global-guttering/6 $global-guttering/1.5; }
+
+.poll__item--not-voted {
+    margin-bottom: 0;
+    background-color: $brand-grey-lighter;
+    border-top: 1px solid $brand-keyline;
+    @include guttering;
+    .poll__option { padding: $global-guttering/2 $global-guttering/1.5; }
+}
+
+.poll__footer { display: none; }
+
+.poll__option {
+    @extend %no-decoration;
+    display: block;
+    margin-bottom: $global-guttering/2;
+    font-size: $global-font-size-sm;
+}
+
+.poll__vote-number { font-weight: 700; }
+
+.poll__result-count {
+    margin-bottom: 0;
+    font-size: $global-font-size-sm;
+    @include respond-min($global-screen-lg) { float: right; }
+    @include respond-max($global-screen-md) { float: right; }
+}
+
+.poll__title {
+    margin-right: $global-guttering/3;
+    @include respond-min($global-screen-lg) { float: left; }
+    @include respond-max($global-screen-md) { float: left; }
+}
+
+.poll__result-container {
+    width: 100%;
+    margin-bottom: $global-guttering/2;
+    height: .5em;
+    border-radius: $global-border-radius-lg;
+    overflow: hidden;
+    background-color: $brand-keyline;
+}
+
+.poll__result {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: progress-bar 2s;
+    animation-timing-function: ease-in-out;
+    border-radius: $global-border-radius-lg;
+}

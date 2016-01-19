@@ -1,0 +1,232 @@
+/*
+* Name: Buttons
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$btn-font-weight: 700;
+$btn-border-radius: 10em;
+$btn-link-disabled-color: $brand-grey-light !default;
+
+$btn-default-color: $brand-grey;
+$btn-default-bg: $brand-white;
+$btn-default-border: darken($brand-grey-lighter, 7.5%);
+
+$btn-state-color: $brand-white;
+
+.btn, %btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 2px solid darken($global-input-bg, 7.5%);
+    white-space: nowrap;
+    font-size: $global-font-size-base;
+    user-select: none;
+    @include button-size($global-padding-vertical-base, $global-padding-horizontal-base, $global-line-height-base, $global-input-border-radius);
+    &:focus { @include tab-focus; }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        outline: 0;
+    }
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        pointer-events: none;
+        // Future-proof disabling of clicks
+        @include opacity(0.65);
+        box-shadow: none;
+    }
+    + .btn:not(.page__control) { margin-left: .5em; }
+    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn--default, %btn--default {
+    @each $theme, $map in $brand-primary {
+        $color: map-get($map, color);
+        @if #{$theme} != t-solar {
+            .#{$theme} & {
+                 @include button-variant($color, $btn-default-bg, $btn-default-border);
+            }
+        }
+    };
+}
+
+.btn--link, %btn--link {
+    @each $theme, $map in $brand-link {
+        $color: map-get($map, color);
+        .#{$theme} & {
+            color: $color;
+            &:hover,
+            &:focus {
+                color: darken($color, 5%);
+            }
+        }
+    };
+}
+
+.btn--blank, %btn--blank {
+    border-color: transparent;
+    background-color: transparent;
+    font-weight: normal;
+    cursor: default;
+}
+
+
+.btn--primary, %btn--primary {
+    @each $theme, $map in $brand-primary {
+        $btn-primary-bg: map-get($map, color);
+        $btn-primary-border: darken($btn-primary-bg, 5%);
+        .#{$theme} & {
+            @include button-variant($btn-state-color, $btn-primary-bg, $btn-primary-border);
+        }
+    };
+}
+
+// Success appears as green
+.btn--success, %btn--success {
+    .t-generic & { @include button-variant($btn-state-color, $brand-success, darken($brand-success, 5%)); }
+}
+
+// Warning appears as orange
+.btn--warning, %btn--warning {
+    .t-generic & { @include button-variant($btn-state-color, $brand-warning, darken($brand-warning, 5%)); }
+}
+
+// Danger and error appear as red
+.btn--danger, %btn--danger {
+    .t-generic & { @include button-variant($btn-state-color, $brand-danger, darken($brand-danger, 5%)); }
+}
+
+// Delete
+.btn--selected, %btn--selected {
+    .t-generic & { @include button-variant($brand-success, white, $brand-success); }
+}
+
+.btn--add, %btn--delete {
+    .t-generic & { @include button-variant($brand-success, white, darken($global-input-bg, 7.5%)); }
+}
+
+.btn--delete, %btn--delete {
+    .t-generic & { @include button-variant($brand-danger, white, darken($global-input-bg, 7.5%)); }
+}
+
+.btn--outline, %btn--outline {
+    .t-generic & {
+        @include button-variant(white, transparent, white);
+        @include on-interaction { background-color: rgba($brand-black, .1); }
+    }
+}
+
+.btn--outline-inverse, %btn--outline-inverse {
+    .t-generic & {
+        @include button-variant($btn-default-color, white, white);
+        @include on-interaction { background-color: $brand-white; }
+    }
+}
+
+.btn--default-inverse, %btn--default-inverse {
+    color: $brand-white;
+    transition: background .25s, color .25s;
+    &:hover, &:visited, &:active, &:focus {
+        color: $brand-white;
+    }
+    &:hover {
+        color: $brand-white;
+        transition: background .25s, color .25s;
+    }
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn--link, %btn--link {
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 0;
+    &,
+    &:active,
+    &[disabled],
+    fieldset[disabled] & {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    &,
+    &:hover,
+    &:focus,
+    &:active { border-color: transparent; }
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        background-color: transparent;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus { text-decoration: none; }
+    }
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn--lg, %btn--lg {
+    font-size: $global-font-size-lg;
+    @include button-size($global-padding-vertical-lg, $global-padding-horizontal-lg, $global-line-height-base, $btn-border-radius);
+    @include respond-max($global-screen-sm) {
+        @include button-size($global-padding-vertical-base, $global-padding-horizontal-base, $global-line-height-base, $btn-border-radius);
+    }
+}
+
+.btn--sm, %btn--sm {
+    font-size: $global-font-size-sm;
+    @include button-size($global-padding-vertical-sm, $global-padding-horizontal-sm, $global-line-height-base, $btn-border-radius);
+}
+
+.btn--xs, %btn--xs {
+    font-size: $global-font-size-xs;
+    @include button-size($global-padding-vertical-xs, $global-padding-horizontal-xs, $global-line-height-base, $btn-border-radius);
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.btn--block, %btn--block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    + .btn--block { margin-top: 5px; }
+}
+
+.btn--responsive-blocked {
+    @include respond-max($global-screen-xs) {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    &.btn--block { width: 100%; }
+}

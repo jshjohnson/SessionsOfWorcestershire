@@ -1,0 +1,27 @@
+{
+  "name": "sessions-of-worcestershire",
+  "version": "1.0.0",
+  "description": "Sessions of Worcestershire content site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshjohnson/SessionsOfWorcestershire.git"
+  },
+  "author": "Josh Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jshjohnson/SessionsOfWorcestershire/issues"
+  },
+  "homepage": "https://github.com/jshjohnson/SessionsOfWorcestershire#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-csso": "^1.0.1",
+    "gulp-header": "^1.7.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "opn": "^4.0.0"
+  }
+}

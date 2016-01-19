@@ -1,0 +1,18 @@
+/*
+* Mixin name: Icon
+* Use: Configuring icon font
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin icon-setup($global-font-name: 'twine') {
+    font-family: $global-font-name;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+}

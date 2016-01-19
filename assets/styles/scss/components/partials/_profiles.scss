@@ -1,0 +1,151 @@
+/*
+* Name: Profile
+* Use: Customised media/flag objects designed for showing user name + info and avatars together
+* Notes: Extends flag and media objects
+-------------------------------------------------------------- */
+
+.profile {
+    margin-top: 0;
+    vertical-align: top;
+    .media__object, .flag__object {
+        width: $twine-media-base-size;
+        margin-top: 0;
+         p { margin-bottom: $global-guttering / 4; }
+    }
+    .profile__img {
+        line-height: $twine-media-base-size;
+        height: $twine-media-base-size;
+        width: $twine-media-base-size;
+    }
+}
+
+.profile--xxs {
+    line-height: $global-line-height-xs;
+    .media__object, .flag__object {
+        width: $twine-media-xxs-size;
+        margin-top: 0;
+    }
+    .profile__img {
+        line-height: $twine-media-xxs-size;
+        height: $twine-media-xxs-size;
+        width: $twine-media-xxs-size;
+    }
+    .profile__img--initials:not(.profile__img--icon) { font-size: $global-font-size-xs; }
+    .media__body, .flag__body { white-space: nowrap; }
+}
+
+.profile--xs {
+    line-height: $global-line-height-xs;
+    .media__object, .flag__object {
+        width: $twine-media-xs-size;
+        margin-top: 0;
+    }
+    .profile__img {
+        line-height: $twine-media-xs-size;
+        height: $twine-media-xs-size;
+        width: $twine-media-xs-size;
+    }
+    .profile__img--initials:not(.profile__img--icon){ font-size: $global-font-size-xs; }
+    .media__body, .flag__body { white-space: nowrap; }
+}
+
+.profile--sm {
+    .media__object, .flag__object {
+        width: $twine-media-sm-size;
+        margin-top: 0;
+    }
+    .profile__img {
+        line-height: $twine-media-sm-size;
+        height: $twine-media-sm-size;
+        width: $twine-media-sm-size;
+    }
+    .profile__img--initials:not(.profile__img--icon) { font-size: $global-font-size-xs; }
+    .media__body, .flag__body { white-space: nowrap; }
+}
+
+.profile--md {
+    .media__object, .flag__object {
+        width: $twine-media-sm-size;
+        @include respond-min($global-screen-sm-min) { width: $twine-media-md-size; }
+    }
+    .profile__img {
+        line-height: $twine-media-sm-size;
+        height: $twine-media-sm-size;
+        width: $twine-media-sm-size;
+        @include respond-min($global-screen-sm-min) {
+            line-height: $twine-media-md-size;
+            width: $twine-media-md-size;
+            height: $twine-media-md-size;
+        }
+    }
+}
+
+.profile--lg {
+    margin: $global-guttering 0;
+    .media__object, .flag__object {
+        @extend %no-decoration;
+        width: $twine-media-sm-size;
+        @include respond-min($global-screen-sm-min) { width: $twine-media-lg-size; }
+    }
+    .profile__img {
+        line-height: $twine-media-sm-size;
+        height: $twine-media-sm-size;
+        width: $twine-media-sm-size;
+        @include respond-min($global-screen-sm-min) {
+            line-height: $twine-media-lg-size;
+            width: $twine-media-lg-size;
+            height: $twine-media-lg-size;
+        }
+    }
+}
+
+.profile--xl {
+    .media__object, .flag__object { width: 200px; }
+}
+
+.profile__name {
+    display: block;
+    @include text-overflow;
+}
+
+.profile__img {
+    width: 100%;
+    background-size: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.profile__img--initials {
+    background-color: $brand-grey-lighter;
+    text-align: center;
+    font-size: $global-font-size-sm;
+    text-transform: uppercase;
+    box-shadow: inset 0px 0px 0px 1px $brand-keyline;
+    @each $theme, $map in $brand-text {
+        $text-color: map-get($map, color);
+        .#{$theme} & { color: $text-color; }
+    }
+}
+
+.profile__img--fallback, .profile__img--placeholder {
+    width: 100%;
+    height: 0;
+    background-color: #F9F9F9;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.profile__img--placeholder {
+    background-image: url("../images/svg/avatar-fallback.svg");
+    background-size: 90%;
+
+    /* Custom avatar for Shell because it's Shell */
+    .t-solar & {
+        background-color: $t-solar-purple-alt;
+        background-image: url("../../images/themes/solar-avatar.jpg");
+        background-position: center bottom;
+    }
+}
+
+// This looks suspicious
+.profile__first-name, .profile__last-name { @extend %text-capitalise; }

@@ -1,0 +1,134 @@
+/*
+* Name: Nav
+* Use: For site-wide navigation areas
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$nav-link-padding: 10px 20px;
+$nav-link-hover-bg: $brand-grey-lighter !default;
+
+$nav-disabled-link-color: $brand-grey-light !default;
+$nav-disabled-link-hover-color: $brand-grey-light !default;
+
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    @include clearfix;
+}
+
+.nav__link {
+    position: relative;
+    display: block;
+    font-size: $global-font-size-sm;
+    padding: $nav-link-padding;
+    padding-left: 3.5em;
+    transition: color .25s, background .25s;
+    font-weight: 700;
+    @include on-interaction { text-decoration: none; }
+    @include respond-max($global-screen-sm) {
+        padding: .75em 1.5em;
+        padding-left: 3.5em;
+    }
+
+    @each $theme, $map in $brand-nav {
+        .#{$theme} & {
+            $color: map-get($map, link);
+            $color-hover: map-get($map, hover);
+            $bg-hover: map-get($map, bg);
+            color: $color;
+            @include on-interaction {
+                color: $color-hover;
+                background-color: $bg-hover;
+            }
+        }
+    };
+}
+
+// This seems arbitrary
+.nav__icon { margin-left: -2em; }
+
+.nav__item {
+    position: relative;
+    display: block;
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled {
+        .nav__link {
+            color: $nav-disabled-link-color;
+            &:hover,
+            &:focus {
+                color: $nav-disabled-link-hover-color;
+                text-decoration: none;
+                background-color: transparent;
+                cursor: not-allowed;
+            }
+        }
+    }
+    // Prevent IE8 from misplacing imgs
+    //
+    // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+    > a > img { max-width: none; }
+}
+
+.nav__item--active {
+    @each $theme, $map in $brand-nav {
+        .#{$theme} & {
+
+            $color: map-get($map, active);
+            $bg: map-get($map, active-bg);
+            $color-hover: map-get($map, active-hover);
+            $bg-hover: map-get($map, active-hover-bg);
+
+            .nav__link {
+                color: $color;
+                background-color: $bg;
+                @include on-interaction {
+                    color: $color-hover;
+                    background-color: $bg-hover;
+                }
+            }
+        }
+    };
+}
+
+.nav__image {
+    margin: auto 0 -10px;
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    @include respond-max($global-screen-xs) {
+        padding: 0;
+        img { display: none; }
+    }
+
+    .t-solar & { background-color: $brand-white; }
+}
+
+.nav__heading {
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    font-size: $global-font-size-sm;
+    font-weight: 700;
+    padding: 20px 20px 5px;
+    display: block;
+    border-top: 1px solid;
+    position: relative;
+
+    @each $theme, $map in $brand-nav {
+        .#{$theme} & {
+            $border: map-get($map, divider);
+            $color: map-get($map, heading);
+
+            border-top-color: $border;
+            color: $color;
+        }
+    };
+
+    &:first-child {
+        border-top: 0;
+        margin-top: 0;
+    }
+}

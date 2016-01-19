@@ -1,0 +1,65 @@
+/*
+* Name: Surveys
+* Use: Styling/positioning of surveys including survey groups and questions
+* Notes: Needs refactoring but surveys are notoriously fragile to change
+-------------------------------------------------------------- */
+
+.surveys__survey__status-fragment {
+    span { font-weight: bold; }
+    span.text-primary { font-size: 20px; }
+}
+
+/** Single Survey **/
+.survey__group-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.survey__group {
+    margin-bottom: 1em;
+    background-color: $brand-white;
+    border: 1px solid;
+    border-color: $brand-keyline;
+    .visibility {
+        margin-bottom: 0;
+    }
+}
+
+.survey__questions__mc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: block;
+        clear: left;
+        margin-bottom: 1.4rem;
+    }
+}
+
+.survey__group-head, .survey__group-body {
+    padding: $global-guttering;
+    @include guttering;
+}
+
+.survey__group-head {
+    padding: 1em 1.5em;
+    @include guttering;
+    border-bottom: 1px solid $brand-keyline;
+    background-color: lighten($brand-keyline, 3%);
+}
+
+.survey__group-controls {
+    @include respond-min($global-screen-md) {
+        float: right;
+        text-align: right;
+    }
+    @include respond-max($global-screen-md) {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.survey__group-title {
+    @include respond-min($global-screen-md) { margin-bottom: 0; }
+}

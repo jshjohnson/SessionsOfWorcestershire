@@ -1,0 +1,54 @@
+/*
+* Name: Badge
+* Use: Basic notifications
+* Notes: See http://getbootstrap.com/components/#badges
+-------------------------------------------------------------- */
+
+$badge-color: $brand-grey-light;
+$badge-bg: lighten($brand-grey-light, 30%);
+$badge-active-color: $badge-color;
+$badge-active-bg: $badge-bg;
+$badge-border-radius: 50em;
+
+.badge {
+    @include inline-block;
+    width: 17.5px;
+    height: 17.5px;
+    line-height: 1.4;
+    font-size: 1.1rem;
+    color: $badge-color;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: $badge-bg;
+    border-radius: $badge-border-radius;
+    // Empty badges collapse automatically (not available in IE8)
+    &:empty { display: none; }
+    // Quick fix for badges in buttons
+    .btn & {
+        position: relative;
+        top: -1px;
+        right: -5px;
+        vertical-align: text-bottom;
+    }
+}
+
+.badge--push-right { margin-right: .5em; }
+
+.badge--push-left { margin-left: .5em; }
+
+// Contextual modifiers
+.badge--success {
+    color: $brand-white;
+    background-color: $brand-success;
+}
+
+.badge--warning {
+    color: $brand-white;
+    background-color: $brand-warning;
+}
+
+.badge--danger {
+    color: $brand-white;
+    background-color: $brand-danger;
+}

@@ -1,0 +1,13 @@
+/*
+* Mixin name: Hide text
+* Use: CSS image replacement
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin text-hide {
+    font: #{0 / 0} a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}

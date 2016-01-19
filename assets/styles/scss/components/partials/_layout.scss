@@ -1,0 +1,185 @@
+/*
+* Name: Layout
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$layout-aside-width-xs: 55%;
+$layout-aside-width-sm: 200px;
+$layout-aside-width-md: 180px;
+$layout-main-border-width: 5px;
+
+$layout-island-width-sm: 400px;
+$layout-island-width-md: $global-screen-sm-min;
+$layout-island-snap-threshold: 50px;
+
+.layout {
+    height: 1px;
+    min-height: 100%;
+    height: 100%;
+    @each $theme, $map in $brand-sidebar-bg {
+        .#{$theme} & { background-color: map-get($map, color); }
+    }
+}
+
+.layout--zero-min-height { min-height: auto; }
+
+.layout__header {
+    @each $theme, $map in $brand-header-gradient {
+        .#{$theme} & {
+            $start-color: map-get($map, startcolor);
+            $end-color: map-get($map, endcolor);
+            background-color: $start-color;
+            @include gradient-horizontal($start-color, $end-color, $start-percent: 0%, $end-percent: 100%);
+        }
+    }
+}
+
+.layout__off-canvas {
+    height: 100%;
+    transition: transform .2s ease-in-out;
+    transform-origin: bottom;
+    @include respond-min($global-screen-header-nav-fixed) {
+        // Fancy animation on desktop
+        .modal-open & {
+            transform: scale3d(0.95, 0.95, 1);
+            transition: transform .2s ease-in-out;
+        }
+    }
+}
+
+.layout__main {
+    min-height: 100%;
+    @each $theme, $map in $brand-main-bg {
+        .#{$theme} & { background-color: map-get($map, color); }
+    }
+    .layout--island & {
+        @each $theme, $map in $brand-sidebar-bg {
+            .#{$theme} & { background-color: map-get($map, color); }
+        }
+    }
+}
+
+.layout__aside {
+    @include respond-max($global-screen-md) {
+        height: 100%;
+        overflow-y: auto;
+        .offcanvas--active & {
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+
+.layout__content {
+    margin: 0;
+    @include guttering;
+    @include respond-min($global-screen-lg) { margin: -$global-guttering*4 auto 0; }
+    @include respond-min($global-screen-layout-full-screen) { margin-bottom: $global-guttering*4; }
+    @include respond-max($global-screen-header-nav-fixed) { padding-bottom: $global-header-nav-fixed-height - 1px; }
+}
+
+.layout__content--contained {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1800px;
+    position: relative;
+    @include respond-min($global-screen-layout-full-screen) { width: 90%; }
+    @include respond-min($global-screen-xxl) { width: 82.5%; }
+}
+
+.layout__island {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    @include respond-max($global-screen-sm) {
+        padding-top: $global-guttering*1.2;
+        padding-bottom: $global-guttering*1.2;
+    }
+    @include respond-max($global-screen-md) { width: 90%; }
+}
+
+.layout__island--lg {
+    @include respond-min($global-screen-md) { max-width: 95%; }
+    @include respond-min($global-screen-xl) { max-width: 85%; }
+}
+
+.layout__island--md {
+    @include respond-min($global-screen-md) { max-width: 75%; }
+    @include respond-min($global-screen-xl) { max-width: 45%; }
+}
+
+.layout__island--sm {
+    @include respond-min($global-screen-sm-max) { max-width: 25em; }
+}
+
+.layout__island-inner {
+    background-color: $brand-white;
+    border: 1px solid;
+    position: relative;
+    border-color: $brand-keyline;
+    padding: $global-guttering;
+    @include guttering;
+    @include respond-min($global-screen-sm) { padding: $global-guttering * 1.5; }
+    .t-solar & {
+        &:before {
+            content: "";
+            height: .5em;
+            display: block;
+            position: absolute;
+            width: 100%;
+            background-color: $t-solar-grey;
+            top: -.5em;
+            left: 0;
+        }
+    }
+}
+
+.layout__logo {
+    display: block;
+    max-width: 200px;
+    margin-bottom: $global-guttering / 1.5;
+    // .lt-ie9 & { display: none; }
+    > img { width: auto; }
+}
+
+.layout__aside {
+    @include respond-min($global-screen-md) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $layout-aside-width-sm;
+        min-height: 100%;
+    }
+    @include respond-min($global-screen-md) { width: $layout-aside-width-md; }
+}
+
+.layout--island {
+    .layout__wrapper { height: 100%; }
+    .layout__main {
+        @include respond-min($global-screen-xs) { display: table; }
+        width: 100%;
+        height: 100%;
+        .no-display-table & { display: block; }
+    }
+    .layout__content {
+        width: 100%;
+        padding: 0;
+        margin: auto;
+        background-color: transparent;
+        box-shadow: none;
+        @include respond-min($global-screen-sm) {
+            padding: 3em 0;
+            display: table-cell;
+            vertical-align: middle;
+            .no-display-table & { display: block; }
+        }
+    }
+}
+
+.layout--standard {
+    .layout__main {
+        @include respond-min($global-screen-md) { margin-left: $layout-aside-width-sm; }
+        @include respond-min($global-screen-md) { margin-left: $layout-aside-width-md; }
+    }
+}

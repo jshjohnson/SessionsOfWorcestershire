@@ -1,0 +1,38 @@
+/*
+* Name: Flag object
+* Use:  Displaying content next to an image aligned to the middle of the image
+* Notes: See http://csswizardry.com/2013/05/the-flag-object/
+-------------------------------------------------------------- */
+
+.flag {
+    display: table;
+    width: auto;
+}
+
+.flag--full-width { width: 100%; }
+
+.flag--responsive-guttering {
+    margin-bottom: 0;
+    @include respond-max($global-screen-xs) { margin-bottom: $global-guttering; }
+}
+
+.flag__object, .flag__body {
+    display: table-cell;
+    vertical-align: middle;
+    .profile__img { vertical-align: middle; }
+}
+
+.flag__object {
+    padding-right: 1em;
+    img {
+        display: block;
+        margin: 0;
+        width: auto;
+        max-width: inherit;
+        .lt-ie9 & { width: 100%; }
+    }
+}
+
+.flag__object--less-pad { padding-right: .75em; }
+
+.flag__body { width: auto; }

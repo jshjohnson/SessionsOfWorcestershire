@@ -1,0 +1,49 @@
+/*
+* Name: Sortable
+* Use: Styling of draggable list items
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.sortable {
+    @extend %list-unstyled;
+    min-height: 2.5em;
+    padding: 0;
+    margin-bottom: $global-guttering;
+    // See: http://stackoverflow.com/a/3393282
+    overflow: auto;
+}
+
+.sortable__handle { cursor: all-scroll; }
+
+.sortable__placeholder {
+    height: 2.75em;
+    background-color:  $brand-keyline;
+    box-shadow: inset 0px 0px 3px darken($brand-keyline, 10%);
+}
+
+.sortable-list__helper, .ui-sortable-helper {
+    box-shadow: 0 0px 1px rgba($brand-black,.25);
+}
+
+.sortable__item {
+    background-color: #fff;
+    min-height: 2.8em;
+    clear: both;
+    list-style: none;
+    margin-bottom: -1px;
+    border-bottom: 1px solid $brand-keyline;
+    &:last-child { margin-bottom: 0; }
+    padding: .5em;
+    label {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    input, .checkbox__input {
+        margin: .25em 1em .25em .25em;
+        display: inline-block;
+        float: none;
+        vertical-align: bottom;
+    }
+}
+
+.sortable__item--bordered { border: 1px solid $brand-keyline; }

@@ -1,0 +1,48 @@
+/*
+* Name: Pagination
+* Use: For navigating between multiple related pages
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$pagination-border: #f0f0f0;
+$pagination-bg: transparent;
+$pagination-hover-bg: transparent;
+$pagination-disabled-bg: transparent;
+
+$pagination-hover-bg: $brand-grey-lighter;
+$pagination-active-color: $brand-white;
+$pagination-disabled-color: $brand-grey-light;
+$pagination-disabled-bg: $brand-white;
+$pagination-disabled-border: $brand-grey-lighter;
+
+.pagination {
+    margin-bottom: $global-guttering;
+    @include respond-max($global-screen-xs) { margin-bottom: $global-guttering/2; }
+    &:last-child { margin-bottom: 0; }
+}
+
+.pagination__list {
+    padding-left: 0;
+    margin-bottom: 0;
+    position: relative;
+    margin-bottom: -.5em;
+}
+
+.pagination__item {
+    display: inline-block;
+    padding: 0;
+    margin-right: .25em;
+    margin-bottom: .5em;
+    &.disabled {
+        > span,
+        > span:hover,
+        > span:focus,
+        > a,
+        > a:hover,
+        > a:focus {
+            color: $pagination-disabled-color;
+            background-color: $pagination-disabled-bg;
+            cursor: not-allowed;
+        }
+    }
+}

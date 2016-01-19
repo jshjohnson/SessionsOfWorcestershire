@@ -1,0 +1,22 @@
+/*
+* Mixin name: Nth child
+* Use: Clearing grid layouts
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin nth-child($a, $b) {
+    $signed-b: $b;
+
+    @if $b >= 0 {
+        $signed-b: "+#{$b}";
+    }
+
+    // Don’t combine these, IE won’t process the .nth-child-anb class below
+    &:nth-child(#{$a}n#{$signed-b}) {
+        @content;
+    }
+
+    &.nth-child-#{$a}n#{$b} {
+        @content;
+    }
+}

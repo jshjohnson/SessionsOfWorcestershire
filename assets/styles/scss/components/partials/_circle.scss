@@ -1,0 +1,179 @@
+/*
+* Name: Circle
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.circle {
+    @extend %no-decoration;
+    display: inline-block;
+    border-radius: 10em;
+    padding: 0;
+    transition: border .25s ease-out;
+    vertical-align: middle;
+    margin-right: .25em;
+    background-color: $brand-white;
+    background-size: cover;
+    border: 2px solid;
+    border-color: $brand-keyline;
+    &:not(.transient__area):last-of-type { margin-right: 0; }
+}
+
+.circle--xs {
+    .circle__inner {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+    }
+}
+
+.circle--sm {
+    .circle__inner {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+    }
+}
+
+.circle--lg {
+    .circle__inner {
+        width: 74px;
+        height: 74px;
+        line-height: 74px;
+    }
+}
+
+.circle--link {
+    @include on-interaction { transition: border .25s ease-out; }
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            @include on-interaction {
+                border-color: map-get($map, color);
+                color: map-get($map, color);
+            }
+        }
+    };
+}
+
+.circle--disabled {
+    color: $brand-keyline;
+    border-color: $brand-keyline;
+}
+
+.circle--responsive {
+    @include respond-max($global-screen-sm) {
+        .circle__inner {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+}
+
+.circle__inner {
+    display: block;
+    padding: 0;
+    background-color: #fff;
+    transition: background,.25s;
+    border-radius: 10em;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    // .icon {
+    //     margin-top: -2px;
+    //     display: block;
+    // }
+}
+
+.circle__inner--transparent { background-color: transparent; }
+
+.circle__inner--sm {
+    font-size: $global-font-size-base;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
+}
+
+// Contextual modifiers
+.circle--success {
+    border-color: $brand-success;
+    color: $brand-success;
+}
+
+.circle--warning {
+    border-color: $brand-warning;
+    color: $brand-warning;
+}
+
+.circle--danger {
+    border-color: $brand-danger;
+    color: $brand-danger;
+}
+
+.circle--active {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            border-color: map-get($map, color);
+            color: map-get($map, color);
+        }
+    };
+}
+
+.circle--blank-keyline { border-color: $brand-white; }
+.circle--no-keyline {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.circle--blocked-default {
+    .circle__inner {
+        background-color: lighten($brand-keyline, 2%);
+        color: darken($brand-keyline, 35%);
+    }
+}
+
+.circle--blocked-primary {
+    .circle__inner {
+        color: $brand-white;
+        @each $theme, $map in $brand-primary {
+            .#{$theme} & {
+                $brand-primary: map-get($map, color);
+                background-color: $brand-primary;
+                background-image: linear-gradient(to bottom, $brand-primary, darken($brand-primary, 2.5%));
+            }
+        };
+    }
+}
+
+.circle--blocked-success {
+    .circle__inner {
+        background-color: $brand-success;
+        background-image: linear-gradient(to bottom, $brand-success, darken($brand-success, 2.5%));
+        color: $brand-white;
+    }
+}
+
+.circle--blocked-warning {
+    .circle__inner {
+        background-color: $brand-warning;
+        background-image: linear-gradient(to bottom, $brand-warning, darken($brand-warning, 2.5%));
+        color: $brand-white;
+    }
+}
+
+.circle--blocked-danger {
+    .circle__inner {
+        background-color: $brand-danger;
+        background-image: linear-gradient(to bottom, $brand-danger, darken($brand-danger, 2.5%));
+        color: $brand-white;
+    }
+}
+
+.circle--blocked-twitter {
+    .circle__inner {
+        background-color: $twitter;
+        background-image: linear-gradient(to bottom, $twitter, darken($twitter, 2.5%));
+        color: $brand-white;
+    }
+}

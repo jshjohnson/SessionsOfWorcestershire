@@ -1,0 +1,90 @@
+/*
+* Name: Label
+* Use: Similar to badges but for text content
+* Notes: See http://getbootstrap.com/components/#labels
+-------------------------------------------------------------- */
+
+$label-color: white !default;
+$label-link-hover-color: white !default;
+
+.label {
+    display: inline-block;
+    padding: .1rem .8rem;
+    font-weight: 400;
+    color: $label-color;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 2em;
+    font-size: $global-font-size-xs;
+    border: none;
+    background-color: transparent;
+    &:focus { outline: none; }
+    &:last-child { margin-right: 0; }
+    &[href] {
+        &:hover,
+        &:focus {
+            color: $label-link-hover-color;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    // Empty labels collapse automatically (not available in IE8)
+    &:empty { display: none; }
+    // Quick fix for labels in buttons
+    .btn & {
+        position: relative;
+        top: -1px;
+    }
+    @include respond-max($global-screen-sm) {
+        font-size: $global-font-size-xxs;
+        padding-bottom: .2rem;
+    }
+}
+
+.label--lg {
+    padding: .1rem 1.4rem;
+    font-size: $global-font-size-base;
+}
+
+.label--md {
+    padding: .1rem 1.2rem;
+    font-size: $global-font-size-sm;
+}
+
+.label--nudge { margin: $global-guttering/8; }
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+.label--blank { background-color: transparent; }
+
+.label--text {
+    @each $theme, $map in $brand-body {
+        $text-color: map-get($map, text);
+        .#{$theme} & {
+            color: $text-color;
+            &:hover, &:focus { color: $text-color; }
+        }
+    }
+}
+
+.label--default {
+    color: $brand-grey-light;
+    &[href],  { color: $brand-grey-light; }
+    background-color: darken($brand-grey-lighter, 2.5%);
+}
+
+.label--primary {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $label-bg: map-get($map, color);
+            @include label-variant($label-bg);
+        }
+    }
+}
+
+.label--success { @include label-variant($brand-success); }
+.label--warning { @include label-variant($brand-warning); }
+.label--danger { @include label-variant($brand-danger); }
+.label--muted { @include label-variant($brand-white, $text-muted); }
+

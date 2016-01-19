@@ -1,0 +1,31 @@
+/*
+* Mixin name: Labels
+* Use: Label colour variations
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin label-variant($bg-color, $text-color: null) {
+    @if($text-color != null) {
+        color: $text-color;
+    }
+    background-color: $bg-color;
+    transition: background-color .2s ease-in-out;
+    &[href] {
+        @if($text-color != null) {
+            color: $text-color;
+            &:hover,
+            &:focus {
+                color: $text-color;
+                background-color: darken($bg-color, 5%);
+                transition: background-color .2s ease-in-out;
+            }
+        } @else {
+            color: $brand-white;
+            &:hover,
+            &:focus {
+                background-color: darken($bg-color, 5%);
+                transition: background-color .2s ease-in-out;
+            }
+        }
+    }
+}

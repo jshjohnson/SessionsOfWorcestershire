@@ -1,0 +1,13 @@
+/*
+* Mixin name: Tab Focus
+* Use: WebKit-style focus
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin tab-focus {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}

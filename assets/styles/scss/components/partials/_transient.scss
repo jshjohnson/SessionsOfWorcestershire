@@ -1,0 +1,195 @@
+/*
+* Name: Transient content
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.transient {}
+
+.transient--visible {}
+
+.transient--fixed {
+    .transient__area--main {
+        position: fixed;
+        left: 50%;
+        bottom: 0;
+        max-width: 100%;
+        padding: $global-guttering $global-guttering*1.5;
+        margin-left: -300px;
+        max-width: 600px;
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @include respond-max($global-screen-sm) {
+            width: 90%;
+            margin-left: -45%;
+        }
+    }
+}
+
+.transient__toggle {
+    position: absolute;
+    right: 0;
+    bottom: 1.4rem;
+    user-select: none;
+    @include button-reset;
+    @include respond-max($global-screen-lg) { bottom: .8rem; }
+    @include respond-max($global-screen-md) { bottom: .4rem; }
+    @include respond-max($global-screen-header-nav-fixed) { display: none; }
+    .t-generic & {
+        color: $brand-white;
+        @include on-interaction { color: $brand-white; }
+    }
+    .t-solar:not(.transient--on) & {
+        color: $t-solar-text;
+        @include on-interaction { color: $t-solar-text; }
+    }
+    .transient--help-text & { z-index: $global-zindex-transient-toggle; }
+    .no-rgba &, .is-device-ios & { display: none; }
+    // Make area more clickable
+    &:after {
+        content: "";
+        position: absolute;
+        height: 200%;
+        width: 100%;
+        top: -50%;
+        left: 0;
+    }
+}
+
+.transient__toggle--animated {
+    .transient--on & {
+        @extend %pulsate-continuous;
+    }
+}
+
+.transient__area {
+    z-index: $global-zindex-transient-area;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s linear, visiblity .2s linear, transform .25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, opacity;
+    @include guttering;
+}
+
+.transient__area--blob {
+    display: block;
+    position: absolute;
+    background-color: $brand-success;
+    border-color: darken($brand-success, 5%);
+    font-size: $global-font-size-base;
+    cursor: pointer;
+    .t-generic & {
+        color: $brand-white;
+        @include on-interaction { color: $brand-white; }
+    }
+
+    @include respond-max($global-screen-md) {font-size: $global-font-size-sm; }
+    @include respond-max($global-screen-sm) { display: none; }
+    &:hover {
+        transform: scale(1.15, 1.15);
+        transition: transform .25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    @include respond-min($global-screen-lg) {
+        &:after {
+            content: "";
+            position: absolute;
+            width: 5em;
+            height: 5em;
+            display: block;
+            top: -2.5em;
+            left: -2.5em;
+            margin-left: 12.5px;
+            margin-top: 12.5px;
+        }
+    }
+}
+
+.transient__area--visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .2s linear, visiblity .2s linear, transform .25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+// This need more generic names
+
+.transient__area--user-controls {
+    margin-right: -1.4rem;
+    right: 1px;
+    top: -8px;
+    @include respond-max($global-screen-lg) { top: 0; }
+}
+
+.transient__area--group-photo {
+    right: .8rem;
+    top: 1.2rem;
+}
+
+.transient__area--control-panel {
+    left: -10px;
+    top: 1.4rem;
+    @include respond-max($global-screen-lg) {
+        left: -1.4rem;
+        top: -1.4rem;
+    }
+}
+
+.transient__area--navigation {
+    right: 1px;
+    margin-right: 10px;
+    top: 10px;
+
+    // Hide as navigation goes off canvas
+    @include respond-max($global-screen-md) { display: none; }
+}
+
+.transient__area--title {
+    left: -10px;
+    top: 10px;
+    @include respond-max($global-screen-lg) {
+        top: 5px;
+        left: -5px;
+    }
+}
+
+.transient__area--search, .transient__area--members {
+    left: -12.5px;
+    top: -12.5px;
+    @include respond-max($global-screen-lg) {
+        left: 2.5px;
+        top: 0;
+    }
+}
+
+.transient__area--tabs, .transient__area--widget , .transient__area--attachments {
+    left: -12.5px;
+    top: -12.5px;
+}
+
+.transient__area--window {
+    left: -12.5px;
+    top: -12.5px;
+    @include respond-max($global-screen-lg) {
+        left: -7.5px;
+        top: -7.5px;
+    }
+}
+
+.transient__video {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+}
+
+.transient__video iframe,
+.transient__video object,
+.transient__video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

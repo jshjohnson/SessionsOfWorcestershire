@@ -1,0 +1,114 @@
+/*
+* Name: Tooltip
+* Use: Displaying contextual secondary content on hover
+* Notes: See http://getbootstrap.com/javascript/#tooltips
+-------------------------------------------------------------- */
+
+$tooltip-max-width: 350px;
+$tooltip-bg: $brand-white;
+$tooltip-opacity: 1;
+$tooltip-border: #E0E0E0;
+$tooltip-arrow-width: 10px;
+$tooltip-arrow-color: $tooltip-bg;
+
+.tooltip {
+    position: absolute;
+    z-index: $global-zindex-tooltip;
+    display: block;
+    visibility: visible;
+    font-size: $global-font-size-sm;
+    font-weight: normal;
+    line-height: 1.4;
+    .modal-open & { z-index: $global-zindex-modal-tooltip; }
+    @include opacity(0);
+    &.in {
+        @include opacity($tooltip-opacity);
+    }
+    &.top {
+        margin-top: 5px;
+        padding: $tooltip-arrow-width 0;
+    }
+    &.right, &.left {
+        margin-left: 0;
+        padding: 0 $tooltip-arrow-width;
+    }
+    &.bottom {
+        margin-top: -5px;
+        padding: $tooltip-arrow-width 0;
+    }
+}
+
+// Wrapper for the tooltip content
+.tooltip__inner {
+    max-width: $tooltip-max-width;
+    padding: .5em .75em;
+    text-align: center;
+    text-decoration: none;
+    background-color: $tooltip-bg;
+    border-radius: $global-border-radius-base;
+    border: 1px solid $tooltip-border;
+    white-space: normal;
+}
+
+// Arrows
+.tooltip__arrow {
+    position: absolute;
+    background-color: $tooltip-arrow-color;
+    border-radius: 0;
+    margin-left: -7.5px;
+    height: $tooltip-arrow-width;
+    width: $tooltip-arrow-width;
+    box-shadow: 1px 1px 0px $tooltip-border;
+
+    .no-csstransforms & { display: none; }
+}
+
+.tooltip {
+    &.top .tooltip__arrow {
+        transform: rotate(45deg);
+        bottom: $tooltip-arrow-width/2 + 1px;
+        left: 50%;
+        margin-left: -$tooltip-arrow-width/2;
+        top: auto !important; // Override inline top value
+    }
+    &.top-left .tooltip__arrow {
+        transform: rotate(45deg);
+        bottom: $tooltip-arrow-width/2 + 1px;
+        left: $tooltip-arrow-width;
+        top: auto !important; // Override inline top value
+    }
+    &.top-right .tooltip__arrow {
+        transform: rotate(45deg);
+        bottom: $tooltip-arrow-width/2 + 1px;
+        right: $tooltip-arrow-width;
+        top: auto !important; // Override inline top value
+    }
+    &.right .tooltip__arrow {
+        transform: rotate(315deg);
+        top: 50%;
+        left: 0;
+        margin-top: -$tooltip-arrow-width;
+    }
+    &.left .tooltip__arrow {
+        transform: rotate(135deg);
+        top: 50%;
+        right: 0;
+        margin-top: -$tooltip-arrow-width;
+    }
+    &.bottom .tooltip__arrow {
+        transform: rotate(225deg);
+        top: $tooltip-arrow-width/2 + 1px;
+        left: 50%;
+        margin-left: -$tooltip-arrow-width/2;
+    }
+    &.bottom-left .tooltip__arrow {
+        transform: rotate(225deg);
+        top: $tooltip-arrow-width/2 + 1px;
+        left: $tooltip-arrow-width;
+    }
+    &.bottom-right .tooltip__arrow {
+        transform: rotate(225deg);
+        top: $tooltip-arrow-width/2 + 1px;
+        right: $tooltip-arrow-width;
+    }
+}

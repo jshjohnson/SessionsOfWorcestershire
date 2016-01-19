@@ -1,0 +1,15 @@
+/*
+* Mixin name: Color
+* Use: Adjusting colour
+* Notes: N/A
+-------------------------------------------------------------- */
+
+// Add percentage of white to a color
+@function tint($color, $percent){
+    @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+    @return mix(black, $color, $percent);
+}

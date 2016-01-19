@@ -1,0 +1,80 @@
+/*
+* Name: Task list
+* Use: Styling/alignment of task list
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.task-list {}
+
+.task-list__container { overflow: auto; }
+
+.task-list__footer { padding: $global-guttering/1.5; }
+
+.task-list__item {
+    padding: .5em;
+    margin-bottom: 1px;
+    min-height: 2.8em;
+    clear: both;
+    &:last-child { margin-bottom: 0; }
+}
+
+.task-list__item--completed {
+    .task-list__title { @extend %text-linethrough; }
+}
+
+.task-list__content {
+    line-height: 2;
+    float: left;
+    position: relative;
+    width: 100%;
+    &:hover { cursor: text; }
+}
+
+.task-list__title {
+    float: left;
+    max-width: 75%;
+    font-size: $global-font-size-sm;
+    line-height: 1.8;
+    margin-top: 4px;
+}
+
+.task-list__check-wrapper {
+    float: left;
+    text-align: center;
+    padding-right: 1em;
+    line-height: $global-line-height-base;
+}
+
+.task-list__controls {
+    text-align: right;
+    width: 1em;
+    float: right;
+}
+
+.task-list__form {
+    position: relative;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 0;
+    padding-bottom: 3px;
+    top: 1px;
+    overflow: auto;
+}
+
+.task-list__input {
+    border: 0;
+    background: none;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    padding: 0;
+    font-size: $global-font-size-sm;
+    &:focus {
+        border-bottom: 1px dashed #ccc;
+        box-shadow: none;
+    }
+}
+
+.task-list__check {
+    top: .5rem;
+    position: relative;
+}

@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/* Spacing
+-------------------------------------------------------------- */
+$global-guttering: 2.4rem;
+
+
+/* Typography
+-------------------------------------------------------------- */
+$global-font-family-sans-serif: "soleil", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$global-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$global-font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$global-font-family-base: $global-font-family-sans-serif !default;
+
+$global-font-size-lead: 4.2rem;
+$global-font-size-sub: 3rem;
+
+$global-font-size-xl: 2.2rem;      // 22px
+$global-font-size-lg: 1.8rem;      // 18px
+$global-font-size-base: 1.6rem;    // 16px
+$global-font-size-sm: 1.4rem;      // 14px
+$global-font-size-xs: 1.2rem;      // 12px
+$global-font-size-xxs: 1rem;       // 10px
+
+$global-font-size-h1: 3.4rem; // 36px
+$global-font-size-h2: 2.6rem; // 30px
+$global-font-size-h3: 2rem; // 24px
+$global-font-size-h4: 1.8rem; // 20px
+$global-font-size-h5: 1.6rem; // 18px
+$global-font-size-h6: $global-font-size-base; // 16px
+
+//** Unit-less `line-height` for use in components like buttons.
+$global-line-height-xl: 2.4;
+$global-line-height-lg: 2;
+$global-line-height-base: 1.6;
+$global-line-height-sm: 1.4;
+$global-line-height-xs: 1.2;
+
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$global-line-height-computed: floor($global-font-size-base * $global-line-height-base) !default;
+
+//** By default, this inherits from the `<body>`.
+$global-headings--font-family: inherit !default;
+$global-headings--font-weight: 500;
+$global-headings--line-height: 1.4;
+$global-headings--color: inherit !default;
+
+
+/* Component spacing
+-------------------------------------------------------------- */
+$global-padding-vertical-base: .6rem;
+$global-padding-horizontal-base: 1.2rem;
+
+$global-padding-vertical-lg: 1rem;
+$global-padding-horizontal-lg: 2rem;
+
+$global-padding-vertical-sm: .4rem;
+$global-padding-horizontal-sm: 1.4rem;
+
+$global-padding-vertical-xs: .1rem;
+$global-padding-horizontal-xs: 1rem;
+
+$global-border-radius-xl: .75em;
+$global-border-radius-lg: .5em;
+$global-border-radius-base: .25em;
+$global-border-radius-sm: .125em;
+
+
+/* Profile avatar sizes
+-------------------------------------------------------------- */
+$twine-media-xxs-size: 30px;
+$twine-media-xs-size: 40px;
+$twine-media-sm-size: 50px;
+$twine-media-base-size: 60px;
+$twine-media-md-size: 75px;
+$twine-media-lg-size: 85px;
+
+
+/* Inputs
+-------------------------------------------------------------- */
+$global-input-bg: $brand-grey-lighter;
+$global-input-bg-disabled: $brand-grey-lighter !default;
+
+$global-input-border: $brand-grey-lighter;
+$global-input-border-radius: $global-border-radius-base;
+$global-input-border-focus: $brand-primary;
+
+$global-input-color: $text-color;
+$global-input-color-placeholder: $brand-grey-light !default;
+
+$global-input-height-lg: 2;
+$global-input-height-base: 1.7;
+$global-input-height-sm: 1.5;
+
+$legend-color: $brand-grey-dark !default;
+$legend-border-color: #e5e5e5 !default;
+
+$global-input-group-addon-bg: $brand-white;
+$global-input-group-addon-border-color: darken($global-input-bg, 7.5%);
+
+
+/* Breakpoints
+-------------------------------------------------------------- */
+$global-screen-xxs: 360px;
+$global-screen-xxs-min: $global-screen-xxs !default;
+
+$global-screen-xs: 480px !default;
+$global-screen-xs-min: $global-screen-xs !default;
+
+$global-screen-sm: 770px !default;
+$global-screen-sm-min: $global-screen-sm !default;
+
+$global-screen-md: 1000px !default;
+$global-screen-md-min: $global-screen-md !default;
+
+$global-screen-lg: 1250px !default;
+$global-screen-lg-min: $global-screen-lg !default;
+
+$global-screen-xl: 1600px !default;
+$global-screen-xl-min: $global-screen-xl !default;
+
+$global-screen-xxl: 1800px;
+$global-screen-xxl-min: $global-screen-xxl !default;
+
+// So media queries don't overlap when required, provide a maximum
+$global-screen-xs-max: $global-screen-sm-min !default;
+$global-screen-sm-max: $global-screen-md-min - 1 !default;
+$global-screen-md-max: $global-screen-lg-min - 1 !default;
+$global-screen-lg-max: $global-screen-xl-min - 1 !default;
+
+// Point at which the header links/icons become a fixed navbar
+$global-screen-header-nav-fixed: $global-screen-sm;
+$global-screen-layout-full-screen: 1400px;
+
+
+/* Grid
+-------------------------------------------------------------- */
+$global-grid-columns: 12;
+$global-grid-gutter-width: 2.8rem;
+
+/* Z-index
+-------------------------------------------------------------- */
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+$global-zindex-dropdown: 1000;
+$global-zindex-tooltip: 1040;
+$global-zindex-modal-background: 1040;
+$global-zindex-modal: 1050;
+$global-zindex-modal-tooltip: 1060;
+$global-zindex-back-to-top: 1040;
+$global-zindex-calendar-table: 1000;
+$global-zindex-calendar-entry: 1030;
+$global-zindex-window-fade: 1000;
+$global-zindex-window-head: 1010;
+$global-zindex-header-nav: 1030;
+$global-zindex-overlay: 1050;
+$global-zindex-transient-area: 1050;
+$global-zindex-transient-toggle: 1050;
+$global-zindex-tab-menu: 1020;
+$global-zindex-tab-visible: 1000;
+$global-zindex-tab-hidden: -1000;
+$global-zindex-data-graph-outer: 1000;
+$global-zindex-data-graph-inner: 1010;
+$global-zindex-popover: 1050;
+$global-zindex-popover-focus: 1010;
+$global-zindex-popover-icon: 1000;
+$global-zindex-component-head: 1000;
+$global-zindex-notification: 1000;
+
+/* Header
+-------------------------------------------------------------- */
+$global-header-nav-fixed-height: 48px;
+
+
+/* Arrow
+-------------------------------------------------------------- */
+$global-arrow-size: 12px;
+$global-arrow-border: 1 !default;
+
+
+/* Triangle
+-------------------------------------------------------------- */
+$global-triangle-size: 12px;
+$global-triangle-border: 1;
+$global-triangle-arrow: $global-triangle-size - $global-triangle-border;

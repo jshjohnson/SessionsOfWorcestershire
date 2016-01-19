@@ -1,0 +1,17 @@
+/*
+* Mixin name: Placeholder
+* Use: Handling placeholder text colouring
+* Notes: N/A
+-------------------------------------------------------------- */
+
+@mixin placeholder($color: $global-input-color-placeholder) {
+    &::-moz-placeholder {
+        color: $color;
+        // Firefox
+        @include opacity(1);
+    }
+    // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder { color: $color; }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder { color: $color; }
+}

@@ -1,0 +1,245 @@
+/*
+* Name: Typography
+* Notes: N/A
+-------------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:before,
+    &:after { box-sizing: border-box; }
+}
+
+html, body { height: 100%; }
+
+html {
+    // Percentage allows rem values to equal pixel values i.e. $global-guttering/1.5 = 16px
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    line-height: $global-line-height-base;
+    font-family: $global-font-family-base;
+    font-size: $global-font-size-base;
+    overflow-x: hidden;
+    @each $theme, $map in $brand-body {
+        $brand-bg: map-get($map, background);
+        $text-color: map-get($map, text);
+
+        .#{$theme} > & {
+            background-color: $brand-bg;
+            color: $text-color;
+        }
+    }
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
+}
+
+//
+// Typography
+// --------------------------------------------------
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $global-headings--font-family;
+    font-weight: $global-headings--font-weight;
+    line-height: $global-headings--line-height;
+    margin-top: 0;
+    margin-bottom: $global-guttering/1.5;
+    .t-solar & {
+        font-family: $t-solar-font-family;
+        font-weight: 500;
+    }
+    small:not(.label),
+    .small:not(.label) {
+        font-weight: normal;
+        line-height: 1;
+    }
+}
+
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+    .t-solar & { font-weight: 600; }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    small:not(.label),
+    .small:not(.label) { font-size: 65%; }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    small:not(.label),
+    .small:not(.label) { font-size: 75%; }
+}
+
+h1, .h1 {
+    font-size: $global-font-size-h1;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-h2; }
+}
+
+h2, .h2 {
+    font-size: $global-font-size-h2;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-h3; }
+}
+
+h3, .h3 {
+    font-size: $global-font-size-h3;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-h4; }
+}
+
+h4, .h4 {
+    font-size: $global-font-size-h4;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-h5; }
+}
+
+h5, .h5 {
+    font-size: $global-font-size-h5;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-h6; }
+    .t-solar & { font-size: 2rem; }
+}
+
+h6, .h6 {
+    font-size: $global-font-size-h6;
+    .t-solar & { font-size: $global-font-size-lg; }
+}
+
+// Links
+a {
+    text-decoration: none;
+    transition: .15s color ease-in-out;
+    @each $theme, $map in $brand-link {
+        .#{$theme} & {
+            color: map-get($map, color);
+            @include on-interaction { color: darken(map-get($map, color), 5%);}
+        }
+    }
+    &:hover { text-decoration: underline; }
+    &:hover,
+    &:focus { transition: .15s color ease-in-out; }
+    &:focus { @include tab-focus; }
+}
+
+
+//
+// Vertical rhythm
+// --------------------------------------------------
+
+p, ul, ol, dl, hr, form, table, blockquote, pre,
+.media, .well, .list-group, .form-group {
+    margin-top: 0;
+    margin-bottom: $global-guttering;
+}
+
+// Emphasis & misc
+// -------------------------
+
+hr {
+    margin-top: $global-line-height-computed;
+    margin-bottom: $global-line-height-computed;
+    border: 0;
+    border-top: 1px solid $brand-keyline;
+}
+
+small, .small, %small {
+    font-size: 85%;
+    // Prevent text being *too* small on small screens
+    @include respond-max($global-screen-xs) { font-size: 90%; }
+}
+
+// Confusing class name - change
+.smaller, %smaller {
+    font-size: 90%;
+    @include respond-max($global-screen-xs) { font-size: 95%; }
+}
+
+strong, .strong{ @extend %text-strong; }
+
+.disabled, .disabled:hover {
+    color: $brand-grey-light;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Undo browser default styling
+cite { font-style: normal; }
+
+.text-lead {
+    font-size: $global-font-size-lead;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-sub; }
+}
+
+.text-muted, %text-muted {
+    .t-generic & { color: $text-muted; }
+}
+
+// Contextual colors
+.text-primary, %text-primary {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $brand-primary: map-get($map, color);
+            color: $brand-primary;
+        }
+    }
+}
+
+.text-success, %text-success {
+    .t-generic & { color: $brand-success; }
+    &[href] {
+        @include on-interaction { color: darken($brand-success, 5%); }
+    }
+}
+
+.text-warning, %text-warning {
+    .t-generic & { color: $brand-warning; }
+    &[href] {
+        @include on-interaction { color: darken($brand-warning, 5%); }
+    }
+}
+
+.text-danger, %text-danger {
+    .t-generic & { color: $brand-danger; }
+    &[href] {
+        @include on-interaction { color: darken($brand-danger, 5%); }
+    }
+}
+
+.text-link {
+    @each $theme, $map in $brand-link {
+        .#{$theme} & {
+            $link-color: map-get($map, color);
+            $link-hover-color: darken(map-get($map, color), 5%);
+            color: $link-color;
+            a { @include on-interaction { color: $link-hover-color; }}
+        }
+    }
+}
+
+
+// Contextual colors
+.text-inverse {
+    color: $brand-text-inverse;
+    // Links
+    a {
+        color: $brand-link-inverse;
+        &:hover,
+        &:focus { color: $brand-link-inverse; }
+    }
+}
+
+// Addresses
+address {
+    margin-bottom: $global-line-height-computed;
+    font-style: italic;
+    line-height: $global-line-height-base;
+}

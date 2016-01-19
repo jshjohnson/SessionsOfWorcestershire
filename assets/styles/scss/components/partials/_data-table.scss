@@ -1,0 +1,287 @@
+/*
+* Name: Data table
+* Use: N/A
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.data-table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    will-change: scroll-position, contents;
+}
+
+.data-table--fixed {
+    table-layout: fixed;
+    .lt-ie9 & { table-layout: auto; }
+}
+
+.data-table--responsive {
+    @include respond-max($global-screen-sm) {
+        display: block;
+        .data-table__head, .data-table__row { display: inline-block; }
+        .data-table__col { float: left; }
+    }
+}
+
+.data-table__head {
+    display: table-row;
+    width: 100%;
+    font-size: $global-font-size-sm;
+    font-weight: 600;
+    padding-left: .25em;
+    vertical-align: top;
+    border-left: 0;
+    border-bottom: 1px solid $brand-keyline;
+    @include respond-max($global-screen-sm) { padding-left: .5em; }
+    + .data-table__row:after { content: none; }
+}
+
+.data-table__row {
+    display: table-row;
+    width: 100%;
+    vertical-align: top;
+    user-select: none;
+    border-left: .25em solid $brand-keyline;
+    transition: border 0.25s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+    border-bottom: 1px solid $brand-keyline;
+    &:last-child { border-bottom: 0; }
+    @each $theme, $map in $brand-text {
+        $text-color: map-get($map, color);
+        .#{$theme} & {
+            color: $text-color;
+            @include on-interaction { color: $text-color; }
+        }
+    }
+    @include respond-max($global-screen-sm) { border-left-width: .5em; }
+}
+
+.data-table__row-placeholder {
+    @extend .data-table__row;
+    height: 2.75em;
+    box-shadow: inset 0px 0px 3px darken($brand-keyline, 60%);
+}
+
+.data-table__row--drag-helper {
+    max-width: 170px;
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $brand-primary: map-get($map, color);
+            background-color:  $brand-primary;
+        }
+    }
+    .data-table__col {
+        .data-table__entry {
+            display: block;
+            color: $brand-white;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width:140px;
+            height:26px;
+        }
+    }
+}
+
+.data-table__row--zero-divide {
+    &:after { display: none; }
+}
+
+.data-table__row--zero-border {
+    .t-generic & { border-left: 0; }
+}
+
+.data-table__row--interaction {
+    @include on-interaction {
+        text-decoration: none;
+        transition: border 0.25s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+        background-color: $table-bg-hover;
+        color: $text-color;
+        // Change the border left color on hover unless a state has been given
+        // @each $theme, $map in $brand-primary {
+        //     .#{$theme} & {
+        //         $brand-primary: map-get($map, color);
+        //         border-left-color:  $brand-primary;
+        //         .data-table__subject, .data-table__icon { color: $brand-primary; }
+        //     }
+        // }
+    }
+}
+
+// Contextual modifiers
+.data-table__row--primary {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $brand-primary: map-get($map, color);
+            border-left-color:  $brand-primary;
+            @include on-interaction {
+                border-left-color: $brand-primary;
+                &:not(.data-table__row--no-interaction) {
+                    .data-table__subject, .data-table__icon { color: $brand-primary; }
+                }
+            }
+        }
+    }
+}
+
+.data-table__row--success {
+    .t-generic & {
+        border-left-color:  $brand-success;
+        @include on-interaction {
+            border-left-color: $brand-success;
+            &:not(.data-table__row--no-interaction) {
+                .data-table__subject, .data-table__icon { color: $brand-success; }
+            }
+        }
+    }
+}
+
+.data-table__row--danger {
+    .t-generic & {
+        border-left-color:  $brand-danger;
+        @include on-interaction {
+            border-left-color: $brand-danger;
+            &:not(.data-table__row--no-interaction) {
+                .data-table__subject, .data-table__icon { color: $brand-danger; }
+            }
+        }
+    }
+}
+
+.data-table__row--warning {
+    .t-generic & {
+        border-left-color:  $brand-warning;
+        @include on-interaction {
+            border-left-color: $brand-warning;
+            &:not(.data-table__row--no-interaction) {
+                .data-table__subject, .data-table__icon { color: $brand-warning; }
+            }
+        }
+    }
+}
+
+.data-table__row--highlight {
+    .t-generic & { background-color: $brand-subtle-highlight; }
+}
+
+.data-table__row--no-interaction {
+    @include on-interaction {
+        .t-generic & {
+            background-color: transparent;
+            // border-left-color: $brand-keyline;
+            .data-table__subject { color: $text-color; }
+            .data-table__icon { color: darken($brand-keyline, 5%); }
+        }
+    }
+}
+
+.data-table__col {
+    word-wrap: break-word;
+    vertical-align: middle;
+    display: table-cell;
+    float: none;
+    padding: $global-guttering / 1.75 $global-guttering / 1.25;
+    &:focus { outline: 0; }
+    @include respond-max($global-screen-sm) {
+        padding-left: $global-guttering/2;
+        padding-right: $global-guttering/2;
+    }
+}
+
+.data-table__col--fixed { width: 1em; }
+
+.data-table__col--align {
+    @include respond-max($global-screen-sm-min) { padding-top: 0; }
+}
+
+.data-table__col--offset-icon {
+    padding-left: 3.25em;
+    .icon {
+        margin-left: -2em;
+        margin-right: 1em;
+        &:before { width: auto; }
+    }
+}
+
+.data-table__col--responsive-outline {
+    @include respond-min($global-screen-sm) { border-right: 1px solid $brand-keyline; }
+    @include respond-max($global-screen-sm) { border-bottom: 1px solid $brand-keyline; }
+}
+
+.data-table__entry {
+    position: relative;
+    word-break: break-word;
+    @include guttering;
+}
+
+.data-table__figure {
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.data-table__figure--highlight {
+    @include respond-min($global-screen-lg) { font-size: 4rem; }
+    font-size: 3rem;
+    margin-bottom: $global-guttering/2;
+}
+
+.data-table__figure--align {
+    @include respond-max($global-screen-sm) {
+        position: absolute;
+        right: 1.2rem;
+        top: 1.92rem;
+    }
+}
+
+.data-table__subject {
+    display: inline-block;
+    margin-right: .5em;
+    line-height: $global-line-height-base;
+}
+
+.data-table__labels {
+    display: inline;
+    @include respond-max($global-screen-sm) {
+        margin-top: .25em;
+        display: block;
+    }
+}
+
+.data-table__currency {
+    @extend %small;
+    margin-right: $global-guttering / 6;
+}
+
+.data-table__upload {
+    float: left;
+    width: auto;
+    margin-right: 1em;
+    @include respond-max($global-screen-sm) {
+        float: right;
+        margin: 0;
+        width: 40px;
+        padding: 2px;
+        margin-left: 1em;
+        margin-right: 0;
+    }
+}
+
+.data-table__icon {
+    width: 1em;
+    font-size: 1.75em;
+    float: left;
+    margin-right: $global-guttering/1;
+    color: darken($brand-keyline, 5%);
+}
+
+.data-table__icon--compressed { font-size: 1em; }
+
+
+// Ppffft, code smell
+.data-table__icon--responsive,
+.data-table__figure--responsive,
+.data-table__subject--responsive {
+    @include respond-max($global-screen-lg) { font-size: $global-font-size-lg; }
+}
+

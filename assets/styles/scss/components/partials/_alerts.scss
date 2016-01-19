@@ -1,0 +1,60 @@
+/*
+* Name: Alert
+* Use: Contextual feedback messages for typical user actions
+* Notes: See http://getbootstrap.com/javascript/#alerts / http://getbootstrap.com/components/#alerts
+-------------------------------------------------------------- */
+
+$alert-padding: 0.5em 1em;
+$alert-border-radius: $global-border-radius-base;
+$alert-link-font-weight: bold !default;
+
+.alert {
+    padding: $alert-padding;
+    border: 1px solid transparent;
+    border-radius: $alert-border-radius;
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: $global-guttering;
+    .alert--link, a {
+        color: $brand-white;
+        &:hover { color: $brand-white; }
+    }
+    @include guttering;
+
+    // Increase margin around alerts if page has no padding
+    .zero-pad > &  {
+        margin: $global-guttering 0 $global-guttering $global-guttering;
+        @include respond-min($global-screen-lg) { margin: 3.2rem 0 3.2rem 3.2rem; }
+        @include respond-max($global-screen-sm) { margin: $global-guttering/1.25 0 $global-guttering/1.25 $global-guttering/1.25; }
+    }
+
+}
+
+.alert--blocked {
+    border-radius: 0;
+    border-width: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert--primary {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $alert-primary-text: $brand-white;
+            $alert-primary-border: map-get($map, color);
+            $alert-primary-bg: map-get($map, color);
+
+            @include alert-variant($alert-primary-bg, $alert-primary-border, $alert-primary-text);
+        }
+    }
+}
+
+// Contextual styling
+.alert--success { @include alert-variant($brand-success, $brand-success, white); }
+.alert--warning { @include alert-variant($brand-warning, $brand-warning, white); }
+.alert--danger { @include alert-variant($brand-danger, $brand-danger, white); }

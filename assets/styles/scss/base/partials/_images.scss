@@ -1,0 +1,52 @@
+/*
+* Name: Images
+* Notes: N/A
+-------------------------------------------------------------- */
+
+$img-thumbnail-padding: 4px !default;
+$img-thumbnail-bg: $brand-grey-lighter;
+$img-thumbnail-border: #dddddd !default;
+$img-thumbnail-border-radius: $global-border-radius-base !default;
+
+img {
+    vertical-align: middle;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    .lt-ie9 & { width: auto; }
+}
+
+svg { fill: currentColor; }
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+    @include img-responsive;
+}
+
+// Rounded corners
+.img-rounded { border-radius: $global-border-radius-lg; }
+
+// Image thumbnails
+.img-thumbnail {
+    padding: $img-thumbnail-padding;
+    line-height: $global-line-height-base;
+    background-color: $img-thumbnail-bg;
+    border: 2px solid $img-thumbnail-border;
+    border-radius: $img-thumbnail-border-radius;
+    transition: all .2s ease-in-out;
+    // Keep them at most 100% wide
+    @include img-responsive(inline-block);
+}
+
+// Perfect circle to be super down with the Shoreditch kids amirite!?
+.img-circle { border-radius: 50%; }
+
+.img-logo {
+    @each $theme, $map in $brand-primary {
+        .#{$theme} & {
+            $brand-primary: map-get($map, color);
+            fill: $brand-primary;
+        }
+    }
+}

@@ -1,0 +1,166 @@
+/*
+* Name: Chat
+* Use: To display instant messaging interactions
+* Notes: Extends `.window`
+-------------------------------------------------------------- */
+
+.chat {}
+
+.chat__body {}
+
+.chat__conversation {
+    height: 100%;
+    text-align: center;
+}
+
+.chat__conversation--offset-scrollbar {
+    margin-right: -1.4rem;
+    padding-right: 1.4rem;
+    @include respond-min($global-screen-xs) {
+        margin-right: -1.4rem;
+        padding-right: 1.4rem;
+    }
+}
+
+.chat__conversation--push-top { padding-top: 5.4rem; }
+
+.chat__conversation--responsive { @include respond-max($global-screen-md) { padding-top: 0; }}
+
+.chat__conversation--restrict-scroll {
+    overflow: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+    height: 58.5rem;
+    margin-bottom: 7rem;
+    @include respond-max($global-screen-md) { margin-bottom: 6.5rem; }
+    @include respond-max($global-screen-xs) { height: 35.8rem; }
+}
+
+.chat__reply {
+    background-color: $brand-white;
+    padding: 1.4rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $brand-keyline;
+}
+
+.chat__reply--top {
+    top: 0;
+    bottom: auto;
+    border-top: 0;
+    border-bottom: 1px solid $brand-keyline;
+    position: relative;
+}
+
+.chat__notice {
+    border-bottom: 1px solid #f2f2f2;
+    display: block;
+    line-height: 2.5;
+    margin-bottom: 0 auto 1em auto;
+    padding: 0.5em 1em;
+    vertical-align: top;
+    width: auto;
+}
+
+.chat__entry {
+    text-align: left;
+    display: inline-block;
+    clear: both;
+    vertical-align: top;
+    width: 100%;
+    @include respond-min($global-screen-md) { width: 75%; }
+}
+
+.chat__entry--single { width: 100% !important; }
+
+.chat__entry--you {
+    float: left;
+}
+
+.chat__entry--them {
+    float: right;
+    .chat__head { text-align: right; }
+}
+
+.chat__head, .chat__content {
+    font-weight: inherit;
+    margin-top: 1em;
+}
+
+.chat__head--nudge-left { margin-left: $global-guttering/6; }
+
+.chat__content {
+    font-size: $global-font-size-sm;
+    p { margin-bottom: $global-guttering/3; }
+}
+
+.chat__content--single { @include respond-min($global-screen-sm) { font-size: $global-font-size-base; }}
+
+.chat__content--first {
+    .well {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.chat__content--last {
+    .well {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.chat__content--conjoined {
+    margin-top: -$global-guttering;
+    &:not(.chat__content--last) .well { border-radius: 0; }
+
+    .well {
+        border-top: 0;
+        &:before, &:after { content: none; }
+    }
+}
+
+.chat__anchor {
+    display: block;
+    clear: both;
+}
+
+.chat__overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include guttering;
+}
+
+.chat__log {
+    margin-top: $global-guttering/2;
+    .chat__inner {
+        @extend %well;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: $global-guttering/2 $global-guttering;
+        margin-bottom: 0;
+        max-width: 400px;
+    }
+}
+
+.chat__log--bottom {
+    margin-top: $global-guttering*1.25;
+    margin-bottom: -$global-guttering*1.25;
+    .chat__inner {
+        bottom: 0;
+        border-bottom: 0;
+        @include border-bottom-radius(0);
+    }
+}
+
+.chat__log--top {
+    margin-top: -$global-guttering*1.25;
+    margin-bottom: $global-guttering*1.25;
+    .chat__inner {
+        top: 0;
+        @include border-top-radius(0);
+    }
+}

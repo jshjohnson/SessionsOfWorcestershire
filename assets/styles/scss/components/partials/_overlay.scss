@@ -1,0 +1,69 @@
+/*
+* Name: Overlay
+* Use: Darkens entire view to give prominence to messages/modals/transient content etc
+* Notes: N/A
+-------------------------------------------------------------- */
+
+.overlay {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    color: $brand-white;
+    left: 0;
+    top: 0;
+    background-color: rgba($brand-black, .5);
+    z-index: $global-zindex-overlay;
+    transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
+    will-change: opacity;
+}
+
+.overlay--visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
+}
+
+.overlay__inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.overlay__close {
+    right: $global-guttering;
+    top: $global-guttering/2;
+    position: absolute;
+    .t-generic & {
+        color: $brand-white;
+        @include on-interaction {
+            color: $brand-white;
+        }
+    }
+}
+.overlay__content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    .no-display-table & { padding: $global-guttering * 2; }
+}
+
+.overlay__surround {
+    max-width: 38em;
+    margin: auto;
+    padding: $global-guttering*1.5 $global-guttering;
+    border-radius: .75em;
+    border: 2px solid rgba($brand-black, .15);
+    background-color: rgba($brand-black, .35);
+    position: relative;
+    // overflow: hidden;
+    @extend .text-inverse;
+    @include respond-min($global-screen-lg) {
+        padding: $global-guttering * 1.5;
+    }
+    @include respond-max($global-screen-sm) {
+        padding: $global-guttering $global-guttering/1.5;
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,140 @@
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+
+// IE10 in Windows (Phone) 8
+//
+// Support for responsive views via media queries is kind of borked in IE10, for
+// Surface/desktop in split view and for Windows Phone 8. This particular fix
+// must be accompanied by a snippet of JavaScript to sniff the user agent and
+// apply some conditional CSS to *only* the Surface/desktop Windows 8. Look at
+// our Getting Started page for more information on this bug.
+//
+// For more information, see the following:
+//
+// Issue: https://github.com/twbs/bootstrap/issues/10497
+// Docs: http://getbootstrap.com/getting-started/#browsers
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport { width: device-width; }
+
+// Visibility utilities
+
+.visible-xs-inline,
+.visible-sm-inline,
+.visible-md-inline,
+.visible-lg-inline {
+    display: none !important;
+}
+
+.visible-xs-inline {
+    @include respond-max($global-screen-sm-min) { display: inline !important; }
+}
+
+.visible-sm-inline {
+    @include respond-min-max($global-screen-sm-min, $global-screen-sm-max) { display: inline !important; }
+}
+
+.visible-md-inline {
+   @include respond-min-max($global-screen-md-min, $global-screen-md-max) { display: inline !important; }
+}
+
+.visible-lg-inline {
+    @include respond-min($global-screen-lg-min) { display: inline !important; }
+}
+
+// Visibility utilities
+
+@include responsive-invisibility(".visible-xs, .visible-sm, .visible-md, .visible-lg");
+
+@include respond-max($global-screen-sm-min) {
+    @include responsive-visibility(".visible-xs");
+}
+
+@include respond-min-max($global-screen-sm-min, $global-screen-sm-max) {
+    @include responsive-visibility(".visible-sm");
+}
+
+@include respond-min-max($global-screen-md-min, $global-screen-md-max) {
+    @include responsive-visibility(".visible-md");
+}
+
+@include respond-min($global-screen-lg-min) {
+    @include responsive-visibility(".visible-lg");
+}
+
+@include respond-min($global-screen-xl-min) {
+    @include responsive-visibility(".visible-xl");
+}
+
+// Hidden utilities
+
+@include respond-max($global-screen-xs) {
+    @include responsive-invisibility(".hidden-xxs");
+}
+
+@include respond-max($global-screen-sm-min) {
+    @include responsive-invisibility(".hidden-xs");
+}
+
+@include respond-min-max($global-screen-sm-min, $global-screen-sm-max) {
+    @include responsive-invisibility(".hidden-sm");
+}
+
+@include respond-min-max($global-screen-md-min, $global-screen-md-max) {
+    @include responsive-invisibility(".hidden-md");
+}
+
+@include respond-min($global-screen-lg-min) {
+    @include responsive-invisibility(".hidden-lg");
+}
+
+
+.visible-fixed-nav {
+    @include respond-min($global-screen-header-nav-fixed) { display: none; }
+}
+
+.hidden-fixed-nav {
+    @include respond-max($global-screen-header-nav-fixed) { display: none; }
+}
+
+%clear-left { clear: left; }
+%clear-right { clear: right; }
+
+// Responsive clearing
+.clear-left-xs {
+    @include respond-max($global-screen-sm-min) { clear: left; }
+}
+
+.clear-left-sm {
+    @include respond-min-max($global-screen-sm-min, $global-screen-sm-max) { clear: left; }
+}
+
+.clear-left-md {
+    @include respond-min-max($global-screen-md-min, $global-screen-md-max) { clear: left; }
+}
+
+.clear-left-lg {
+    @include respond-min($global-screen-lg-min) { clear: left; }
+}
+
+.pull-left-xs {
+    @include respond-min($global-screen-xs) { float: left; }
+}
+
+.pull-right-xs {
+    @include respond-min($global-screen-xs) { float: right; }
+}
+
+// Text changes
+.text-left-md {
+    @include respond-min($global-screen-md) { text-align: right; }
+}
+
+.text-responsive-lg {
+    @include respond-max($global-screen-lg) { font-size: $global-font-size-sm; }
+}
+
+.text-responsive-md {
+    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+}

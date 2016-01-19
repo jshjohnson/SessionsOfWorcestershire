@@ -1,0 +1,117 @@
+/*
+* Name: Input Group
+* Use: Extend form controls by adding text or buttons before, after, or on both sides of any text-based input
+* Notes: See http://getbootstrap.com/components/#input-groups - This partial needs 'BEMifying'
+-------------------------------------------------------------- */
+
+.input-group {
+    position: relative;
+    // For dropdowns
+    display: table;
+    width: 100%;
+    @include guttering;
+    border-collapse: separate;
+    // prevent input groups from inheriting border styles from table cells when placed within a table
+    // Undo padding and float of grid classes
+    &[class*="col-"] {
+        float: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .form-control {
+        // IE9 fubars the placeholder attribute in text inputs and the arrows on
+        // select elements in input groups. To fix it, we float the input. Details:
+        // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
+        float: left;
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.input-group--sm {
+    .form-control,
+    .input-group__btn > .btn,
+    .input-group__addon { font-size: $global-font-size-sm; }
+}
+
+.input-group__addon,
+.input-group__btn,
+.input-group .form-control {
+    display: table-cell;
+    &:not(:first-child):not(:last-child) { border-radius: 0; }
+}
+
+.input-group__addon,
+.input-group__btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.input-group__addon {
+    padding: $global-padding-vertical-base $global-padding-horizontal-base;
+    // font-size: $global-font-size-base;
+    line-height: 1;
+    color: $global-input-color;
+    text-align: center;
+    background-color: $global-input-group-addon-bg;
+    border: 2px solid $global-input-group-addon-border-color;
+    border-radius: $global-border-radius-base;
+    // Sizing
+    &.input-sm {
+        padding: $global-padding-vertical-sm $global-padding-horizontal-sm;
+        font-size: $global-font-size-sm;
+        border-radius: $global-border-radius-sm;
+    }
+    &.input-lg {
+        padding: $global-padding-vertical-lg $global-padding-horizontal-lg;
+        font-size: $global-font-size-lg;
+        border-radius: $global-border-radius-lg;
+    }
+    // Nuke default margins from checkboxes and radios to vertically center within.
+    input[type="radio"],
+    input[type="checkbox"] { margin-top: 0; }
+}
+
+// Reset rounded corners
+.input-group .form-control:first-child:not(.input-group__input--last),
+.input-group__addon:first-child,
+.input-group__btn:first-child .btn,
+.input-group__btn:first-child .btn-group > .btn,
+.input-group__btn:first-child .dropdown-toggle,
+.input-group__btn:last-child .btn:not(:last-child):not(.dropdown-toggle),
+.input-group__btn:last-child .btn-group:not(:last-child) > .btn {
+    @include border-right-radius(0);
+    border-right: 0;
+}
+
+.input-group__addon:first-child { border-right: 0;}
+
+.input-group .form-control:last-child:not(.input-group__input--first),
+.input-group__addon:last-child,
+.input-group__btn:last-child .btn,
+.input-group__btn:last-child .btn-group > .btn,
+.input-group__btn:last-child .dropdown-toggle,
+.input-group__btn:first-child .btn:not(:first-child),
+.input-group__btn:first-child .btn-group:not(:first-child) > .btn {
+    @include border-left-radius(0);
+}
+
+// Button input groups
+// -------------------------
+.input-group__btn {
+    position: relative;
+    white-space: nowrap;
+    // Negative margin for spacing, position for bringing hovered/focused/actived
+    // element above the siblings.
+    > .btn {
+        position: relative;
+        margin-left: -2px;
+        // Bring the "active" button to the front
+        &:hover,
+        &:focus,
+        &:active { z-index: 2; }
+    }
+}
+
+.input-group__addon--responsive { @include respond-max($global-screen-xs) { font-size: $global-font-size-sm; }}
