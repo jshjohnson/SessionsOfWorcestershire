@@ -7,11 +7,11 @@
 .section {
     display: block;
     width: 100%;
-    padding: $global-guttering*2;
+    padding: $global-guttering*2.5;
 }
 
 .section--lg {
-    padding: $global-guttering*4;
+    padding: $global-guttering*3.5;
 }
 
 .section--md {
@@ -19,7 +19,7 @@
 }
 
 .section--sm {
-    padding: $global-guttering/2;
+    padding: $global-guttering/1.5;
 }
 
 .section--plain { background-color: $brand-white; }

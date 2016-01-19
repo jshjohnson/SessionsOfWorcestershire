@@ -3,7 +3,7 @@
 * Notes: N/A
 -------------------------------------------------------------- */
 
-$btn-font-weight: 700;
+$btn-font-weight: 500;
 $btn-link-disabled-color: $brand-grey-light !default;
 
 $btn-default-color: $brand-grey;
@@ -58,6 +58,11 @@ $btn-state-color: $brand-white;
     background-color: transparent;
     font-weight: normal;
     cursor: default;
+}
+
+.btn--light { 
+    color: $brand-white;
+    border-color: $brand-white;
 }
 
 
