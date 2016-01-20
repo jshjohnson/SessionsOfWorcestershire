@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="/assets/styles/css/main.min.css">
 </head>
 <body>
-    <header class="section section--primary hero">
+    <header class="section section--overlay">
+        <div class="logo logo--primary">
+            <img src="/assets/images/logo/default.svg" alt="" class="logo__image">    
+        </div>
         <nav class="nav nav--primary">
             <ul class="nav__list list-inline list-unstyled">
                 <li class="nav__item">
@@ -33,11 +36,10 @@
                 </li> -->
             </ul>
         </nav>
-        <div class="logo">
-            <img src="/assets/images/logo/default.svg" alt="" class="logo__image">    
-        </div>
-        <h1 class="hero__title">Services</h1>
     </header>
+    <section class="section section--primary hero" style="background-image: url('assets/images/hero/slice.png');">
+        <h1 class="hero__title">Services</h1>
+    </section>
     <section class="section section--lg section--plain">
         <div class="container container--xs">
             <article class="content">
@@ -45,33 +47,38 @@
 
                 <p>Providing you place an order before noon on your delivery day, we can almost always offer a next-day service –to help avoid last-minute rushes, a member of our friendly telesales service will call you the day before your delivery day to find out what you need.</p>
 
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, quis, unde vel in vero laborum eaque ea vitae modi praesentium saepe necessitatibus? Delectus, velit, nihil ullam blanditiis ipsum facilis libero officia maiores soluta voluptatibus laudantium hic alias tempora laborum vitae.</p>
+                    <cite>- Josh Johnson</cite>
+                </blockquote>
+
                 <p>Our drivers operate regular weekday runs, using a fleet of temperature-controlled vehicles, and they offer a personal service. You’ll get to know ‘your’ driver, who will understand your requirements and go that extra mile when necessary – we don’t use faceless courier services.</p>
             </article>
         </div>
     </section>
     <footer class="section section--lowlight">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
+            <div class="row row--valign">
+                <div class="col-sm-6 col-md-5 col--valign-sm col--valign-top"> 
                     <h3>Contact Us</h3>
                     <ul class="list-unstyled">
                         <li><strong>Tel:</strong> 01562 755 755</li>
                         <li><strong>Fax:</strong> 01562 742 419</li>
-                        <li><strong>Email:</strong> <a href="">info@sessionsofworcestershire.co.uk</a></li>
+                        <li><strong>Email:</strong> <a href="" class="text-inverse">info@sessionsofworcestershire.co.uk</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4 col--valign-sm col--valign-top">
                     <h3>Address</h3>
-                    <address>
-                        Unit 1/2/3 Oaklands Business Park
-                        Hoo Farm Industrial Estate
-                        Kidderminster
-                        Worcestershire
+                    <address class="zero-bottom">
+                        Unit 1/2/3 Oaklands Business Park<br>
+                        Hoo Farm Industrial Estate<br>
+                        Kidderminster<br>
+                        Worcestershire<br>
                         DY11 7RA
                     </address>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <a href="" class="btn btn--light">Download our price list</a>
+                <div class="col-sm-3 text-center col col--valign-sm col--valign-middle hidden-sm hidden-xs">
+                    <a href="" class="btn btn--light btn--overlay">Download our price list</a>
                 </div>
             </div>
         </div>
