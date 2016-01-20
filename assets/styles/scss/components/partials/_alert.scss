@@ -1,0 +1,23 @@
+/*
+* Name: Alert
+* Note: N/A
+-------------------------------------------------------------- */
+
+$alert-height: 48px;
+
+.alert {
+    background-color: rgba($brand-black ,0.25);
+    color: white;
+    text-align: center;
+    padding: $global-guttering/2.4;
+    display: inline-block;
+    height: $alert-height;
+}
+
+.alert--overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}

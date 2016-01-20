@@ -103,8 +103,8 @@ a {
     text-decoration: none;
     transition: .15s color ease-in-out;
     color: $brand-link;
+    text-decoration: underline;
     @include on-interaction { color: darken($brand-link, 5%);}
-    &:hover { text-decoration: underline; }
     &:hover,
     &:focus { transition: .15s color ease-in-out; }
     &:focus { @include tab-focus; }

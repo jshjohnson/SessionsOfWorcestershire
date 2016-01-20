@@ -19,9 +19,7 @@
     @include respond-min($global-screen-lg) { padding: $global-guttering; }
 }
 
-.section--sm {
-    @include respond-min($global-screen-lg) { padding: $global-guttering/1.5; }
-}
+.section--sm { padding: $global-guttering/1.5; }
 
 .section--plain { background-color: $brand-white; }
 .section--primary { background-color: $brand-primary; }
