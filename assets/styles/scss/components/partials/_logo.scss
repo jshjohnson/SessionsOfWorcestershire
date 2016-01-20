@@ -5,9 +5,15 @@
 -------------------------------------------------------------- */
 
 $logo-dimensions: 175px;
+$logo-dimensions-sm: 125px;
 
 .logo {}
+
 .logo__image {
     width: $logo-dimensions;
     height: $logo-dimensions;
+    @include respond-max($global-screen-md) {
+        width: $logo-dimensions-sm;
+        height: $logo-dimensions-sm;
+    }
 }

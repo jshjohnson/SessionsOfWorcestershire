@@ -27,7 +27,7 @@ $brand-text: #50595c;
 $brand-link: $brand-primary;
 
 // Backgrounds
-$brand-body-bg: #FFFFFF;
+$brand-body-bg: $brand-highlight;
 
 /* Text colouring
 -------------------------------------------------------------- */
@@ -49,18 +49,18 @@ $global-font-family-base: $global-font-family-primary;
 $global-font-size-lead: 6.2rem;
 $global-font-size-sub: 4.2rem;
 
-$global-font-size-xl: 2.2rem;      // 22px
-$global-font-size-lg: 1.8rem;      // 18px
-$global-font-size-base: 1.6rem;    // 16px
-$global-font-size-sm: 1.4rem;      // 14px
-$global-font-size-xs: 1.2rem;      // 12px
-$global-font-size-xxs: 1rem;       // 10px
+$global-font-size-xl: 2.4rem;      // 22px
+$global-font-size-lg: 2rem;      // 18px
+$global-font-size-base: 1.8rem;    // 16px
+$global-font-size-sm: 1.6rem;      // 14px
+$global-font-size-xs: 1.4rem;      // 12px
+$global-font-size-xxs: 1.2rem;       // 10px
 
-$global-font-size-h1: 3.4rem; // 36px
-$global-font-size-h2: 2.6rem; // 30px
-$global-font-size-h3: 2rem; // 24px
-$global-font-size-h4: 1.8rem; // 20px
-$global-font-size-h5: 1.6rem; // 18px
+$global-font-size-h1: 3.6rem; // 36px
+$global-font-size-h2: 3rem; // 30px
+$global-font-size-h3: 2.6rem; // 24px
+$global-font-size-h4: 2rem; // 20px
+$global-font-size-h5: 1.8rem; // 18px
 $global-font-size-h6: $global-font-size-base; // 16px
 
 //** Unit-less `line-height` for use in components like buttons.

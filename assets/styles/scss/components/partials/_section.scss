@@ -7,19 +7,20 @@
 .section {
     display: block;
     width: 100%;
-    padding: $global-guttering*2.5;
+    padding: $global-guttering;
+    @include respond-min($global-screen-md) { padding: $global-guttering*2.5; }
 }
 
 .section--lg {
-    padding: $global-guttering*3.5;
+    @include respond-min($global-screen-md) { padding: $global-guttering*3.5; }
 }
 
 .section--md {
-    padding: $global-guttering;
+    @include respond-min($global-screen-md) { padding: $global-guttering; }
 }
 
 .section--sm {
-    padding: $global-guttering/1.5;
+    @include respond-min($global-screen-md) { padding: $global-guttering/1.5; }
 }
 
 .section--plain { background-color: $brand-white; }

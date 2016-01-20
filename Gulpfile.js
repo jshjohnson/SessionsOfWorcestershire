@@ -50,7 +50,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function () {
     gulp.src(paths.styles) 
         .pipe(plugins.sass().on('error', sass.logError))
-        .pipe(plugins.autoprefixer('last 2 versions', '> 1%', 'ie 8'))
+        // .pipe(plugins.autoprefixer('last 2 versions', '> 1%', 'ie 8'))
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.csso())
