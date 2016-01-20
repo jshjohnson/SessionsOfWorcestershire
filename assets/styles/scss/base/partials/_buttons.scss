@@ -20,13 +20,13 @@ $btn-state-color: $brand-white;
     vertical-align: middle;
     cursor: pointer;
     background-image: none;
-    // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid darken($global-input-bg, 7.5%);
+    border: 2px solid darken($global-input-bg, 7.5%);
     white-space: nowrap;
     font-size: $global-font-size-base;
     user-select: none;
-    padding: 1rem 2rem;
+    padding: 1rem 2.4rem;
     line-height: $global-line-height-base;
+    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
     &:focus { @include tab-focus; }
     &:hover,
     &:focus {
@@ -47,53 +47,20 @@ $btn-state-color: $brand-white;
         @include opacity(0.65);
         box-shadow: none;
     }
-    + .btn:not(.page__control) { margin-left: .5em; }
-    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
 }
 
-// Alternate buttons
-// --------------------------------------------------
-.btn--blank, %btn--blank {
-    border-color: transparent;
-    background-color: transparent;
-    font-weight: normal;
-    cursor: default;
-}
 
 .btn--light { 
     color: $brand-white;
     border-color: $brand-white;
+    @include on-interaction { color: $brand-white; }
 }
 
-
-
-// Link buttons
-// -------------------------
-
-// Make a button look and behave like a link
-.btn--link, %btn--link {
-    font-weight: normal;
-    cursor: pointer;
-    border-radius: 0;
-    &,
-    &:active,
-    &[disabled],
-    fieldset[disabled] & {
-        background-color: transparent;
-        box-shadow: none;
-    }
-    &,
-    &:hover,
-    &:focus,
-    &:active { border-color: transparent; }
-    &:hover,
-    &:focus {
-        text-decoration: underline;
-        background-color: transparent;
-    }
-    &[disabled],
-    fieldset[disabled] & {
-        &:hover,
-        &:focus { text-decoration: none; }
+.btn--overlay { 
+    background-color: rgba($brand-black, .2);
+    transition: background-color .2s ease-in-out;
+    @include on-interaction { 
+        background-color: rgba($brand-black, .3);
+        transition: background-color .2s ease-in-out;
     }
 }

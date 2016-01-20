@@ -22,12 +22,12 @@ html {
 body {
     line-height: $global-line-height-base;
     font-family: $global-font-family-base;
-    font-size: 16px;
+    font-size: 18px;
     // font-size: $global-font-size-base;
     overflow-x: hidden;
     background-color: $brand-body-bg;
     color: $brand-text;
-    @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
+    @include respond-max($global-screen-sm) { font-size: 16px; }
 }
 
 //
@@ -170,6 +170,11 @@ cite { font-style: normal; }
 .text-primary, %text-primary {
     color: $brand-primary;
     &[href] { @include on-interaction { color: darken($brand-primary, 5%); }}
+}
+
+.text-inverse {
+    color: $brand-white;
+    &[href] { @include on-interaction { color: darken($brand-white, 5%); }}
 }
 
 // Addresses

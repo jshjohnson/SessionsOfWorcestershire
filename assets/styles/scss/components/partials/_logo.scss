@@ -4,10 +4,14 @@
 * Notes: 
 -------------------------------------------------------------- */
 
-$logo-dimensions: 175px;
-$logo-dimensions-sm: 125px;
+$logo-dimensions: 160px;
+$logo-dimensions-sm: 80px;
 
 .logo {}
+
+.logo--primary {
+    float: left;
+}
 
 .logo__image {
     width: $logo-dimensions;

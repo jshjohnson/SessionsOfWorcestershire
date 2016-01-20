@@ -4,10 +4,30 @@
 * Notes: N/A
 -------------------------------------------------------------- */
 
-.hero {}
+.hero { 
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: table;
+    height: 250px;
+    @include respond-min($global-screen-sm) {
+        height: 75vh; 
+        min-height: 300px;
+        max-height: 600px;
+    }
+}
 
 .hero__title {
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+    width: 100%;
     font-size: $global-font-size-lead;
     color: $brand-white;
     text-align: center;
+    text-shadow: 0 1px 4px rgba($brand-black, .25);
+    @include respond-max($global-screen-sm) { 
+        font-size: $global-font-size-lead/1.5; 
+        vertical-align: bottom;
+    }
 }

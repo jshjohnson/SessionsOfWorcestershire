@@ -5,6 +5,13 @@
 
 .row { @include make-row; }
 
+.row--valign {
+    @include respond-min($global-screen-sm) {
+        min-width: 100%;
+        display: table;
+    }
+}
+
 .row--push-cols {
     margin-top: -$global-guttering;
     [class*=col-] { margin-top: $global-guttering; }
@@ -75,3 +82,13 @@
     padding-left: 0;
     padding-right: 0;
 }
+
+.col--valign-sm {
+    @include respond-min($global-screen-sm) {
+        display: table-cell;
+        float: none;
+    }
+}
+
+.col--valign-middle { vertical-align: middle; }
+.col--valign-top { vertical-align: top; }

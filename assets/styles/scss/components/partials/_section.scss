@@ -7,20 +7,20 @@
 .section {
     display: block;
     width: 100%;
-    padding: $global-guttering;
-    @include respond-min($global-screen-md) { padding: $global-guttering*2.5; }
+    padding: $global-guttering*1.25 $global-guttering;
+    @include respond-min($global-screen-sm) { padding: $global-guttering*2.5; }
 }
 
 .section--lg {
-    @include respond-min($global-screen-md) { padding: $global-guttering*3.5; }
+    @include respond-min($global-screen-lg) { padding: $global-guttering*3.5; }
 }
 
 .section--md {
-    @include respond-min($global-screen-md) { padding: $global-guttering; }
+    @include respond-min($global-screen-lg) { padding: $global-guttering; }
 }
 
 .section--sm {
-    @include respond-min($global-screen-md) { padding: $global-guttering/1.5; }
+    @include respond-min($global-screen-lg) { padding: $global-guttering/1.5; }
 }
 
 .section--plain { background-color: $brand-white; }
@@ -32,3 +32,11 @@
     color: $brand-white;
 }
 .section--highlight { background-color: $brand-highlight; }
+
+.section--overlay { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}

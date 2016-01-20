@@ -3,8 +3,13 @@
 * Note: N/A
 -------------------------------------------------------------- */
 
-.content {}
-
-.content__intro {
-    font-size: $global-font-size-xl;
+.content {
+    blockquote {
+        margin: $global-guttering*2 0;
+        font-size: $global-font-size-lg;
+        font-style: italic;
+        cite { font-size: $global-font-size-base; }
+    }
 }
+
+.content__intro { font-size: $global-font-size-xl; }

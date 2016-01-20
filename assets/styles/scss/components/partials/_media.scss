@@ -12,57 +12,7 @@
     zoom: 1;
 }
 
-// Proper spacing between instances of .media
-.media--block { @include respond-min($global-screen-md) { min-height: 5em; }}
-
-// For images and videos, set to block
 .media__object { display: block; }
-
-.media__object--pad {  padding-top: .5em; }
-
-.media__object--block {
-    background-color: $brand-grey-lighter;
-    height: 5em;
-    width: 5em;
-    padding: .5em;
-    float: left;
-    margin-right: 1em;
-}
-
-.media__feed-image {
-    display: block;
-    padding: 0;
-}
-
-.media__feed-image--blocked {
-    display: block;
-    position: relative;
-    margin-bottom: $global-guttering/2;
-    width: 100%;
-    float: none;
-}
-
-// Reset margins on headings for tighter default spacing
-.media__heading { margin-bottom: 0; }
-
-.media__heading--nudge { margin-bottom: $global-guttering/6; }
-
-// This looks suspicious
-.media__small, .flag__small, .well__small {
-    @include respond-min($global-screen-sm) {
-        font-size: 90%;
-
-        .media__heading {
-            font-size: 100%;
-            .t-solar & { font-size: $global-guttering/1.5; }
-        }
-
-        p { margin-bottom: 0; }
-    }
-}
-
-// Media image alignment
-// -------------------------
 
 .media {
     > .pull-left {
