@@ -1,416 +1,393 @@
-// /*
-// * Name: Forms
-// * Notes: This partial needs to be BEMified (17/08)
-// -------------------------------------------------------------- */
+/*
+* Name: Forms
+* Notes: This partial needs to be BEMified (17/08)
+-------------------------------------------------------------- */
 
-// // Reset fonts for relevant elements
-// input,
-// button,
-// select,
-// textarea {
-//     font-family: inherit;
-//     font-size: inherit;
-//     line-height: inherit;
-// }
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
 
-// // Normalize non-controls
-// //
-// // Restyle and baseline non-control form elements.
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
 
-// fieldset {
-//     padding: 0;
-//     margin: 0;
-//     border: 0;
-//     // Chrome and Firefox set a `min-width: -webkit-min-content;` on fieldsets,
-//     // so we reset that to ensure it behaves more like a standard block element.
-//     // See https://github.com/twbs/bootstrap/issues/12359.
-//     min-width: 0;
-// }
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    // Chrome and Firefox set a `min-width: -webkit-min-content;` on fieldsets,
+    // so we reset that to ensure it behaves more like a standard block element.
+    // See https://github.com/twbs/bootstrap/issues/12359.
+    min-width: 0;
+}
 
-// legend {
-//     display: block;
-//     width: 100%;
-//     padding: 0;
-//     margin-bottom: $global-line-height-computed;
-//     font-size: $global-font-size-base * 1.5;
-//     line-height: inherit;
-//     color: $legend-color;
-//     border: 0;
-//     border-bottom: 1px solid $legend-border-color;
-// }
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: $global-line-height-computed;
+    font-size: $global-font-size-base * 1.5;
+    line-height: inherit;
+    color: $legend-color;
+    border: 0;
+    border-bottom: 1px solid $legend-border-color;
+}
 
-// label {
-//     display: inline-block;
-//     margin-bottom: .5rem;
-//     font-weight: bold;
-//     font-size: $global-font-size-sm;
-//     &.required {
-//         &:after {
-//             content: '*';
-//             color: $brand-warning;
-//             position: relative;
-//             left: 2.5px;
-//         }
-//     }
-// }
-
-
-// // Normalize form controls
-// //
-// // While most of our form styles require extra classes, some basic normalization
-// // is required to ensure optimum display with or without those classes to better
-// // address browser inconsistencies.
-
-// input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"], select, textarea {
-//     -webkit-appearance: none;
-//     -moz-appearance: none;
-//     appearance: none;
-// }
-
-// // Override content-box in Normalize (* isn't specific enough)
-// input[type="search"] { box-sizing: border-box; }
-
-// // Position radios and checkboxes better
-// input[type="radio"],
-// input[type="checkbox"] {
-//     width: 16px;
-//     height: 16px;
-//     margin-top: 4px;
-//     margin-top: 1px \9;
-//     line-height: normal;
-//     position: relative;
-//     transition: .25s border ease-in-out, .25s background-color ease-in-out;
-//     .gt-ie8 & {
-//         background-color: $brand-white;
-//         -webkit-appearance: none;
-//         appearance: none;
-//         border: 2px solid;
-//         border-radius: 10em;
-//         &:focus { outline: none; }
-//         &:hover { cursor: pointer; }
-//         &:disabled { border: 2px solid $brand-disabled; }
-//     }
-//     border-color: $brand-primary;
-//     .lt-ie9 & { border: none; }
-//     @include respond-max($global-screen-sm) {
-//         width: 1.15em;
-//         height: 1.15em;
-//         margin-top: 4px;
-//     }
-// }
-
-// input[type="checkbox"]:checked {
-//     @extend %icon;
-//     @extend %icon--ok;
-//     background-color: $brand-primary;
-//     &:before {
-//         content: "";
-//         position: absolute;
-//         color: $brand-white;
-//         font-size: $global-font-size-xxs;
-//         left: 1px;
-//         top: 0;
-//         line-height: $global-line-height-sm;
-//     }
-// }
-
-// input[type="radio"]:checked {
-//     border-width: .5rem;
-//     transition: .25s border ease-in-out;
-// }
-
-// input[type="password"] {
-//     .lt-ie9 & { font-family: Arial; }
-// }
-
-// // In Mobile Safari, date inputs require a pixel line-height that matches the
-// // given height of the input.
-// input[type="date"] { line-height: $global-input-height-base; }
-
-// // Set the height of file controls to match text inputs
-// input[type="file"] {
-//     display: block;
-//     -webkit-appearance: none;
-//     appearance: none;
-//     &::-webkit-file-upload-button {
-//         -webkit-appearence: none;
-//         cursor: pointer;
-//         font-size: inherit;
-//         font-family: inherit;
-//         line-height: inherit;
-//         outline: 0;
-//         border: 0;
-//         padding-left: 0;
-//         padding-right: 0.5em;
-//         background: transparent;
-//         color: $brand-primary;
-//     }
-// }
-
-// // Make range inputs behave like textual form controls
-// input[type="range"] {
-//     display: block;
-//     width: 100%;
-// }
-
-// // Focus for file, radio, and checkbox
-// input[type="file"],
-// input[type="radio"],
-// input[type="checkbox"] {
-//     &:focus { outline: 0; }
-// }
-
-// // Make multiple select elements height not fixed
-
-// select { height: 2.65em; }
-// select[multiple], select[size] { height: auto; }
-
-// select, .form-control--select2, %form-control--select2 {
-//     background-repeat: no-repeat;
-//     background-position: right 1rem center;
-//     background-size: .75em;
-//     background-image: url('../images/miscellaneous/dropdown-arrow.svg');
-//     .no-svg & { background-image: url('../images/miscellaneous/dropdown-arrow.png'); }
-//     .no-bgpositionshorthand & { background-position: 98% 50%; }
-//     .lt-ie9 & { background-image: none; }
-// }
-
-// // Adjust output element
-// output {
-//     display: block;
-//     padding-top: $global-padding-vertical-base + 1;
-//     font-size: $global-font-size-base;
-//     line-height: $global-line-height-base;
-//     color: $global-input-color;
-// }
-
-// .form {
-//     // @include guttering;
-//     &:last-child { margin-bottom: 0; }
-// }
-
-// // Common form controls
-// //
-// // Shared size and type resets for form controls. Apply `.form-control` to any
-// // of the following form controls:
-// //
-// // select
-// // textarea
-// // input[type="text"]
-// // input[type="password"]
-// // input[type="datetime"]
-// // input[type="datetime-local"]
-// // input[type="date"]
-// // input[type="month"]
-// // input[type="time"]
-// // input[type="week"]
-// // input[type="number"]
-// // input[type="email"]
-// // input[type="url"]
-// // input[type="search"]
-// // input[type="tel"]
-// // input[type="color"]
-
-// .form-control, .form__control {
-//     display: block;
-//     width: 100%;
-//     padding: $global-padding-vertical-base $global-padding-horizontal-base;
-//     font-size: $global-font-size-base;
-//     line-height: $global-line-height-base;
-//     background-color: $global-input-bg;
-//     border: 2px solid darken($global-input-bg, 7.5%);
-//     border-radius: $global-input-border-radius;
-//     transition: border-color ease-in-out .15s;
-//     color: $brand-text;
-//     @include form-control-focus;
-//     @include placeholder;
-//     @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
-//     &[disabled],
-//     &[readonly],
-//     fieldset[disabled] & {
-//         background-color: $global-input-bg-disabled;
-//         opacity: 1;
-//     }
-
-//     // Oh IE, you really are shit.
-//     .ie & { padding-bottom: .45em; }
-
-//     .lt-ie9 & { height: 42px; }
-// }
-
-// .form-control--stacked, .form__control--stacked {
-//     @include respond-max($global-screen-md) { margin-bottom: $global-guttering/2; }
-// }
-
-// .form-control--inverse, .form__control--inverse { background-color: $brand-white; }
-
-// // Reset height for `textarea`s
-// textarea.form-control, textarea.form__control {
-//     height: auto;
-//     resize: vertical;
-//     overflow: auto;
-//     .lt-ie9 & { height: auto; }
-// }
-
-// .form-control--no-resize, .form__control--no-resize { resize: none; }
-
-// //// Checkboxes and radios
-// .radio,
-// .checkbox {
-//     position: relative;
-//     display: block;
-//     margin: .5rem 0;
-//     // clear the floating input if there is no label text
-//     label {
-//         padding-left: 2.5rem;
-//         margin-bottom: 0;
-//         font-weight: normal;
-//         font-size: $global-font-size-base;
-//         cursor: pointer;
-//         width: 100%;
-//         @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
-//     }
-// }
-
-// .radio--inline,
-// .checkbox--inline {
-//     @include inline-block;
-//     margin: 0;
-//     vertical-align: middle;
-//     font-weight: normal;
-//     cursor: pointer;
-//     padding-top: .55em;
-//     padding-bottom: .55em;
-//     padding-left: 2.5rem;
-//     margin-right: $global-guttering/2;
-//     &:last-child { margin-right: 0; }
-//     .lt-ie9 & { white-space: nowrap; }
-// }
-
-// .radio input[type="radio"],
-// .radio--inline input[type="radio"],
-// .checkbox input[type="checkbox"],
-// .checkbox--inline input[type="checkbox"] {
-//     position: absolute;
-//     margin-left: -2.5rem;
-//     .lt-ie9 & { outline: 0; }
-// }
-
-// .radio--small,
-// .checkbox--small {
-//     font-size: 85%;
-//     padding-left: 22.5px;
-//     input[type="radio"], input[type="checkbox"] {
-//         margin-top: 4px;
-//         margin-left: -22.5px;
-//     }
-//     label { padding: 0.25em 0 .25em 2rem; }
-// }
-
-// .radio + .radio,
-// .checkbox + .checkbox { margin-top: -.5rem; }
-
-// .radio--inline + .radio--inline,
-// .checkbox--inline + .checkbox--inline { margin-top: 0; }
-
-// // Form control sizing
-// //
-// // Build on `.form-control` with modifier classes to decrease or increase the
-// // height and font-size of form controls.
-
-// @include input-size(".input-sm", $global-input-height-sm, $global-padding-vertical-sm, $global-padding-horizontal-sm, $global-font-size-sm, $global-line-height-sm, $global-border-radius-sm);
-// @include input-size(".input-lg", $global-input-height-lg, $global-padding-vertical-lg, $global-padding-horizontal-lg, $global-font-size-lg, $global-line-height-lg, $global-border-radius-lg);
-
-// // Form control feedback states
-// //
-// // Apply contextual and semantic states to individual form controls.
-
-// .has-feedback {
-//     // Enable absolute positioning
-//     position: relative;
-//     // Ensure icons don't overlap text
-//     .form-control {
-//         padding-right: $global-input-height-base * 1.25;
-//     }
-//     // Feedback icon (requires .glyphicon classes)
-//     .form-control-feedback {
-//         position: absolute;
-//         top: $global-line-height-computed + 5;
-//         // Height of the `label` and its margin
-//         right: 0;
-//         display: block;
-//         width: $global-input-height-base;
-//         height: $global-input-height-base;
-//         line-height: $global-input-height-base;
-//         text-align: center;
-//     }
-// }
-
-// // Feedback states
-// .has-success { @include form-control-validation($brand-success, $brand-success, $brand-success); }
-// .has-warning { @include form-control-validation($brand-warning, $brand-warning, $brand-warning); }
-// .has-error { @include form-control-validation($brand-danger, $brand-danger, $brand-danger); }
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-weight: bold;
+    font-size: $global-font-size-sm;
+    &.required {
+        &:after {
+            content: '*';
+            color: $brand-primary;
+            position: relative;
+            left: 2.5px;
+        }
+    }
+}
 
 
-// // Inline forms
-// //
-// // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
-// // forms begin stacked on extra small (mobile) devices and then go inline when
-// // viewports reach <768px.
-// //
-// // Requires wrapping inputs and labels with `.form-group` for proper display of
-// // default HTML form controls and our custom form controls (e.g., input groups).
-// //
-// // Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
 
-// .form-inline, .form--inline {
-//     // Kick in the inline
-//     @include respond-min($global-screen-sm-min) {
-//         // Inline-block all the things for "inline"
-//         .form-group {
-//             display: inline-block;
-//             margin-bottom: 0;
-//             vertical-align: middle;
-//         }
-//         // In navbar-form, allow folks to *not* use `.form-group`
-//         .form-control {
-//             display: inline-block;
-//             width: auto;
-//             // Prevent labels from stacking above inputs in `.form-group`
-//             vertical-align: middle;
-//         }
-//         .control-label {
-//             margin-bottom: 0;
-//             vertical-align: middle;
-//         }
-//         // Remove default margin on radios/checkboxes that were used for stacking, and
-//         // then undo the floating of radios and checkboxes to match (which also avoids
-//         // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
-//         .radio,
-//         .checkbox {
-//             display: inline-block;
-//             margin-top: 0;
-//             margin-bottom: 0;
-//             padding-left: 0;
-//             vertical-align: middle;
-//         }
-//         .radio input[type="radio"],
-//         .checkbox input[type="checkbox"] {
-//             float: none;
-//             margin-left: 0;
-//         }
-//         // Validation states
-//         //
-//         // Reposition the icon because it's now within a grid column and columns have
-//         // `position: relative;` on them. Also accounts for the grid gutter padding.
-//         .has-feedback .form-control-feedback { top: 0; }
-//     }
-// }
+input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"], select, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
-// // Horizontal forms
-// //
-// // Horizontal forms are built on grid classes and allow you to create forms with
-// // labels on the left and inputs on the right.
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] { box-sizing: border-box; }
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-top: 1px \9;
+    line-height: normal;
+    position: relative;
+    transition: .25s border ease-in-out, .25s background-color ease-in-out;
+    .gt-ie8 & {
+        background-color: $brand-white;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 2px solid;
+        border-radius: 10em;
+        &:focus { outline: none; }
+        &:hover { cursor: pointer; }
+        &:disabled { border: 2px solid $brand-disabled; }
+    }
+    border-color: $brand-primary;
+    .lt-ie9 & { border: none; }
+    @include respond-max($global-screen-sm) {
+        width: 1.15em;
+        height: 1.15em;
+        margin-top: 4px;
+    }
+}
+
+input[type="checkbox"]:checked {
+    @extend %icon;
+    @extend %icon--ok;
+    background-color: $brand-primary;
+    &:before {
+        content: "";
+        position: absolute;
+        color: $brand-white;
+        font-size: $global-font-size-xxs;
+        left: 1px;
+        top: 0;
+        line-height: $global-line-height-sm;
+    }
+}
+
+input[type="radio"]:checked {
+    border-width: .5rem;
+    transition: .25s border ease-in-out;
+}
+
+input[type="password"] {
+    .lt-ie9 & { font-family: Arial; }
+}
+
+// In Mobile Safari, date inputs require a pixel line-height that matches the
+// given height of the input.
+input[type="date"] { line-height: $global-input-height-base; }
+
+// Set the height of file controls to match text inputs
+input[type="file"] {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    &::-webkit-file-upload-button {
+        -webkit-appearence: none;
+        cursor: pointer;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        outline: 0;
+        border: 0;
+        padding-left: 0;
+        padding-right: 0.5em;
+        background: transparent;
+        color: $brand-primary;
+    }
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+    display: block;
+    width: 100%;
+}
+
+// Focus for file, radio, and checkbox
+input[type="file"],
+input[type="radio"],
+input[type="checkbox"] {
+    &:focus { outline: 0; }
+}
+
+// Make multiple select elements height not fixed
+select {
+    height: 2.65em;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: .75em;
+    background-image: url('../images/miscellaneous/dropdown-arrow.svg');
+    .no-svg & { background-image: url('../images/miscellaneous/dropdown-arrow.png'); }
+    .no-bgpositionshorthand & { background-position: 98% 50%; }
+    .lt-ie9 & { background-image: none; }
+}
+
+select[multiple], select[size] { height: auto; }
+
+
+.form {
+    // @include guttering;
+    &:last-child { margin-bottom: 0; }
+}
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control, .form__control {
+    display: block;
+    width: 100%;
+    padding: $global-guttering/2.4 $global-guttering/1.5;
+    font-size: $global-font-size-base;
+    line-height: $global-line-height-base;
+    background-color: $global-input-bg;
+    border: 2px solid darken($global-input-bg, 7.5%);
+    transition: border-color ease-in-out .15s;
+    color: $brand-text;
+    @include form-control-focus;
+    @include placeholder;
+    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        background-color: $global-input-bg-disabled;
+        opacity: 1;
+    }
+
+    // Oh IE, you really are shit.
+    .ie & { padding-bottom: .45em; }
+
+    .lt-ie9 & { height: 42px; }
+}
+
+.form-control--stacked, .form__control--stacked {
+    @include respond-max($global-screen-md) { margin-bottom: $global-guttering/2; }
+}
+
+.form-control--inverse, .form__control--inverse { background-color: $brand-white; }
+
+// Reset height for `textarea`s
+textarea.form-control, textarea.form__control {
+    height: auto;
+    resize: vertical;
+    overflow: auto;
+    .lt-ie9 & { height: auto; }
+}
+
+.form-control--no-resize, .form__control--no-resize { resize: none; }
+
+//// Checkboxes and radios
+.radio,
+.checkbox {
+    position: relative;
+    display: block;
+    margin: .5rem 0;
+    // clear the floating input if there is no label text
+    label {
+        padding-left: 2.5rem;
+        margin-bottom: 0;
+        font-weight: normal;
+        font-size: $global-font-size-base;
+        cursor: pointer;
+        width: 100%;
+        @include respond-max($global-screen-sm) { font-size: $global-font-size-sm; }
+    }
+}
+
+.radio--inline,
+.checkbox--inline {
+    @include inline-block;
+    margin: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+    padding-top: .55em;
+    padding-bottom: .55em;
+    padding-left: 2.5rem;
+    margin-right: $global-guttering/2;
+    &:last-child { margin-right: 0; }
+    .lt-ie9 & { white-space: nowrap; }
+}
+
+.radio input[type="radio"],
+.radio--inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox--inline input[type="checkbox"] {
+    position: absolute;
+    margin-left: -2.5rem;
+    .lt-ie9 & { outline: 0; }
+}
+
+.radio--small,
+.checkbox--small {
+    font-size: 85%;
+    padding-left: 22.5px;
+    input[type="radio"], input[type="checkbox"] {
+        margin-top: 4px;
+        margin-left: -22.5px;
+    }
+    label { padding: 0.25em 0 .25em 2rem; }
+}
+
+.radio + .radio,
+.checkbox + .checkbox { margin-top: -.5rem; }
+
+.radio--inline + .radio--inline,
+.checkbox--inline + .checkbox--inline { margin-top: 0; }
+
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls.
+
+.has-feedback {
+    // Enable absolute positioning
+    position: relative;
+    // Ensure icons don't overlap text
+    .form-control {
+        padding-right: $global-input-height-base * 1.25;
+    }
+    // Feedback icon (requires .glyphicon classes)
+    .form-control-feedback {
+        position: absolute;
+        top: $global-line-height-computed + 5;
+        // Height of the `label` and its margin
+        right: 0;
+        display: block;
+        width: $global-input-height-base;
+        height: $global-input-height-base;
+        line-height: $global-input-height-base;
+        text-align: center;
+    }
+}
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+//
+// Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+
+.form-inline, .form--inline {
+    // Kick in the inline
+    @include respond-min($global-screen-sm-min) {
+        // Inline-block all the things for "inline"
+        .form-group {
+            display: inline-block;
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+        // In navbar-form, allow folks to *not* use `.form-group`
+        .form-control {
+            display: inline-block;
+            width: auto;
+            // Prevent labels from stacking above inputs in `.form-group`
+            vertical-align: middle;
+        }
+        .control-label {
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+        // Remove default margin on radios/checkboxes that were used for stacking, and
+        // then undo the floating of radios and checkboxes to match (which also avoids
+        // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+        .radio,
+        .checkbox {
+            display: inline-block;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            vertical-align: middle;
+        }
+        .radio input[type="radio"],
+        .checkbox input[type="checkbox"] {
+            float: none;
+            margin-left: 0;
+        }
+        // Validation states
+        //
+        // Reposition the icon because it's now within a grid column and columns have
+        // `position: relative;` on them. Also accounts for the grid gutter padding.
+        .has-feedback .form-control-feedback { top: 0; }
+    }
+}
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
 
 // .form-horizontal, .form--horizontal {
 //     // Consistent vertical alignment of labels, radios, and checkboxes
@@ -449,29 +426,23 @@
 //     }
 // }
 
-// .control-label--block {
-//     float: left;
-//     display: block;
-//     width: 100%;
-// }
 
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
 
-// // Help text
-// //
-// // Apply to any element you wish to create light text for placement immediately
-// // below a form control. Use for general help, formatting, or instructional text.
+.form-support, .form__support {
+    display: block;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    color: $text-muted;
+}
 
-// .form-support, .form__support {
-//     display: block;
-//     margin-top: .5rem;
-//     margin-bottom: 1rem;
-//     color: $text-muted;
-// }
-
-// // Format .form-support underneath a label
-// .control-label {
-//     label + .form-support {
-//         margin-top: -5px;
-//         margin-bottom: 0;
-//     }
-// }
+// Format .form-support underneath a label
+.control-label {
+    label + .form-support {
+        margin-top: -5px;
+        margin-bottom: 0;
+    }
+}

@@ -3,6 +3,9 @@
 * Note: N/A
 -------------------------------------------------------------- */
 
+$content-intro-font-size-lg: 2.4rem;
+$content-intro-font-size-sm: 2rem;
+
 .content {
     blockquote {
         margin: $global-guttering*2 0;
@@ -12,4 +15,7 @@
     }
 }
 
-.content__intro { font-size: $global-font-size-xl; }
+.content__intro { 
+    font-size: $content-intro-font-size-lg; 
+    @include respond-max($global-screen-sm) { font-size: $content-intro-font-size-sm; }
+}

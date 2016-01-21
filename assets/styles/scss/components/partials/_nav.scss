@@ -12,10 +12,18 @@
 }
 
 .nav--primary {
-    @include respond-min($global-screen-md) { float: right; }
+    overflow: hidden;
+    @include respond-min($global-screen-sm) { float: right; }
+    .nav__list { margin: 0; }
     .nav__item { 
         font-family: $global-headings-font-family; 
         margin-right: $global-guttering*2;
+        @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+        @include respond-max($global-screen-sm) { 
+            margin-left: $global-guttering; 
+            margin-right: 0;
+            padding: .5rem;
+        }
     }
     .nav__link {
         color: $brand-white;

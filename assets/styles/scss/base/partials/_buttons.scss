@@ -24,7 +24,7 @@ $btn-state-color: $brand-white;
     white-space: nowrap;
     font-size: $global-font-size-base;
     user-select: none;
-    padding: 1rem 2.4rem;
+    padding: $global-guttering/2.4 $global-guttering;
     text-decoration: none;
     line-height: $global-line-height-base;
     @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
