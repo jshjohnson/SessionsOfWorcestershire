@@ -8,9 +8,9 @@ $hero-alert-offset: $global-guttering*2;
 
 .hero {
     position: relative;
-    min-height: 300px;
-    max-height: 600px;
-    @include respond-min($global-screen-md) { height: 75vh; }
+    // min-height: 300px;
+    // max-height: 600px;
+    // @include respond-min($global-screen-md) { height: 75vh; }
 }
 
 .hero--tint {
@@ -36,9 +36,7 @@ $hero-alert-offset: $global-guttering*2;
 
 .hero__title {
     position: relative;
-    // display: table-cell;
-    vertical-align: middle;
-    padding-top: $global-guttering*4;
+    padding-bottom: $global-guttering*5;
     margin: auto;
     width: 100%;
     font-size: $global-font-size-lead;
@@ -47,7 +45,9 @@ $hero-alert-offset: $global-guttering*2;
     text-shadow: 0 1px 4px rgba($brand-black, .25);
     z-index: 1;
     @include respond-max($global-screen-md) { 
-        font-size: $global-font-size-lead/1.5; 
-        vertical-align: bottom;
+        font-size: $global-font-size-lead/1.25;
+        padding-top: $global-guttering*4;
+        padding-bottom: $global-guttering; 
     }
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-lead/1.75; }
 }

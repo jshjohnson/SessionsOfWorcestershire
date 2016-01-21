@@ -5,11 +5,14 @@
 -------------------------------------------------------------- */
 
 $section-alert-offset: 4.8rem;
+$section-alert-offset-sm: 4.2rem;
 
 .section {
     display: block;
     width: 100%;
     padding: $global-guttering*1.25 $global-guttering;
+    background-size: cover;
+    background-position: center center;
     @include respond-min($global-screen-sm) { padding: $global-guttering*2; }
 }
 
@@ -38,6 +41,6 @@ $section-alert-offset: 4.8rem;
 }
 
 .section--offset-alert { 
-    padding-top: $global-guttering*1.25 + $section-alert-offset;
+    padding-top: $global-guttering*1.25 + $section-alert-offset-sm;
     @include respond-min($global-screen-sm) { padding-top: $global-guttering*2 + $section-alert-offset; }
 }

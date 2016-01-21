@@ -14,7 +14,7 @@
 .nav--primary {
     overflow: hidden;
     @include respond-min($global-screen-sm) { float: right; }
-    .nav__list { margin: 0; }
+    .nav__list { @include respond-max($global-screen-sm) { margin: 0; } }
     .nav__item { 
         font-family: $global-headings-font-family; 
         margin-right: $global-guttering*2;
