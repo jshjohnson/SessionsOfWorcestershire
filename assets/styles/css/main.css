@@ -2066,7 +2066,7 @@ svg {
   position: fixed;
   margin: 0;
   padding: 0;
-  z-index: 1040;
+  z-index: 1050;
   right: 2.4rem;
   bottom: 2.4rem;
   text-align: center; }
@@ -2126,13 +2126,6 @@ svg {
 
 .section--highlight {
   background-color: #f2eeb3; }
-
-.section--overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1; }
 
 .section--offset-alert {
   padding-top: 7.2rem; }
@@ -2225,11 +2218,11 @@ svg {
   bottom: 0;
   background-color: #641c31;
   opacity: .75;
-  z-index: 0; }
+  z-index: 1000; }
 
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 1010;
   display: inline-block;
   width: 100%; }
 
@@ -2240,7 +2233,7 @@ svg {
   color: white;
   text-align: center;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  z-index: 1; }
+  z-index: 1010; }
 
 .hero__title {
   padding-bottom: 12rem;
@@ -2310,7 +2303,7 @@ svg {
   left: 0;
   right: 0;
   top: 0;
-  z-index: 9999; }
+  z-index: 1010; }
 
 /* ==========================================================================
    Utilities

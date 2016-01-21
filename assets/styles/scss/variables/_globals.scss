@@ -161,27 +161,7 @@ $global-grid-gutter-width: 2.8rem;
 -------------------------------------------------------------- */
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
-$global-zindex-dropdown: 1000;
-$global-zindex-tooltip: 1040;
-$global-zindex-modal-background: 1040;
-$global-zindex-modal: 1050;
-$global-zindex-modal-tooltip: 1060;
-$global-zindex-back-to-top: 1040;
-$global-zindex-calendar-table: 1000;
-$global-zindex-calendar-entry: 1030;
-$global-zindex-window-fade: 1000;
-$global-zindex-window-head: 1010;
-$global-zindex-header-nav: 1030;
-$global-zindex-overlay: 1050;
-$global-zindex-transient-area: 1050;
-$global-zindex-transient-toggle: 1050;
-$global-zindex-tab-menu: 1020;
-$global-zindex-tab-visible: 1000;
-$global-zindex-tab-hidden: -1000;
-$global-zindex-data-graph-outer: 1000;
-$global-zindex-data-graph-inner: 1010;
-$global-zindex-popover: 1050;
-$global-zindex-popover-focus: 1010;
-$global-zindex-popover-icon: 1000;
-$global-zindex-component-head: 1000;
-$global-zindex-notification: 1000;
+$global-zindex-alert: 1010;
+$global-zindex-back-to-top: 1050;
+$global-zindex-hero-tint: 1000;
+$global-zindex-hero-content: 1010;

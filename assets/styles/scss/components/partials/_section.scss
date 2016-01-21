@@ -32,14 +32,6 @@ $section-alert-offset-sm: 4.2rem;
 }
 .section--highlight { background-color: $brand-highlight; }
 
-.section--overlay { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
 .section--offset-alert { 
     padding-top: $global-guttering*1.25 + $section-alert-offset-sm;
     @include respond-min($global-screen-sm) { padding-top: $global-guttering*2 + $section-alert-offset; }
