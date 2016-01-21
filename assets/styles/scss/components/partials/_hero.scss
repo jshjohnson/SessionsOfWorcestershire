@@ -34,20 +34,27 @@ $hero-alert-offset: $global-guttering*2;
     width: 100%;
 }
 
-.hero__title {
+.hero__title, .hero__sub {
     position: relative;
-    padding-bottom: $global-guttering*5;
     margin: auto;
     width: 100%;
-    font-size: $global-font-size-lead;
     color: $brand-white;
     text-align: center;
     text-shadow: 0 1px 4px rgba($brand-black, .25);
     z-index: 1;
+}
+
+.hero__title {
+    padding-bottom: $global-guttering*5;
+    font-size: $global-font-size-lead;
     @include respond-max($global-screen-md) { 
         font-size: $global-font-size-lead/1.25;
         padding-top: $global-guttering*4;
         padding-bottom: $global-guttering; 
     }
     @include respond-max($global-screen-sm) { font-size: $global-font-size-lead/1.75; }
+}
+
+.hero__sub {
+
 }

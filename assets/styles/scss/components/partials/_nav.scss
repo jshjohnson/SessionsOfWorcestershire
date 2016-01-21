@@ -29,7 +29,12 @@
         color: $brand-white;
         opacity: 0.75;
         text-decoration: none;
-        @include on-interaction { color: $brand-white; }
+        transition: opacity .2s ease-in-out;
+        @include on-interaction { 
+            color: $brand-white;
+            opacity: 1;
+            transition: opacity .2s ease-in-out;
+        }
     }
     .nav__link--active { opacity: 1; }
 }

@@ -6,12 +6,39 @@
 $content-intro-font-size-lg: 2.4rem;
 $content-intro-font-size-sm: 2rem;
 
+$content-quote-size: 20px;
+$content-quote-gutter: 5px;
+
 .content {
     blockquote {
-        margin: $global-guttering*2 0;
+        position: relative;
+        margin: $global-guttering*2 0 $global-guttering*2 $global-guttering;
         font-size: $global-font-size-lg;
         font-style: italic;
-        cite { font-size: $global-font-size-base; }
+        p {
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                width: $content-quote-size;
+                height: $content-quote-size;
+                background-repeat: no-repeat;
+                background-size: $content-quote-size;
+            }
+            &:before {
+                background-image: url('/assets/images/misc/open-quote.svg');
+                top: 0;
+                left: -($content-quote-size + $content-quote-gutter);
+            }
+            &:after { 
+                background-image: url('/assets/images/misc/close-quote.svg'); 
+                margin-top: $content-quote-gutter/2;
+                margin-left: $content-quote-gutter;
+            }
+        }
+        cite { 
+            font-size: $global-font-size-base; 
+            font-weight: 600;
+        }
     }
 }
 
