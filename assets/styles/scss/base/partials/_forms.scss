@@ -214,7 +214,10 @@ select[multiple], select[size] { height: auto; }
     color: $brand-text;
     @include form-control-focus;
     @include placeholder;
-    @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+    @include respond-max($global-screen-md) { 
+        font-size: $global-font-size-sm;
+        padding: $global-guttering/3 $global-guttering/1.5;
+    }
     &[disabled],
     &[readonly],
     fieldset[disabled] & {

@@ -1718,7 +1718,8 @@ select[multiple], select[size] {
     color: #7d838a; }
   @media (max-width: 999px) {
     .form-control, .form__control {
-      font-size: 1.6rem; } }
+      font-size: 1.6rem;
+      padding: 0.8rem 1.6rem; } }
   .form-control[disabled], .form-control[readonly],
   fieldset[disabled] .form-control, .form__control[disabled], .form__control[readonly],
   fieldset[disabled] .form__control {
@@ -2286,7 +2287,7 @@ svg {
 * Note: N/A
 -------------------------------------------------------------- */
 .alert {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.35);
   color: white;
   text-align: center;
   padding: 1rem;
