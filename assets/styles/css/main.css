@@ -2191,6 +2191,7 @@ svg {
         margin-left: 1.2rem;
         padding: .5rem; } }
   .nav--primary .nav__link {
+    position: relative;
     color: white;
     opacity: 0.75;
     text-decoration: none;
@@ -2201,6 +2202,16 @@ svg {
       transition: opacity .2s ease-in-out; }
   .nav--primary .nav__link--active {
     opacity: 1; }
+    .nav--primary .nav__link--active:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      margin-left: -2.5px;
+      width: 5px;
+      height: 5px;
+      border-radius: 10px;
+      background-color: white; }
 
 /*
 * Name: Hero
@@ -2300,7 +2311,7 @@ svg {
       height: 4.2rem; } }
 
 .alert--overlay {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
