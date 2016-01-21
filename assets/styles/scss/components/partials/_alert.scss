@@ -13,6 +13,7 @@ $alert-height-sm: 4.2rem;
     padding: $global-guttering/2.4;
     display: inline-block;
     height: $alert-height;
+    text-shadow: 0 1px 4px rgba($brand-black, .25);
     @include respond-max($global-screen-sm) { 
         font-size: $global-font-size-xs; 
         height: $alert-height-sm;
@@ -20,7 +21,7 @@ $alert-height-sm: 4.2rem;
 }
 
 .alert--overlay {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;

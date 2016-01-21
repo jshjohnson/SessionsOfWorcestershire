@@ -18,10 +18,13 @@
     .nav__item { 
         font-family: $global-headings-font-family; 
         margin-right: $global-guttering*2;
-        @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
-        @include respond-max($global-screen-sm) { 
+        @include respond-max($global-screen-md) { 
             margin-left: $global-guttering; 
             margin-right: 0;
+            font-size: $global-font-size-sm; 
+        }
+        @include respond-max($global-screen-sm) { 
+            margin-left: $global-guttering/2; 
             padding: .5rem;
         }
     }
