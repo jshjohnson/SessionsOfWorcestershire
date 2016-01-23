@@ -1610,7 +1610,7 @@ input[type="checkbox"] {
     background-color: white;
     -webkit-appearance: none;
     appearance: none;
-    border: 2px solid;
+    border: 2px solid #641c31;
     border-radius: 10em; }
     .gt-ie8 input[type="radio"]:focus, .gt-ie8
     input[type="checkbox"]:focus {
@@ -1757,7 +1757,7 @@ textarea.form-control, textarea.form__control {
   margin: .5rem 0; }
   .radio label,
   .checkbox label {
-    padding-left: 2.5rem;
+    padding-left: 3rem;
     margin-bottom: 0;
     font-weight: normal;
     font-size: 1.8rem;
@@ -1796,25 +1796,12 @@ textarea.form-control, textarea.form__control {
 .checkbox input[type="checkbox"],
 .checkbox--inline input[type="checkbox"] {
   position: absolute;
-  margin-left: -2.5rem; }
+  top: 0; }
   .lt-ie9 .radio input[type="radio"], .lt-ie9
   .radio--inline input[type="radio"], .lt-ie9
   .checkbox input[type="checkbox"], .lt-ie9
   .checkbox--inline input[type="checkbox"] {
     outline: 0; }
-
-.radio--small,
-.checkbox--small {
-  font-size: 85%;
-  padding-left: 22.5px; }
-  .radio--small input[type="radio"], .radio--small input[type="checkbox"],
-  .checkbox--small input[type="radio"],
-  .checkbox--small input[type="checkbox"] {
-    margin-top: 4px;
-    margin-left: -22.5px; }
-  .radio--small label,
-  .checkbox--small label {
-    padding: 0.25em 0 .25em 2rem; }
 
 .radio + .radio,
 .checkbox + .checkbox {

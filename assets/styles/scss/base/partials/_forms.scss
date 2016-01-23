@@ -84,7 +84,7 @@ input[type="checkbox"] {
         background-color: $brand-white;
         -webkit-appearance: none;
         appearance: none;
-        border: 2px solid;
+        border: 2px solid $brand-primary;
         border-radius: 10em;
         &:focus { outline: none; }
         &:hover { cursor: pointer; }
@@ -256,7 +256,7 @@ textarea.form-control, textarea.form__control {
     margin: .5rem 0;
     // clear the floating input if there is no label text
     label {
-        padding-left: 2.5rem;
+        padding-left: $global-guttering*1.25;
         margin-bottom: 0;
         font-weight: normal;
         font-size: $global-font-size-base;
@@ -286,20 +286,10 @@ textarea.form-control, textarea.form__control {
 .checkbox input[type="checkbox"],
 .checkbox--inline input[type="checkbox"] {
     position: absolute;
-    margin-left: -2.5rem;
+    top: 0;
     .lt-ie9 & { outline: 0; }
 }
 
-.radio--small,
-.checkbox--small {
-    font-size: 85%;
-    padding-left: 22.5px;
-    input[type="radio"], input[type="checkbox"] {
-        margin-top: 4px;
-        margin-left: -22.5px;
-    }
-    label { padding: 0.25em 0 .25em 2rem; }
-}
 
 .radio + .radio,
 .checkbox + .checkbox { margin-top: -.5rem; }
