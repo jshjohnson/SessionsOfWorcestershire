@@ -13,9 +13,17 @@ $content-quote-gutter: 5px;
     blockquote {
         position: relative;
         margin: $global-guttering*2 0 $global-guttering*2 $global-guttering;
+        padding: $global-guttering*2;
         font-size: $global-font-size-lg;
         font-style: italic;
+        border-top: 1px solid $brand-keyline;
+        border-bottom: 1px solid $brand-keyline;
+        @include respond-max($global-screen-xs) { 
+            padding-left: 0; 
+            padding-right: 0; 
+        }
         p {
+            position: relative;
             &:before, &:after {
                 content: "";
                 position: absolute;

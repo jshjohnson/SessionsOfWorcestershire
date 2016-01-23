@@ -23,9 +23,9 @@ body {
     line-height: $global-line-height-base;
     font-family: $global-font-family-base;
     font-size: 18px;
-    // font-size: $global-font-size-base;
     overflow-x: hidden;
-    background-color: $brand-body-bg;
+    // background-color: $brand-body-bg;
+    background: linear-gradient(to bottom, $brand-primary 0%, $brand-primary 50%, $brand-highlight 51%, $brand-highlight 100%);
     color: $brand-text;
     @include respond-max($global-screen-sm) { font-size: 16px; }
 }

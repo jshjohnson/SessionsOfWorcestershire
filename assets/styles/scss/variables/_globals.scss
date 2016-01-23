@@ -8,10 +8,11 @@
 
 // Greyscale
 $brand-black: black;
-$brand-grey-dark: #3d3d3d;
-$brand-grey: #4e4e4e;
-$brand-grey-light: #7d838a;
-$brand-grey-lighter: #f9f9f9;
+$brand-grey: #d9d9d6;
+$brand-grey-dark: darken($brand-grey, 20%);
+$brand-grey-dark: darken($brand-grey, 10%);
+$brand-grey-light: lighten($brand-grey, 10%);
+$brand-grey-lighter: lighten($brand-grey, 20%);
 $brand-white: white;
 
 // Palette

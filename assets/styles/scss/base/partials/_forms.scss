@@ -213,7 +213,7 @@ select[multiple], select[size] { height: auto; }
     transition: border-color ease-in-out .15s;
     color: $brand-text;
     @include form-control-focus;
-    @include placeholder;
+    @include placeholder($brand-text);
     @include respond-max($global-screen-md) { 
         font-size: $global-font-size-sm;
         padding: $global-guttering/3 $global-guttering/1.5;
@@ -227,7 +227,6 @@ select[multiple], select[size] { height: auto; }
 
     // Oh IE, you really are shit.
     .ie & { padding-bottom: .45em; }
-
     .lt-ie9 & { height: 42px; }
 }
 
@@ -386,49 +385,6 @@ textarea.form-control, textarea.form__control {
         .has-feedback .form-control-feedback { top: 0; }
     }
 }
-
-// Horizontal forms
-//
-// Horizontal forms are built on grid classes and allow you to create forms with
-// labels on the left and inputs on the right.
-
-// .form-horizontal, .form--horizontal {
-//     // Consistent vertical alignment of labels, radios, and checkboxes
-//     .control-label,
-//     .radio,
-//     .checkbox,
-//     .radio-inline,
-//     .checkbox-inline {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//     }
-//     // Account for padding we're adding to ensure the alignment and of help text
-//     // and other content below items
-//     .radio, .checkbox { min-height: 1em; }
-
-//     .form-control-static { padding-top: $global-padding-vertical-base + 1; }
-//     // Only right align form labels here when the columns stop stacking
-//     @include respond-min($global-screen-sm-min) { .control-label { text-align: right; } }
-//     // Validation states
-//     //
-//     // Reposition the icon because it's now within a grid column and columns have
-//     // `position: relative;` on them. Also accounts for the grid gutter padding.
-//     .has-feedback .form-control-feedback {
-//         top: 0;
-//         right: $global-grid-gutter-width / 2;
-//     }
-
-//     // Consistent vertical alignment of labels, radios, and checkboxes
-//     .control-label {
-//         @include respond-max($global-screen-sm-max) { margin-bottom: $global-guttering/3; }
-//     }
-
-//     .radio--inline, .checkbox--inline {
-//         padding-top: 0;
-//         padding-bottom: 0;
-//     }
-// }
-
 
 // Help text
 //
