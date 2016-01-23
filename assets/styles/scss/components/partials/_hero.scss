@@ -36,10 +36,10 @@ $hero-alert-offset: $global-guttering*2;
 .hero__inner--valign { display: table; }
 
 .hero__inner--push {
-    padding-bottom: $global-guttering*5;
+    margin-bottom: $global-guttering*5;
     @include respond-max($global-screen-lg) { 
-        padding-top: $global-guttering*4;
-        padding-bottom: $global-guttering; 
+        margin-top: $global-guttering*4;
+        margin-bottom: $global-guttering; 
     }
 }
 

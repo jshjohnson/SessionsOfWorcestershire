@@ -1707,7 +1707,8 @@ select[multiple], select[size] {
   border: 2px solid #ececec;
   border-radius: 0;
   transition: border-color ease-in-out .15s;
-  color: #50595c; }
+  color: #50595c;
+  margin-bottom: 2.4rem; }
   .form-control:focus, .form__control:focus {
     border-color: #641c31;
     outline: 0; }
@@ -2001,8 +2002,12 @@ svg {
   overflow: hidden;
   zoom: 1; }
 
+.media__heading {
+  margin-bottom: 0.6rem; }
+
 .media__object {
-  display: block; }
+  display: block;
+  width: auto; }
 
 .media > .pull-left {
   margin-right: 1em;
@@ -2210,7 +2215,7 @@ svg {
   @media (max-width: 769px) {
     .nav--primary .nav__item {
       margin-left: 2.4rem;
-      padding: .5rem; } }
+      display: none; } }
   @media (max-width: 479px) {
     .nav--primary .nav__item {
       margin-left: 1.2rem; } }
@@ -2278,11 +2283,11 @@ svg {
   display: table; }
 
 .hero__inner--push {
-  padding-bottom: 12rem; }
+  margin-bottom: 12rem; }
   @media (max-width: 1249px) {
     .hero__inner--push {
-      padding-top: 9.6rem;
-      padding-bottom: 2.4rem; } }
+      margin-top: 9.6rem;
+      margin-bottom: 2.4rem; } }
 
 .hero__title, .hero__sub {
   margin: auto;
@@ -2353,8 +2358,8 @@ svg {
     font-style: italic; }
     .content__quote cite:before {
       content: "—";
-      width: 2rem;
-      margin-left: -2rem;
+      width: 2.75rem;
+      margin-left: -2.75rem;
       padding-right: 1rem; }
   .content__quote .content__source {
     font-size: 1.6rem;
@@ -2544,6 +2549,14 @@ svg {
 
 @media (min-width: 480px) {
   .pull-right-xs {
+    float: right; } }
+
+@media (min-width: 770px) {
+  .pull-left-sm {
+    float: left; } }
+
+@media (min-width: 770px) {
+  .pull-right-sm {
     float: right; } }
 
 @media (min-width: 1000px) {

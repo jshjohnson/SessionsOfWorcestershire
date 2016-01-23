@@ -32,7 +32,7 @@
         }
         @include respond-max($global-screen-sm) { 
             margin-left: $global-guttering; 
-            padding: .5rem;
+            display: none;
         }
         @include respond-max($global-screen-xs) { margin-left: $global-guttering/2; }
     }

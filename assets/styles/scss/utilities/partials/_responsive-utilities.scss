@@ -114,6 +114,15 @@
     @include respond-min($global-screen-xs) { float: right; }
 }
 
+
+.pull-left-sm {
+    @include respond-min($global-screen-sm) { float: left; }
+}
+
+.pull-right-sm {
+    @include respond-min($global-screen-sm) { float: right; }
+}
+
 // Text changes
 .text-left-md {
     @include respond-min($global-screen-md) { text-align: right; }

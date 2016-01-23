@@ -12,7 +12,12 @@
     zoom: 1;
 }
 
-.media__object { display: block; }
+.media__heading { margin-bottom: $global-guttering/4; }
+
+.media__object { 
+    display: block; 
+    width: auto;
+}
 
 .media {
     > .pull-left {
