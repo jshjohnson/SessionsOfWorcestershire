@@ -5,6 +5,7 @@
 -------------------------------------------------------------- */
 
 $logo-dimensions: 160px;
+$logo-dimensions-lg: 140px;
 $logo-dimensions-md: 120px;
 $logo-dimensions-sm: 80px;
 
@@ -16,6 +17,10 @@ $logo-dimensions-sm: 80px;
     transition: all .2s ease-in-out;
     width: $logo-dimensions;
     height: $logo-dimensions;
+    @include respond-max($global-screen-lg) { 
+        width: $logo-dimensions-lg;
+        height: $logo-dimensions-lg;
+    }
     @include respond-max($global-screen-md) { 
         width: $logo-dimensions-md;
         height: $logo-dimensions-md;

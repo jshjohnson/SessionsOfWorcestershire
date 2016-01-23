@@ -1704,6 +1704,7 @@ select[multiple], select[size] {
   line-height: 1.6;
   background-color: white;
   border: 2px solid #ececec;
+  border-radius: 0;
   transition: border-color ease-in-out .15s;
   color: #50595c; }
   .form-control:focus, .form__control:focus {
@@ -2146,6 +2147,10 @@ svg {
   transition: all .2s ease-in-out;
   width: 160px;
   height: 160px; }
+  @media (max-width: 1249px) {
+    .logo__image {
+      width: 140px;
+      height: 140px; } }
   @media (max-width: 999px) {
     .logo__image {
       width: 120px;
@@ -2170,48 +2175,63 @@ svg {
   .nav:after {
     clear: both; }
 
-.nav--primary {
-  overflow: hidden; }
-  @media (min-width: 770px) {
-    .nav--primary {
-      float: right; } }
+@media (min-width: 1000px) {
+  .nav--primary {
+    float: right;
+    overflow: hidden; } }
+
+@media (min-width: 700px) {
+  .nav--primary {
+    text-align: right; } }
+
+@media (min-width: 480px) {
+  .nav--primary {
+    display: table-cell;
+    vertical-align: middle; } }
+
+@media (max-width: 769px) {
+  .nav--primary .nav__list {
+    margin: 0; } }
+
+.nav--primary .nav__item {
+  font-family: "Crimson Text", "Times New Roman", Times, serif;
+  margin-right: 4.8rem; }
+  @media (max-width: 999px) {
+    .nav--primary .nav__item {
+      margin-left: 4.8rem;
+      margin-right: 0;
+      font-size: 1.6rem; } }
   @media (max-width: 769px) {
-    .nav--primary .nav__list {
-      margin: 0; } }
-  .nav--primary .nav__item {
-    font-family: "Crimson Text", "Times New Roman", Times, serif;
-    margin-right: 4.8rem; }
-    @media (max-width: 999px) {
-      .nav--primary .nav__item {
-        margin-left: 2.4rem;
-        margin-right: 0;
-        font-size: 1.6rem; } }
-    @media (max-width: 769px) {
-      .nav--primary .nav__item {
-        margin-left: 1.2rem;
-        padding: .5rem; } }
-  .nav--primary .nav__link {
-    position: relative;
+    .nav--primary .nav__item {
+      margin-left: 2.4rem;
+      padding: .5rem; } }
+  @media (max-width: 479px) {
+    .nav--primary .nav__item {
+      margin-left: 1.2rem; } }
+
+.nav--primary .nav__link {
+  position: relative;
+  color: white;
+  opacity: 0.75;
+  text-decoration: none;
+  transition: opacity .2s ease-in-out; }
+  .nav--primary .nav__link:hover, .nav--primary .nav__link:active, .nav--primary .nav__link:focus {
     color: white;
-    opacity: 0.75;
-    text-decoration: none;
+    opacity: 1;
     transition: opacity .2s ease-in-out; }
-    .nav--primary .nav__link:hover, .nav--primary .nav__link:active, .nav--primary .nav__link:focus {
-      color: white;
-      opacity: 1;
-      transition: opacity .2s ease-in-out; }
-  .nav--primary .nav__link--active {
-    opacity: 1; }
-    .nav--primary .nav__link--active:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      margin-left: -2.5px;
-      width: 5px;
-      height: 5px;
-      border-radius: 10px;
-      background-color: white; }
+
+.nav--primary .nav__link--active {
+  opacity: 1; }
+  .nav--primary .nav__link--active:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -2.5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: white; }
 
 /*
 * Name: Hero
@@ -2235,7 +2255,7 @@ svg {
 .hero__inner {
   position: relative;
   z-index: 1010;
-  display: inline-block;
+  display: table;
   width: 100%; }
 
 .hero__title, .hero__sub {
@@ -2250,7 +2270,7 @@ svg {
 .hero__title {
   padding-bottom: 12rem;
   font-size: 6.2rem; }
-  @media (max-width: 999px) {
+  @media (max-width: 1249px) {
     .hero__title {
       font-size: 4.96rem;
       padding-top: 9.6rem;
@@ -2273,8 +2293,9 @@ svg {
   border-bottom: 1px solid #EAEAEA; }
   @media (max-width: 479px) {
     .content blockquote {
-      padding-left: 0;
-      padding-right: 0; } }
+      padding-left: 2.4rem;
+      padding-right: 0;
+      margin-left: 0; } }
   .content blockquote p {
     position: relative; }
     .content blockquote p:before, .content blockquote p:after {

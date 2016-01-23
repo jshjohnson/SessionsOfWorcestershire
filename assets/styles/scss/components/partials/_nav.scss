@@ -11,22 +11,30 @@
     @include clearfix;
 }
 
-.nav--primary {
-    overflow: hidden;
-    @include respond-min($global-screen-sm) { float: right; }
+.nav--primary {  
+    @include respond-min($global-screen-md) { 
+        float: right;
+        overflow: hidden;
+    }
+    @include respond-min(700px) { text-align: right; }
+    @include respond-min($global-screen-xs) {
+        display: table-cell;
+        vertical-align: middle;
+    }
     .nav__list { @include respond-max($global-screen-sm) { margin: 0; } }
     .nav__item { 
         font-family: $global-headings-font-family; 
         margin-right: $global-guttering*2;
         @include respond-max($global-screen-md) { 
-            margin-left: $global-guttering; 
+            margin-left: $global-guttering*2; 
             margin-right: 0;
             font-size: $global-font-size-sm; 
         }
         @include respond-max($global-screen-sm) { 
-            margin-left: $global-guttering/2; 
+            margin-left: $global-guttering; 
             padding: .5rem;
         }
+        @include respond-max($global-screen-xs) { margin-left: $global-guttering/2; }
     }
     .nav__link {
         position: relative;

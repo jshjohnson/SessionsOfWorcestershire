@@ -30,8 +30,8 @@ $hero-alert-offset: $global-guttering*2;
 .hero__inner {
     position: relative;
     z-index: $global-zindex-hero-content;
-    display: inline-block;
-    width: 100%;
+    display: table;
+    width: 100%;    
 }
 
 .hero__title, .hero__sub {
@@ -47,7 +47,7 @@ $hero-alert-offset: $global-guttering*2;
 .hero__title {
     padding-bottom: $global-guttering*5;
     font-size: $global-font-size-lead;
-    @include respond-max($global-screen-md) { 
+    @include respond-max($global-screen-lg) { 
         font-size: $global-font-size-lead/1.25;
         padding-top: $global-guttering*4;
         padding-bottom: $global-guttering; 

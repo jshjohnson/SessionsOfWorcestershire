@@ -19,8 +19,9 @@ $content-quote-gutter: 5px;
         border-top: 1px solid $brand-keyline;
         border-bottom: 1px solid $brand-keyline;
         @include respond-max($global-screen-xs) { 
-            padding-left: 0; 
+            padding-left: $global-guttering; 
             padding-right: 0; 
+            margin-left: 0;
         }
         p {
             position: relative;
