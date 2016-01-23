@@ -9,49 +9,65 @@ $content-intro-font-size-sm: 2rem;
 $content-quote-size: 20px;
 $content-quote-gutter: 5px;
 
-.content {
-    blockquote {
-        position: relative;
-        margin: $global-guttering*2 0 $global-guttering*2 $global-guttering;
-        padding: $global-guttering*2;
-        font-size: $global-font-size-lg;
-        font-style: italic;
-        border-top: 1px solid $brand-keyline;
-        border-bottom: 1px solid $brand-keyline;
-        @include respond-max($global-screen-xs) { 
-            padding-left: $global-guttering; 
-            padding-right: 0; 
-            margin-left: 0;
-        }
-        p {
-            position: relative;
-            &:before, &:after {
-                content: "";
-                position: absolute;
-                width: $content-quote-size;
-                height: $content-quote-size;
-                background-repeat: no-repeat;
-                background-size: $content-quote-size;
-            }
-            &:before {
-                background-image: url('/assets/images/misc/open-quote.svg');
-                top: 0;
-                left: -($content-quote-size + $content-quote-gutter);
-            }
-            &:after { 
-                background-image: url('/assets/images/misc/close-quote.svg'); 
-                margin-top: $content-quote-gutter/2;
-                margin-left: $content-quote-gutter;
-            }
-        }
-        cite { 
-            font-size: $global-font-size-base; 
-            font-weight: 600;
-        }
-    }
-}
+.content {}
 
 .content__intro { 
     font-size: $content-intro-font-size-lg; 
     @include respond-max($global-screen-sm) { font-size: $content-intro-font-size-sm; }
+}
+
+.content__quote {
+    position: relative;
+    margin: $global-guttering*2 0 $global-guttering*2 $global-guttering;
+    padding: $global-guttering*2;
+    font-size: $global-font-size-xl;
+    font-style: italic;
+    border-top: 1px solid $brand-keyline;
+    border-bottom: 1px solid $brand-keyline;
+    @include respond-max($global-screen-sm) { font-size: $global-font-size-lg; }
+    @include respond-max($global-screen-xs) { 
+        padding-left: $global-guttering; 
+        padding-right: 0; 
+        margin-left: 0;
+    }
+    p {
+        position: relative;
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            width: $content-quote-size;
+            height: $content-quote-size;
+            background-repeat: no-repeat;
+            background-size: $content-quote-size;
+        }
+        &:before {
+            background-image: url('../../images/misc/open-quote.svg');
+            top: 0;
+            left: -($content-quote-size + $content-quote-gutter);
+        }
+        &:after { 
+            background-image: url('../../images/misc/close-quote.svg'); 
+            margin-top: $content-quote-gutter/2;
+            margin-left: $content-quote-gutter;
+        }
+    }
+    cite { 
+        font-size: $global-font-size-base; 
+        font-weight: 600;
+    }
+}
+
+.content__quote--inverse {
+    color: $brand-white;
+    p {
+        &:before { background-image: url('../../images/misc/open-quote-inverse.svg'); }
+        &:after { background-image: url('../../images/misc/close-quote-inverse.svg'); }
+    }
+}
+
+.content__quote--unstyled {
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0;
+    margin-bottom: 0;
 }

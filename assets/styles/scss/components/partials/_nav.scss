@@ -64,3 +64,14 @@
     }
 }
 
+.nav--secondary {
+    padding: $global-guttering/2;
+    .nav__list { margin-bottom: 0; }
+    .nav__item { 
+        @include respond-min($global-screen-sm) { margin-right: $global-guttering*2; }
+    }
+    .nav__link { 
+        color: $brand-white; 
+        text-decoration: none;
+    } 
+}

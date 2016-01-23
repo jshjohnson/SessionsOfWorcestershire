@@ -30,29 +30,32 @@ $hero-alert-offset: $global-guttering*2;
 .hero__inner {
     position: relative;
     z-index: $global-zindex-hero-content;
-    display: table;
     width: 100%;    
 }
 
-.hero__title, .hero__sub {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    color: $brand-white;
-    text-align: center;
-    text-shadow: 0 1px 4px rgba($brand-black, .25);
-    z-index: $global-zindex-hero-content;
-}
+.hero__inner--valign { display: table; }
 
-.hero__title {
+.hero__inner--push {
     padding-bottom: $global-guttering*5;
-    font-size: $global-font-size-lead;
     @include respond-max($global-screen-lg) { 
-        font-size: $global-font-size-lead/1.25;
         padding-top: $global-guttering*4;
         padding-bottom: $global-guttering; 
     }
+}
+
+.hero__title, .hero__sub {
+    margin: auto;
+    color: $brand-white;
+    text-align: center;
+    text-shadow: 0 1px 4px rgba($brand-black, .25);
+}
+
+.hero__title {
+    font-size: $global-font-size-lead;
+    @include respond-max($global-screen-lg) { font-size: $global-font-size-lead/1.25; }
     @include respond-max($global-screen-sm) { font-size: $global-font-size-lead/1.75; }
 }
 
-.hero__sub {}
+.hero__sub { margin-top: $global-guttering/2; }
+
+.hero__btn { margin-top: $global-guttering;}

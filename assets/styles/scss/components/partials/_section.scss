@@ -17,10 +17,15 @@ $section-alert-offset-sm: 4.2rem;
 }
 
 .section--lg { @include respond-min($global-screen-lg) { padding: $global-guttering*3.5; }}
-
 .section--md { @include respond-min($global-screen-lg) { padding: $global-guttering; }}
-
 .section--sm { padding: $global-guttering/1.5; }
+
+.section--primary, .section--secondary, .section--lowlight {
+    a { 
+        color: $brand-white; 
+        @include on-interaction { color: $brand-white; }
+    }
+}
 
 .section--plain { background-color: $brand-white; }
 .section--primary { background-color: $brand-primary; }
