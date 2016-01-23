@@ -125,8 +125,8 @@ p, ul, ol, dl, hr, form, table, blockquote, pre,
 // -------------------------
 
 hr {
-    margin-top: $global-line-height-computed;
-    margin-bottom: $global-line-height-computed;
+    margin-top: $global-guttering*1.5;
+    margin-bottom: $global-guttering*1.5;
     border: 0;
     border-top: 1px solid $brand-keyline;
 }
