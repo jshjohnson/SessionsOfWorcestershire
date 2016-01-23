@@ -2364,6 +2364,19 @@ svg {
   margin-top: 0;
   margin-bottom: 0; }
 
+.content__aside {
+  position: relative;
+  float: left;
+  margin-right: 2.4rem;
+  margin-bottom: 2.4rem;
+  width: 40rem; }
+  @media (max-width: 769px) {
+    .content__aside {
+      width: 20rem; } }
+  @media (max-width: 479px) {
+    .content__aside {
+      width: 100%; } }
+
 /*
 * Name: Alert
 * Note: N/A

@@ -71,3 +71,13 @@ $content-quote-gutter: 5px;
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.content__aside {
+    position: relative;
+    float: left;
+    margin-right: $global-guttering;
+    margin-bottom: $global-guttering;
+    width: 40rem;
+    @include respond-max($global-screen-sm) { width: 20rem; }
+    @include respond-max($global-screen-xs) { width: 100%; }
+}
