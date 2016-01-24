@@ -2,10 +2,11 @@ var gulp    = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     package = require('./package.json'),
     sass = require('gulp-sass'),
+    requirejs = require('gulp-requirejs-optimize'),
     opn = require('opn');
 
 var paths = {
-    scripts : ['assets/script/src/**/*.js'],
+    scripts : ['assets/scripts/src/**/*.js'],
     styles : ['assets/styles/scss/**/*.scss'],
     images : ['assets/images/**/*'],
     html : ['*.html']
@@ -65,8 +66,23 @@ gulp.task('images-svg-fallback', function() {
         .pipe(gulp.dest('assets/images'))
 });
 
+
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts[0])
+        .pipe(requirejs(function(file) {
+            return {
+                baseUrl: 'assets/scripts/src/',
+                mainConfigFile: 'assets/scripts/src/main.js',
+                dir: 'assets/scripts/compiled/',
+                findNestedDependencies: true,
+                preserveLicenseComments: false,
+                removeCombined: false,
+                optimize: "uglify",
+                modules: [{
+                    name: 'main',
+                }]
+            };
+        }))
         .pipe(plugins.plumber())
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/scripts/dist/'))

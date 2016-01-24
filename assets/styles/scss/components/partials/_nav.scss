@@ -4,6 +4,8 @@
 * Notes: N/A
 -------------------------------------------------------------- */
 
+$nav-button-height: 20px;
+
 .nav {
     margin-bottom: 0;
     padding-left: 0;
@@ -16,27 +18,46 @@
         float: right;
         overflow: hidden;
     }
-    @include respond-min(700px) { text-align: right; }
-    @include respond-min($global-screen-xs) {
+    @include respond-min($global-screen-offcanvas) { 
         display: table-cell;
         vertical-align: middle;
+        text-align: right; 
     }
-    .nav__list { @include respond-max($global-screen-sm) { margin: 0; } }
+    .nav__list { 
+        @include respond-max($global-screen-sm) { margin: 0; } 
+        @include respond-max($global-screen-offcanvas) {
+            width: 300px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: -300px;
+            padding: $global-guttering/1.5 $global-guttering;
+            display: block;
+            text-align: center;
+        }
+    }
     .nav__item { 
         font-family: $global-headings-font-family; 
         margin-right: $global-guttering*2;
         @include respond-max($global-screen-md) { 
-            margin-left: $global-guttering*2; 
+            margin-left: $global-guttering*1.5; 
             margin-right: 0;
             font-size: $global-font-size-sm; 
         }
-        @include respond-max($global-screen-sm) { 
-            margin-left: $global-guttering; 
-            display: none;
+        @include respond-max($global-screen-offcanvas) { 
+            display: block;
+            margin-left: 0; 
+            padding: $global-guttering/1.5 0;
         }
-        @include respond-max($global-screen-xs) { margin-left: $global-guttering/2; }
     }
-    .nav__link {
+    .nav__item--icon {
+        @include respond-max($global-screen-offcanvas) { 
+            display: inline-block;
+            padding-left: $global-guttering/2;
+            padding-right: $global-guttering/2;
+        }
+    }
+    .nav__link, .nav__btn {
         position: relative;
         color: $brand-white;
         opacity: 0.75;
@@ -62,6 +83,11 @@
             background-color: $brand-white;
         }
     }
+    .nav__btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+    }
 }
 
 .nav--secondary {
@@ -74,4 +100,14 @@
         color: $brand-white; 
         text-decoration: none;
     } 
+}
+
+
+.nav__btn {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    margin-top: -$nav-button-height;
+    height: $nav-button-height;
+    @include respond-min($global-screen-offcanvas) { display: none; }
 }

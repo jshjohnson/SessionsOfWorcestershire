@@ -23,7 +23,7 @@ $brand-lowlight: #bfaf7f;
 $brand-highlight: #f2eeb3;
 
 // Generic
-$brand-keyline: #EAEAEA;
+$brand-keyline: $brand-grey-light;
 $brand-text: #50595c;
 $brand-link: $brand-primary;
 $brand-disabled: $brand-grey-light;
@@ -61,8 +61,8 @@ $global-font-size-xxs: 1.2rem;       // 10px
 $global-font-size-h1: 3.6rem; // 36px
 $global-font-size-h2: 3rem; // 30px
 $global-font-size-h3: 2.6rem; // 24px
-$global-font-size-h4: 2rem; // 20px
-$global-font-size-h5: 1.8rem; // 18px
+$global-font-size-h4: 2.2rem; // 20px
+$global-font-size-h5: 2rem; // 18px
 $global-font-size-h6: $global-font-size-base; // 16px
 
 //** Unit-less `line-height` for use in components like buttons.
@@ -117,9 +117,6 @@ $global-input-height-lg: 2;
 $global-input-height-base: 1.7;
 $global-input-height-sm: 1.5;
 
-$legend-color: $brand-grey-dark;
-$legend-border-color: #e5e5e5;
-
 $global-input-group-addon-bg: $brand-white;
 $global-input-group-addon-border-color: darken($global-input-bg, 7.5%);
 
@@ -152,6 +149,9 @@ $global-screen-xs-max: $global-screen-sm-min;
 $global-screen-sm-max: $global-screen-md-min - 1;
 $global-screen-md-max: $global-screen-lg-min - 1;
 $global-screen-lg-max: $global-screen-xl-min - 1;
+
+// Custom break points
+$global-screen-offcanvas: 700px;
 
 /* Grid
 -------------------------------------------------------------- */

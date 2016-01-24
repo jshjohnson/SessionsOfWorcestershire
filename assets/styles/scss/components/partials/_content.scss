@@ -27,7 +27,11 @@ $content-quote-gutter: 5px;
     border-bottom: 1px solid $brand-keyline;
     font-size: $content-quote-font-size-lg;
     font-style: italic;
-    @include respond-max($global-screen-sm) { font-size: $content-quote-font-size-sm; }
+    @include respond-max($global-screen-md) { 
+        font-size: $content-quote-font-size-sm; 
+        padding-right: 0;
+        padding-left: 0;
+    }
     @include respond-max($global-screen-xs) { 
         padding-left: $global-guttering; 
         padding-right: 0; 
@@ -53,6 +57,7 @@ $content-quote-gutter: 5px;
             margin-top: $content-quote-gutter/2;
             margin-left: $content-quote-gutter;
         }
+        @include respond-max($global-screen-xs) { &:after { content: none; }}
     }
     cite { 
         font-size: $global-font-size-lg; 
