@@ -7,6 +7,7 @@ var gulp    = require('gulp'),
 var paths = {
     scripts : ['assets/script/src/**/*.js'],
     styles : ['assets/styles/scss/**/*.scss'],
+    images : ['assets/images/**/*'],
     html : ['*.html']
 };
 
@@ -30,9 +31,38 @@ gulp.task('connect', function() {
     opn('http://localhost:8000');
 });
 
-gulp.task('html', function () {
+gulp.task('html', function() {
     gulp.src(paths.html)
         .pipe(plugins.connect.reload());
+});
+
+// Reusable imagemin function
+function imagemin() {
+    return plugins.imagemin({
+        optimizationLevel: 3,
+        progressive: true,
+        interlaced: true
+    });
+}
+
+gulp.task('images-imagemin', ['images-svg-fallback'], function() {
+    return gulp.src([paths.images[0], '!*.svg'])
+        .pipe(imagemin())
+        .pipe(gulp.dest('assets/images'))
+});
+
+gulp.task('images-svgmin', function() {
+    return gulp.src('images/**/*.svg')
+        .pipe(plugins.svgmin())
+        .pipe(gulp.dest('assets/images'))
+});
+
+gulp.task('images-svg-fallback', function() {
+    return gulp.src('images/**/*.svg')
+        .pipe(plugins.raster())
+        .pipe(plugins.rename({extname: '.png'}))
+        .pipe(imagemin())
+        .pipe(gulp.dest('assets/images'))
 });
 
 gulp.task('scripts', function() {
@@ -47,10 +77,10 @@ gulp.task('scripts', function() {
         .pipe(plugins.connect.reload());
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
     gulp.src(paths.styles) 
         .pipe(plugins.sass().on('error', sass.logError))
-        // .pipe(plugins.autoprefixer('last 2 versions', '> 1%', 'ie 8'))
+        .pipe(plugins.autoprefixer('last 2 versions', '> 1%', 'ie 8'))
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.csso())
@@ -66,4 +96,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.html, ['html']);
 });
 
+gulp.task('images', ['images-svgmin', 'images-imagemin', 'images-svg-fallback']);
+gulp.task('build', ['styles', 'scripts', 'images']);
 gulp.task('dev', ['connect', 'watch']);
+gulp.task('default', ['dev']);

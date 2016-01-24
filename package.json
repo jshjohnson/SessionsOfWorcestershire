@@ -18,9 +18,13 @@
     "gulp-connect": "^2.3.1",
     "gulp-csso": "^1.0.1",
     "gulp-header": "^1.7.1",
+    "gulp-imagemin": "^2.4.0",
     "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-raster": "^0.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
+    "gulp-svgmin": "^1.2.1",
     "gulp-uglify": "^1.5.1",
     "opn": "^4.0.0"
   }
