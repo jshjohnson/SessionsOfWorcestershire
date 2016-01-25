@@ -1,0 +1,1 @@
+require(["smoothScroll"],function(e){var t={};t.smooth=function(){var t={};return t.init=function(){e.init({speed:400,easing:"easeInOutCubic",offset:0,updateURL:!1})},t}(),t.smooth.init()});
