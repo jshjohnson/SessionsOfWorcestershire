@@ -645,7 +645,7 @@ ol {
   position: relative; }
   .list-ticked > li:before {
     content: "";
-    background-image: url("/assets/images/misc/tick.svg");
+    background-image: url("../../images/misc/tick.svg");
     position: relative;
     display: inline-block;
     width: 1.4rem;
