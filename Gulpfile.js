@@ -70,7 +70,7 @@ gulp.task('requirejs', function(cb){
     requirejs.optimize({
         baseUrl: 'assets/scripts/src/',
         mainConfigFile: "assets/scripts/src/main.js",
-        dir: 'assets/scripts/compiled/',
+        dir: 'assets/scripts/dist/',
         findNestedDependencies: true,
         preserveLicenseComments: false,
         findNestedDependencies: true,
@@ -82,12 +82,16 @@ gulp.task('requirejs', function(cb){
     })
 });
 
+
 gulp.task('scripts', function() {
-    return gulp.src('assets/scripts/compiled/main.js')
+    return gulp.src(paths.scripts[0])
         .pipe(plugins.plumber())
         .pipe(plugins.header(banner, { package : package }))
+        .pipe(gulp.dest('assets/scripts/dist/'))
         .pipe(plugins.rename({ suffix: '.min' }))
-        .pipe(gulp.dest('assets/scripts/compiled/'))
+        .pipe(plugins.uglify())
+        .pipe(plugins.header(banner, { package : package }))
+        .pipe(gulp.dest('assets/scripts/dist/'))
         .pipe(plugins.connect.reload());
 });
 
@@ -111,6 +115,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('images', ['images-svgmin', 'images-imagemin', 'images-svg-fallback']);
-gulp.task('build', ['styles', 'requirejs', 'scripts', 'images']);
+gulp.task('build', ['styles', 'requirejs', 'scripts']);
 gulp.task('dev', ['connect', 'watch']);
 gulp.task('default', ['dev']);
