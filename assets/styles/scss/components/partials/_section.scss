@@ -16,9 +16,22 @@ $section-alert-offset-sm: 4.2rem;
     @include respond-min($global-screen-sm) { padding: $global-guttering*2; }
 }
 
-.section--lg { @include respond-min($global-screen-lg) { padding: $global-guttering*3.5; }}
-.section--md { @include respond-min($global-screen-lg) { padding: $global-guttering; }}
-.section--sm { padding: $global-guttering/1.5; }
+.section--lg { 
+    @include respond-min($global-screen-lg) { 
+        padding-top: $global-guttering*3.5; 
+        padding-bottom: $global-guttering*3.5; 
+    }
+}
+.section--md { 
+    @include respond-min($global-screen-lg) { 
+        padding-top: $global-guttering; 
+        padding-bottom: $global-guttering; 
+    }
+}
+.section--sm { 
+    padding-top: $global-guttering/1.5; 
+    padding-bottom: $global-guttering/1.5;
+}
 
 .section--primary, .section--secondary, .section--lowlight {
     a { 

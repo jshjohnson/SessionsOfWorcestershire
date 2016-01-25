@@ -1701,7 +1701,10 @@ select[multiple], select[size] {
   border-radius: 0;
   transition: border-color ease-in-out .15s;
   color: #50595c;
-  margin-bottom: 2.4rem; }
+  margin-bottom: 2.4rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
   .form-control:focus, .form-control:focus {
     border-color: #641c31;
     outline: 0; }
@@ -2024,14 +2027,17 @@ svg {
 
 @media (min-width: 1250px) {
   .section--lg {
-    padding: 8.4rem; } }
+    padding-top: 8.4rem;
+    padding-bottom: 8.4rem; } }
 
 @media (min-width: 1250px) {
   .section--md {
-    padding: 2.4rem; } }
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem; } }
 
 .section--sm {
-  padding: 1.6rem; }
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem; }
 
 .section--primary a, .section--secondary a, .section--lowlight a {
   color: white; }
@@ -2279,6 +2285,7 @@ svg {
       padding-left: 0; } }
   @media (max-width: 479px) {
     .content__quote {
+      font-size: 1.8rem;
       padding-left: 2.4rem;
       padding-right: 0;
       margin-left: 0; } }
@@ -2351,6 +2358,7 @@ svg {
 * Note: N/A
 -------------------------------------------------------------- */
 .alert {
+  position: relative;
   background-color: rgba(0, 0, 0, 0.35);
   color: white;
   text-align: center;
@@ -2363,12 +2371,16 @@ svg {
       font-size: 1.4rem;
       height: 4.2rem; } }
 
-.alert--overlay {
+.alert--overlay, .alert__link {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   z-index: 1010; }
+
+.alert__link {
+  text-indent: -9999px;
+  height: 100%; }
 
 /* 
 * Name: Off canvas 

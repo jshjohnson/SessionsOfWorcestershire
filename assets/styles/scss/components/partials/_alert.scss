@@ -7,6 +7,7 @@ $alert-height: 4.8rem;
 $alert-height-sm: 4.2rem;
 
 .alert {
+    position: relative;
     background-color: rgba($brand-black, 0.35);
     color: white;
     text-align: center;
@@ -20,10 +21,15 @@ $alert-height-sm: 4.2rem;
     }
 }
 
-.alert--overlay {
+.alert--overlay, .alert__link {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     z-index: $global-zindex-alert;
+}
+
+.alert__link {
+    text-indent: -9999px;
+    height: 100%;
 }

@@ -8,6 +8,7 @@ $content-intro-font-size-sm: 1.8rem;
 
 $content-quote-font-size-lg: 2.4rem;
 $content-quote-font-size-sm: 2rem;
+$content-quote-font-size-xs: 1.8rem;
 
 $content-quote-size: 20px;
 $content-quote-gutter: 5px;
@@ -33,6 +34,7 @@ $content-quote-gutter: 5px;
         padding-left: 0;
     }
     @include respond-max($global-screen-xs) { 
+        font-size: $content-quote-font-size-xs;
         padding-left: $global-guttering; 
         padding-right: 0; 
         margin-left: 0;

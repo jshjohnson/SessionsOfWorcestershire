@@ -190,6 +190,7 @@ select[multiple], select[size] { height: auto; }
     transition: border-color ease-in-out .15s;
     color: $brand-text;
     margin-bottom: $global-guttering;
+    appearance: none;
     @include form-control-focus;
     @include placeholder($brand-text);
     @include respond-max($global-screen-md) { 
