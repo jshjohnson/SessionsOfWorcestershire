@@ -9,7 +9,10 @@
     width: auto;
 }
 
-.flag--full-width { width: 100%; }
+.flag--full-width { 
+    width: 100%; 
+    table-layout: fixed;
+}
 
 .flag--responsive-guttering {
     margin-bottom: 0;

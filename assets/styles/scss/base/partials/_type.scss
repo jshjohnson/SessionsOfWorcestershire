@@ -103,8 +103,11 @@ a {
     text-decoration: none;
     transition: .15s color ease-in-out;
     color: $brand-link;
-    text-decoration: underline;
-    @include on-interaction { color: darken($brand-link, 5%);}
+    text-decoration: none;
+    @include on-interaction { 
+        color: darken($brand-link, 5%);
+        text-decoration: underline;
+    }
     &:hover,
     &:focus { transition: .15s color ease-in-out; }
     &:focus { @include tab-focus; }
@@ -129,6 +132,10 @@ hr {
     margin-bottom: $global-guttering*1.5;
     border: 0;
     border-top: 1px solid $brand-keyline;
+    @include respond-max($global-screen-md) {
+        margin-top: $global-guttering;
+        margin-bottom: $global-guttering;
+    }
 }
 
 small, .small, %small {

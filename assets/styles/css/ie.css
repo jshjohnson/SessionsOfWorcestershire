@@ -465,9 +465,10 @@ a {
   text-decoration: none;
   transition: .15s color ease-in-out;
   color: #641c31;
-  text-decoration: underline; }
+  text-decoration: none; }
   a:hover, a:active, a:focus {
-    color: #501627; }
+    color: #501627;
+    text-decoration: underline; }
   a:hover, a:focus {
     transition: .15s color ease-in-out; }
   a:focus {
@@ -485,6 +486,10 @@ hr {
   margin-bottom: 3.6rem;
   border: 0;
   border-top: 1px solid #f2f2f0; }
+  @media (max-width: 999px) {
+    hr {
+      margin-top: 2.4rem;
+      margin-bottom: 2.4rem; } }
 
 small, .small {
   font-size: 85%; }
@@ -1796,7 +1801,7 @@ textarea.form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  padding: 1rem 2.4rem;
+  padding: 0.6rem 2.4rem;
   text-decoration: none;
   line-height: 1.6; }
   @media (max-width: 999px) {
@@ -1819,13 +1824,23 @@ textarea.form-control {
     opacity: 0.65;
     box-shadow: none; }
 
+.btn--lg {
+  padding: 1rem 2.4rem; }
+
 .btn--sm {
   padding: 0.4rem 1.5rem; }
+
+.btn--primary {
+  background-color: #641c31;
+  color: white;
+  border-color: #501627; }
+  .btn--primary [href]:hover {
+    color: white; }
 
 .btn--light {
   color: white;
   border-color: white; }
-  .btn--light:hover, .btn--light:active, .btn--light:focus {
+  .btn--light [href]:hover {
     color: white; }
 
 .btn--overlay {
@@ -1883,10 +1898,13 @@ svg {
 -------------------------------------------------------------- */
 .container {
   width: 100%;
-  max-width: 75em;
+  max-width: 65em;
   display: block;
   margin-left: auto;
   margin-right: auto; }
+
+.container--lg {
+  max-width: 75em; }
 
 .container--sm {
   max-width: 55em; }
@@ -1934,7 +1952,8 @@ svg {
   width: auto; }
 
 .flag--full-width {
-  width: 100%; }
+  width: 100%;
+  table-layout: fixed; }
 
 .flag--responsive-guttering {
   margin-bottom: 0; }
@@ -2396,6 +2415,30 @@ svg {
   .no-csstransforms3d .off-canvas__inner {
     -webkit-transform: translateX(0);
     transform: translateX(0); }
+
+/*
+* Name: Product
+* Use: 
+* Notes: 
+-------------------------------------------------------------- */
+.product {
+  margin: 4.8rem 0; }
+
+@media (max-width: 769px) {
+  .product__image, .product__body {
+    display: block;
+    width: 100%; } }
+
+.product__body {
+  margin-top: 2.4rem; }
+  .product__body > *:last-child,
+  .product__body > *:last-child > *:last-child,
+  .product__body > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 770px) {
+    .product__body {
+      margin-top: 0;
+      padding: 2.4rem; } }
 
 /* ==========================================================================
    Utilities

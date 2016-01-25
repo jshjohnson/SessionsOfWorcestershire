@@ -1,0 +1,25 @@
+/*
+* Name: Product
+* Use: 
+* Notes: 
+-------------------------------------------------------------- */
+
+.product {
+    margin: $global-guttering*2 0;
+}
+
+.product__image, .product__body {
+    @include respond-max($global-screen-sm) { 
+        display: block;
+        width: 100%;
+    }
+}
+
+.product__body {
+    margin-top: $global-guttering;
+    @include guttering;
+    @include respond-min($global-screen-sm) { 
+        margin-top: 0;
+        padding: $global-guttering;
+    }
+}

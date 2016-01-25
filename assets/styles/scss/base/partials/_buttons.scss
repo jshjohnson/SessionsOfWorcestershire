@@ -24,7 +24,7 @@ $btn-state-color: $brand-white;
     white-space: nowrap;
     font-size: $global-font-size-base;
     user-select: none;
-    padding: $global-guttering/2.4 $global-guttering;
+    padding: $global-guttering/4 $global-guttering;
     text-decoration: none;
     line-height: $global-line-height-base;
     @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
@@ -50,13 +50,22 @@ $btn-state-color: $brand-white;
     }
 }
 
+// Sizing
+.btn--lg { padding: $global-guttering/2.4 $global-guttering; }
 .btn--sm { padding: $global-guttering/6 $global-guttering/1.6; }
 
+// Colouring
+.btn--primary {
+    background-color: $brand-primary;
+    color: $brand-white;
+    border-color: darken($brand-primary, 5%);
+    [href]:hover { color: $brand-white; }
+}
 
 .btn--light { 
     color: $brand-white;
     border-color: $brand-white;
-    @include on-interaction { color: $brand-white; }
+    [href]:hover { color: $brand-white; }
 }
 
 .btn--overlay { 

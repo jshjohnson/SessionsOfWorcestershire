@@ -3,7 +3,8 @@
 * Note: N/A
 -------------------------------------------------------------- */
 
-$container-base: 75em;
+$container-lg: 75em;
+$container-base: 65em;
 $container-sm: 55em;
 $container-xs: 45em;
 
@@ -13,5 +14,6 @@ $container-xs: 45em;
     @include center-block;
 }
 
+.container--lg { max-width: $container-lg; }
 .container--sm { max-width: $container-sm; }
 .container--xs { max-width: $container-xs; }
