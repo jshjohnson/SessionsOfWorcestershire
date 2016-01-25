@@ -6,6 +6,9 @@
 
 .product {
     margin: $global-guttering*2 0;
+    @include respond-max($global-screen-sm) { 
+        margin: $global-guttering*1.5 0;
+    }
 }
 
 .product__image, .product__body {
@@ -15,8 +18,13 @@
     }
 }
 
+.product__image { 
+    @include respond-max($global-screen-sm) { padding-right: 0; }
+}
+
 .product__body {
     margin-top: $global-guttering;
+    font-size: $global-font-size-sm;
     @include guttering;
     @include respond-min($global-screen-sm) { 
         margin-top: 0;

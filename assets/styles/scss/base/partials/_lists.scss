@@ -141,34 +141,28 @@ ol {
     }
 }
 
+.list-ticked {
+    > li {
+        position: relative;
+        &:before {
+            content: "";
+            background-image: url('/assets/images/misc/tick.svg');
+            position: relative;
+            display: inline-block;
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: 1.4rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            vertical-align: baseline;
+        }
+    }
+}
+
 .list-overflow {
     > li { @include text-overflow; }
 }
 
-.list-breadcrumbs {
-    margin-bottom: 0;
-    li {
-        list-style: none;
-        display: inline-block;
-        padding:0;
-        margin-bottom: 0;
-        // Add arrow after each link excluding last
-        &:not(:last-child) {
-            @extend %icon--after;
-            @extend %icon--right-open-after;
-            &:after {
-                display: inline-block;
-                margin-right: $global-guttering/2;
-                color: $text-muted;
-            }
-        }
-
-        a {
-            display: inline-block;
-            margin-right: $global-guttering/3;
-        }
-    }
-}
 
 // Description Lists
 dl {
