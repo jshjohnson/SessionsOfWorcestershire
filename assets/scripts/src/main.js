@@ -20,5 +20,5 @@ require.config({
 requirejs(["app/click"]);
 requirejs(["app/smooth"]);
 requirejs(["app/polyfills"]);
-requirejs(["app/menu"]);
+requirejs(["app/off-canvas"]);
 requirejs(["app/back-to-top"]);

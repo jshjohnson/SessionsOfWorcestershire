@@ -12,7 +12,7 @@ $btn-default-border: darken($brand-grey-lighter, 7.5%);
 
 $btn-state-color: $brand-white;
 
-.btn, %btn {
+.btn {
     display: inline-block;
     margin-bottom: 0;
     font-weight: $btn-font-weight;
@@ -49,6 +49,8 @@ $btn-state-color: $brand-white;
         box-shadow: none;
     }
 }
+
+.btn--sm { padding: $global-guttering/6 $global-guttering/1.6; }
 
 
 .btn--light { 

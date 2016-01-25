@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/styles/css/main.min.css">
 </head>
 <body>
-    <div class="off-canvas">
+    <div class="off-canvas js-canvas">
         <div class="off-canvas__inner">
             <div class="alert alert--overlay">Now taking orders for February 2016. Order <a href="content.html" class="text-inverse">now</a></div>
             <section class="section section--hero section--primary section--offset-alert hero hero--tint" style="background-image: url('assets/images/hero/slice.png');">
@@ -21,8 +21,8 @@
                         </a>
                     </div>
                     <nav class="nav nav--primary">
-                        <button class="nav__btn js-canvas-toggle">Menu</button>
-                        <ul class="nav__list list-inline list-unstyled">
+                        <button class="nav__btn btn btn--overlay btn--sm js-canvas-toggle">Menu</button>
+                        <ul class="nav__list list-inline list-unstyled js-canvas-nav">
                             <li class="nav__item">
                                 <a href="content.html" class="nav__link">Our company</a>
                             </li>
@@ -101,7 +101,7 @@
             </footer>
         </div>
     </div>
-    <script async src="assets/scripts/compiled/modernizr.min.js"></script>
-    <script src="assets/scripts/compiled/libs/require.min.js" data-main="assets/scripts/compiled/main.min"></script>
+    <script async src="assets/scripts/dist/libs/modernizr-dev.min.js"></script>
+    <script src="assets/scripts/dist/libs/require.min.js" data-main="assets/scripts/dist/main.min"></script>
 </body>
 </html>

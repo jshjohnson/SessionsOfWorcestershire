@@ -43,7 +43,7 @@ label {
     display: inline-block;
     margin-bottom: .5rem;
     font-style: italic;
-    font-size: $global-font-size-sm;
+    font-size: $global-font-size-base;
     &.required {
         &:after {
             content: '*';

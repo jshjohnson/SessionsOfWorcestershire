@@ -17,7 +17,8 @@ require(['modernizr'], function(Modernizr) {
             var backToTopController = function() {
                 var scrollBarPosition = window.pageYOffset | document.body.scrollTop;
 
-                forEach(backToTopLink, function (index, el) {
+                for (var i = backToTopLink.length - 1; i >= 0; i--) {
+                    var el = backToTopLink[i];
                     // If screen is not ridicously small
                     if (scrollBarPosition > offset) {
                         if (el.classList) {
@@ -30,8 +31,7 @@ require(['modernizr'], function(Modernizr) {
                             el.classList.remove('visible');
                         }
                     }
-                });
-
+                };
             };
 
             if(window.attachEvent) {

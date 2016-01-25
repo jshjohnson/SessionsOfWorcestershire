@@ -4,6 +4,7 @@
 * Notes: N/A
 -------------------------------------------------------------- */
 
+$nav-primary-height: 80px;
 $nav-button-height: 20px;
 
 .nav {
@@ -13,7 +14,8 @@ $nav-button-height: 20px;
     @include clearfix;
 }
 
-.nav--primary {  
+.nav--primary {
+    height: $nav-primary-height;
     @include respond-min($global-screen-md) { 
         float: right;
         overflow: hidden;
@@ -31,18 +33,19 @@ $nav-button-height: 20px;
             position: fixed;
             top: 0;
             right: -300px;
-            padding: $global-guttering/1.5 $global-guttering;
+            padding: $global-guttering;
             display: block;
             text-align: center;
         }
     }
     .nav__item { 
-        font-family: $global-headings-font-family; 
+        font-family: $global-headings-font-family;
+        font-size: $global-font-size-lg; 
         margin-right: $global-guttering*2;
         @include respond-max($global-screen-md) { 
             margin-left: $global-guttering*1.5; 
             margin-right: 0;
-            font-size: $global-font-size-sm; 
+            font-size: $global-font-size-base; 
         }
         @include respond-max($global-screen-offcanvas) { 
             display: block;
@@ -85,8 +88,9 @@ $nav-button-height: 20px;
     }
     .nav__btn {
         position: absolute;
-        top: 50%;
         right: 0;
+        top: 0;
+        @include vertical-align-unprefixed();
     }
 }
 
@@ -105,9 +109,8 @@ $nav-button-height: 20px;
 
 .nav__btn {
     appearance: none;
-    background-color: transparent;
-    border: none;
-    margin-top: -$nav-button-height;
-    height: $nav-button-height;
+    // margin-top: -$nav-button-height;
+    // height: $nav-button-height;
+    @include on-interaction { outline: none; }
     @include respond-min($global-screen-offcanvas) { display: none; }
 }
