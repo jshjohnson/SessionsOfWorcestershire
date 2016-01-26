@@ -27,6 +27,7 @@ $btn-state-color: $brand-white;
     padding: $global-guttering/4 $global-guttering;
     text-decoration: none;
     line-height: $global-line-height-base;
+    -webkit-appearance: none;
     @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
     &:focus { @include tab-focus; }
     &:hover,
@@ -71,7 +72,9 @@ $btn-state-color: $brand-white;
 .btn--overlay { 
     background-color: rgba($brand-black, .2);
     transition: background-color .2s ease-in-out;
+    color: $brand-white;
     @include on-interaction { 
+        color: $brand-white;
         background-color: rgba($brand-black, .3);
         transition: background-color .2s ease-in-out;
     }

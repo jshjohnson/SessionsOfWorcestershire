@@ -366,13 +366,14 @@ html {
 body {
   line-height: 1.6;
   font-family: "Georgia", "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 1.8rem;
   overflow-x: hidden;
+  background-color: #641c31;
   background: linear-gradient(to bottom, #641c31 0%, #641c31 50%, #f2eeb3 51%, #f2eeb3 100%);
   color: #50595c; }
   @media (max-width: 769px) {
     body {
-      font-size: 16px; } }
+      font-size: 1.6rem; } }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -642,7 +643,8 @@ ol {
   border-color: #f2f2f0; }
 
 .list-ticked > li {
-  position: relative; }
+  position: relative;
+  font-style: italic; }
   .list-ticked > li:before {
     content: "";
     background-image: url("../../images/misc/tick.svg");
@@ -1795,7 +1797,8 @@ textarea.form-control {
           user-select: none;
   padding: 0.6rem 2.4rem;
   text-decoration: none;
-  line-height: 1.6; }
+  line-height: 1.6;
+  -webkit-appearance: none; }
   @media (max-width: 999px) {
     .btn {
       font-size: 1.6rem; } }
@@ -1837,8 +1840,10 @@ textarea.form-control {
 
 .btn--overlay {
   background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color .2s ease-in-out; }
+  transition: background-color .2s ease-in-out;
+  color: white; }
   .btn--overlay:hover, .btn--overlay:active, .btn--overlay:focus {
+    color: white;
     background-color: rgba(0, 0, 0, 0.3);
     transition: background-color .2s ease-in-out; }
 
@@ -2135,7 +2140,7 @@ svg {
     font-family: "Crimson Text", "Times New Roman", Times, serif;
     font-size: 2.2rem;
     margin-right: 4.8rem; }
-    @media (max-width: 1249px) {
+    @media (max-width: 1599px) {
       .nav--primary .nav__item {
         font-size: 2rem; } }
     @media (max-width: 999px) {
@@ -2436,9 +2441,48 @@ svg {
     display: block;
     width: 100%; } }
 
-@media (max-width: 769px) {
-  .product__image {
-    padding-right: 0; } }
+.product__overlay {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 2.4rem; }
+  @media (max-width: 769px) {
+    .product__overlay {
+      margin-right: 0; } }
+  .product__overlay:after {
+    content: "";
+    background-color: rgba(100, 28, 49, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color .2s ease-in-out; }
+  .product__overlay:hover:after {
+    background-color: rgba(100, 28, 49, 0.75);
+    transition: background-color .2s ease-in-out; }
+  .product__overlay:hover .product__btn {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    transition: opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out, -webkit-transform .2s ease-in-out; }
+  .product__overlay .product__btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+    opacity: 0;
+    transition: opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    z-index: 1010; }
+
+.product__image {
+  padding-right: 0; }
 
 .product__body {
   margin-top: 2.4rem;

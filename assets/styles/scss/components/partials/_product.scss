@@ -18,9 +18,46 @@
     }
 }
 
-.product__image { 
-    @include respond-max($global-screen-sm) { padding-right: 0; }
+.product__overlay {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin-right: $global-guttering;
+    @include respond-max($global-screen-sm) { margin-right: 0; }
+    &:after {
+        content: "";
+        background-color: rgba($brand-primary, 0);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $zindex-product-overlay;
+        transition: background-color .2s ease-in-out;
+    }
+    &:hover {
+        &:after { 
+            background-color: rgba($brand-primary, .75); 
+            transition: background-color .2s ease-in-out;
+        }
+        .product__btn {
+            opacity: 1;
+            transform: translate(-50%,-50%);
+            transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        }
+    }
+    .product__btn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-30%);
+        opacity: 0;
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        z-index: $zindex-product-btn;
+    }
 }
+
+.product__image { padding-right: 0; }
 
 .product__body {
     margin-top: $global-guttering;

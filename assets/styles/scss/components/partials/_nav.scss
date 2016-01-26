@@ -47,7 +47,7 @@ $nav-primary-off-canvas-width: 250px;
         font-family: $global-headings-font-family;
         font-size: $nav-primary-font-size-lg; 
         margin-right: $global-guttering*2;
-        @include respond-max($global-screen-lg) { font-size: $nav-primary-font-size-md; }
+        @include respond-max($global-screen-xl) { font-size: $nav-primary-font-size-md; }
         @include respond-max($global-screen-md) { 
             margin-left: $global-guttering*1.5; 
             margin-right: 0;
