@@ -4,8 +4,13 @@
 * Notes: N/A
 -------------------------------------------------------------- */
 
-$nav-primary-height: 80px;
 $nav-button-height: 20px;
+
+$nav-primary-height: 80px;
+$nav-primary-font-size-lg: 2.2rem;
+$nav-primary-font-size-md: 2rem;
+$nav-primary-font-size-sm: 1.8rem;
+$nav-primary-off-canvas-width: 250px;
 
 .nav {
     margin-bottom: 0;
@@ -28,11 +33,11 @@ $nav-button-height: 20px;
     .nav__list { 
         @include respond-max($global-screen-sm) { margin: 0; } 
         @include respond-max($global-screen-offcanvas) {
-            width: 300px;
+            width: $nav-primary-off-canvas-width;
             height: 100%;
             position: fixed;
             top: 0;
-            right: -300px;
+            right: -$nav-primary-off-canvas-width;
             padding: $global-guttering;
             display: block;
             text-align: center;
@@ -40,12 +45,13 @@ $nav-button-height: 20px;
     }
     .nav__item { 
         font-family: $global-headings-font-family;
-        font-size: $global-font-size-lg; 
+        font-size: $nav-primary-font-size-lg; 
         margin-right: $global-guttering*2;
+        @include respond-max($global-screen-lg) { font-size: $nav-primary-font-size-md; }
         @include respond-max($global-screen-md) { 
             margin-left: $global-guttering*1.5; 
             margin-right: 0;
-            font-size: $global-font-size-base; 
+            font-size: $nav-primary-font-size-sm; 
         }
         @include respond-max($global-screen-offcanvas) { 
             display: block;

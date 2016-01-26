@@ -5,6 +5,8 @@
 * Note: N/A
 -------------------------------------------------------------- */
 
+$off-canvas-width: 250px;
+
 .off-canvas {
     position: relative;
     width: 100%;
@@ -14,11 +16,11 @@
         @include respond-max($global-screen-offcanvas) {
             overflow: hidden;
             .off-canvas__inner {
-                transform: translate3d(-300px, 0, 0);  
+                transform: translate3d(-$off-canvas-width, 0, 0);  
                 transition: transform .3s ease-in-out;
                 .no-csstransforms3d & {
-                    -webkit-transform: translateX(-300px);  
-                    transform: translateX(-300px);  
+                    -webkit-transform: translateX(-$off-canvas-width);  
+                    transform: translateX(-$off-canvas-width);  
                 }
             }
         }

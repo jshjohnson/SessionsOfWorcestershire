@@ -1702,9 +1702,7 @@ select[multiple], select[size] {
   transition: border-color ease-in-out .15s;
   color: #50595c;
   margin-bottom: 2.4rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }
+  -webkit-appearance: none; }
   .form-control:focus, .form-control:focus {
     border-color: #641c31;
     outline: 0; }
@@ -2125,18 +2123,21 @@ svg {
       margin: 0; } }
   @media (max-width: 699px) {
     .nav--primary .nav__list {
-      width: 300px;
+      width: 250px;
       height: 100%;
       position: fixed;
       top: 0;
-      right: -300px;
+      right: -250px;
       padding: 2.4rem;
       display: block;
       text-align: center; } }
   .nav--primary .nav__item {
     font-family: "Crimson Text", "Times New Roman", Times, serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-right: 4.8rem; }
+    @media (max-width: 1249px) {
+      .nav--primary .nav__item {
+        font-size: 2rem; } }
     @media (max-width: 999px) {
       .nav--primary .nav__item {
         margin-left: 3.6rem;
@@ -2397,14 +2398,14 @@ svg {
     .off-canvas.is-active {
       overflow: hidden; }
       .off-canvas.is-active .off-canvas__inner {
-        -webkit-transform: translate3d(-300px, 0, 0);
-                transform: translate3d(-300px, 0, 0);
+        -webkit-transform: translate3d(-250px, 0, 0);
+                transform: translate3d(-250px, 0, 0);
         transition: -webkit-transform .3s ease-in-out;
         transition: transform .3s ease-in-out;
         transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
         .no-csstransforms3d .off-canvas.is-active .off-canvas__inner {
-          -webkit-transform: translateX(-300px);
-          transform: translateX(-300px); } }
+          -webkit-transform: translateX(-250px);
+          transform: translateX(-250px); } }
 
 .off-canvas__inner {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
