@@ -163,8 +163,9 @@ $global-grid-gutter-width: 2.8rem;
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
 $global-zindex-alert: 1010;
+$global-zindex-alert-fixed: 1050;
 $global-zindex-back-to-top: 1050;
 $global-zindex-hero-tint: 1000;
 $global-zindex-hero-content: 1010;
-$zindex-product-overlay: 1000;
-$zindex-product-btn: 1010;
+$global-zindex-product-overlay: 1000;
+$global-zindex-product-btn: 1010;

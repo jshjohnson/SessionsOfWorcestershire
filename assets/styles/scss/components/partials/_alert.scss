@@ -14,6 +14,7 @@ $alert-height-sm: 4.2rem;
     padding: $global-guttering/2.4;
     display: inline-block;
     height: $alert-height;
+    z-index: $global-zindex-alert;
     text-shadow: 0 1px 4px rgba($brand-black, .25);
     @include respond-max($global-screen-sm) { 
         font-size: $global-font-size-xs; 
@@ -21,15 +22,20 @@ $alert-height-sm: 4.2rem;
     }
 }
 
-.alert--overlay, .alert__link {
+.alert--fixed { 
+    z-index: $global-zindex-alert-fixed;
     position: absolute;
+    @include respond-min($global-screen-sm) { position: fixed; }
+}
+
+.alert--fixed, .alert__link {
     left: 0;
     right: 0;
     top: 0;
-    z-index: $global-zindex-alert;
 }
 
 .alert__link {
+    position: absolute;
     text-indent: -9999px;
     height: 100%;
 }

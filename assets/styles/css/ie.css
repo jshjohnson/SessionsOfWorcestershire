@@ -1795,7 +1795,7 @@ textarea.form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  padding: 0.6rem 2.4rem;
+  padding: 0.68571rem 2.4rem;
   text-decoration: none;
   line-height: 1.6;
   -webkit-appearance: none; }
@@ -2372,20 +2372,27 @@ svg {
   padding: 1rem;
   display: inline-block;
   height: 4.8rem;
+  z-index: 1010;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); }
   @media (max-width: 769px) {
     .alert {
       font-size: 1.4rem;
       height: 4.2rem; } }
 
-.alert--overlay, .alert__link {
-  position: absolute;
+.alert--fixed {
+  z-index: 1050;
+  position: absolute; }
+  @media (min-width: 770px) {
+    .alert--fixed {
+      position: fixed; } }
+
+.alert--fixed, .alert__link {
   left: 0;
   right: 0;
-  top: 0;
-  z-index: 1010; }
+  top: 0; }
 
 .alert__link {
+  position: absolute;
   text-indent: -9999px;
   height: 100%; }
 
