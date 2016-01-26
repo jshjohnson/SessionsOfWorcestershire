@@ -2147,7 +2147,7 @@ svg {
       .nav--primary .nav__item {
         margin-left: 3.6rem;
         margin-right: 0;
-        font-size: 1.8rem; } }
+        font-size: 2rem; } }
     @media (max-width: 699px) {
       .nav--primary .nav__item {
         display: block;
