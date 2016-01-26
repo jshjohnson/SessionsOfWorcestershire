@@ -63,6 +63,7 @@
     margin-top: $global-guttering;
     font-size: $global-font-size-sm;
     @include guttering;
+    @include respond-min($global-screen-lg) { padding: $global-guttering $global-guttering*2; }
     @include respond-min($global-screen-sm) { 
         margin-top: 0;
         padding: $global-guttering;

@@ -58,15 +58,15 @@ $btn-state-color: $brand-white;
 // Colouring
 .btn--primary {
     background-color: $brand-primary;
-    color: $brand-white;
     border-color: darken($brand-primary, 5%);
-    [href]:hover { color: $brand-white; }
+    color: $brand-white;
+    @include on-interaction { color: $brand-white; }
 }
 
 .btn--light { 
-    color: $brand-white;
     border-color: $brand-white;
-    [href]:hover { color: $brand-white; }
+    color: $brand-white;
+    @include on-interaction { color: $brand-white; }
 }
 
 .btn--overlay { 

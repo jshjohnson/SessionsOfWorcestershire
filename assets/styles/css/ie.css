@@ -1827,15 +1827,15 @@ textarea.form-control {
 
 .btn--primary {
   background-color: #641c31;
-  color: white;
-  border-color: #501627; }
-  .btn--primary [href]:hover {
+  border-color: #501627;
+  color: white; }
+  .btn--primary:hover, .btn--primary:active, .btn--primary:focus {
     color: white; }
 
 .btn--light {
-  color: white;
-  border-color: white; }
-  .btn--light [href]:hover {
+  border-color: white;
+  color: white; }
+  .btn--light:hover, .btn--light:active, .btn--light:focus {
     color: white; }
 
 .btn--overlay {
@@ -2287,6 +2287,7 @@ svg {
   @media (max-width: 999px) {
     .content__quote {
       font-size: 2rem;
+      margin: 2.4rem 0 2.4rem 2.4rem;
       padding-right: 0;
       padding-left: 0; } }
   @media (max-width: 479px) {
@@ -2491,10 +2492,50 @@ svg {
   .product__body > *:last-child > *:last-child,
   .product__body > *:last-child > *:last-child > *:last-child {
     margin-bottom: 0; }
+  @media (min-width: 1250px) {
+    .product__body {
+      padding: 2.4rem 4.8rem; } }
   @media (min-width: 770px) {
     .product__body {
       margin-top: 0;
       padding: 2.4rem; } }
+
+/*
+* Name: Profiles
+* Use: 
+* Notes: 
+-------------------------------------------------------------- */
+.profiles {
+  margin: 2.4rem -1.2rem; }
+
+.profiles__item {
+  text-align: center;
+  float: left;
+  vertical-align: middle;
+  padding: 2.4rem;
+  width: 20%; }
+  @media (max-width: 999px) {
+    .profiles__item {
+      width: 25%; } }
+  @media (max-width: 769px) {
+    .profiles__item {
+      width: 33.33333%; } }
+  @media (max-width: 479px) {
+    .profiles__item {
+      width: 50%; } }
+  .profiles__item > *:last-child,
+  .profiles__item > *:last-child > *:last-child,
+  .profiles__item > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0; }
+
+.profiles__image {
+  margin-bottom: 2.4rem; }
+
+.profiles__title {
+  margin-bottom: 0; }
+
+.profiles__desc {
+  font-size: 1.6rem; }
 
 /* ==========================================================================
    Utilities

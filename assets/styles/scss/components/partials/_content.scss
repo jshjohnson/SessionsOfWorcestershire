@@ -30,6 +30,7 @@ $content-quote-gutter: 5px;
     font-style: italic;
     @include respond-max($global-screen-md) { 
         font-size: $content-quote-font-size-sm; 
+        margin: $global-guttering 0 $global-guttering $global-guttering;
         padding-right: 0;
         padding-left: 0;
     }

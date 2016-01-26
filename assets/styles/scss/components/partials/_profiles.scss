@@ -1,0 +1,29 @@
+/*
+* Name: Profiles
+* Use: 
+* Notes: 
+-------------------------------------------------------------- */
+
+$profile-padding: $global-guttering;
+
+.profiles { margin: $global-guttering (-($profile-padding/2)) }
+
+.profiles__item {
+    text-align: center;
+    float: left;
+    vertical-align: middle;
+    padding: $profile-padding;
+    width: percentage(1/5);
+    @include respond-max($global-screen-md) { width: percentage(1/4); }
+    @include respond-max($global-screen-sm) { width: percentage(1/3); }
+    @include respond-max($global-screen-xs) { width: percentage(1/2); }
+    @include guttering;
+}
+
+.profiles__image { margin-bottom: $global-guttering; }
+
+.profiles__title {
+    margin-bottom: 0;
+}
+
+.profiles__desc { font-size: $global-font-size-sm; }
