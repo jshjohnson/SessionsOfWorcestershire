@@ -2506,23 +2506,49 @@ svg {
 * Notes: 
 -------------------------------------------------------------- */
 .profiles {
-  margin: 2.4rem -1.2rem; }
+  margin: 2.4rem -2.4rem; }
+  @media (max-width: 769px) {
+    .profiles {
+      margin: 2.4rem -1.92rem; } }
+  @media (max-width: 479px) {
+    .profiles {
+      margin: 2.4rem -2.4rem; } }
 
 .profiles__item {
   text-align: center;
   float: left;
   vertical-align: middle;
-  padding: 2.4rem;
-  width: 20%; }
-  @media (max-width: 999px) {
+  padding: 2.4rem; }
+  @media (min-width: 1000px) {
     .profiles__item {
-      width: 25%; } }
-  @media (max-width: 769px) {
+      width: 20%; }
+      .profiles__item:nth-child(5n+1) {
+        clear: left; }
+      .profiles__item.nth-child-5n1 {
+        clear: left; } }
+  @media (min-width: 770px) and (max-width: 999px) {
     .profiles__item {
-      width: 33.33333%; } }
+      width: 25%; }
+      .profiles__item:nth-child(4n+1) {
+        clear: left; }
+      .profiles__item.nth-child-4n1 {
+        clear: left; } }
+  @media (min-width: 480px) and (max-width: 769px) {
+    .profiles__item {
+      padding: 1.92rem;
+      width: 33.33333%; }
+      .profiles__item:nth-child(3n+1) {
+        clear: left; }
+      .profiles__item.nth-child-3n1 {
+        clear: left; } }
   @media (max-width: 479px) {
     .profiles__item {
-      width: 50%; } }
+      padding: 2.4rem;
+      width: 50%; }
+      .profiles__item:nth-child(2n+1) {
+        clear: left; }
+      .profiles__item.nth-child-2n1 {
+        clear: left; } }
   .profiles__item > *:last-child,
   .profiles__item > *:last-child > *:last-child,
   .profiles__item > *:last-child > *:last-child > *:last-child {
