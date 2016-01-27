@@ -7,7 +7,7 @@ $alert-height: 4.8rem;
 $alert-height-sm: 4.2rem;
 
 .alert {
-    position: relative;
+    position: absolute;
     background-color: rgba($brand-black, 0.35);
     color: white;
     text-align: center;
@@ -16,13 +16,16 @@ $alert-height-sm: 4.2rem;
     height: $alert-height;
     z-index: $global-zindex-alert;
     text-shadow: 0 1px 4px rgba($brand-black, .25);
-    @include respond-max($global-screen-sm) { 
-        font-size: $global-font-size-xs; 
+    width: 100%;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    will-change: transform;
+    @include respond-max($global-screen-sm) {
+        font-size: $global-font-size-xs;
         height: $alert-height-sm;
     }
 }
 
-.alert--fixed { 
+.alert--fixed {
     z-index: $global-zindex-alert-fixed;
     position: absolute;
     @include respond-min($global-screen-sm) { position: fixed; }
@@ -38,4 +41,9 @@ $alert-height-sm: 4.2rem;
     position: absolute;
     text-indent: -9999px;
     height: 100%;
+}
+
+.alert--primary {
+    background-color: rgba($brand-primary, 0.85);
+    color: $brand-white;
 }

@@ -23,3 +23,4 @@ requirejs(["app/smooth"]);
 requirejs(["app/polyfills"]);
 requirejs(["app/off-canvas"]);
 requirejs(["app/back-to-top"]);
+requirejs(["app/alerts"]);

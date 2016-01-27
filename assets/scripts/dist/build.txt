@@ -9,4 +9,5 @@ app/polyfills.js
 app/utilities.js
 app/off-canvas.js
 app/back-to-top.js
+app/alerts.js
 main.js

@@ -1904,7 +1904,7 @@ svg {
   max-width: 75em; }
 
 .container--sm {
-  max-width: 55em; }
+  max-width: 60em; }
 
 .container--xs {
   max-width: 45em; }
@@ -2364,7 +2364,7 @@ svg {
 * Note: N/A
 -------------------------------------------------------------- */
 .alert {
-  position: relative;
+  position: absolute;
   background-color: rgba(0, 0, 0, 0.35);
   color: white;
   text-align: center;
@@ -2372,7 +2372,10 @@ svg {
   display: inline-block;
   height: 4.8rem;
   z-index: 1010;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); }
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  will-change: transform; }
   @media (max-width: 769px) {
     .alert {
       font-size: 1.4rem;
@@ -2394,6 +2397,10 @@ svg {
   position: absolute;
   text-indent: -9999px;
   height: 100%; }
+
+.alert--primary {
+  background-color: rgba(100, 28, 49, 0.85);
+  color: white; }
 
 /* 
 * Name: Off canvas 
