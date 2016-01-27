@@ -10,6 +10,11 @@
     transition: visibility 0.25s, opacity .25s;
     will-change: opacity;
     .lt-ie9 & { display: none; }
+    &.is-active { 
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0.25s, opacity .25s;
+    }
 }
 
 .back-to-top--static {
@@ -26,10 +31,4 @@
         left: auto;
         bottom: auto;
     }
-}
-
-.back-to-top--active {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0.25s, opacity .25s;
 }

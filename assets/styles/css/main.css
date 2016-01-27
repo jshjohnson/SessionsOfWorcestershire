@@ -1992,6 +1992,10 @@ svg {
   will-change: opacity; }
   .lt-ie9 .back-to-top {
     display: none; }
+  .back-to-top.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.25s, opacity .25s; }
 
 .back-to-top--static {
   position: fixed;
@@ -2007,11 +2011,6 @@ svg {
       right: 1.71429rem;
       left: auto;
       bottom: auto; } }
-
-.back-to-top--active {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0.25s, opacity .25s; }
 
 /*
 * Name: Section
@@ -2059,12 +2058,12 @@ svg {
 .section--tertiary {
   background-color: #8c6954; }
 
+.section--highlight {
+  background-color: #f2eeb3; }
+
 .section--lowlight {
   background-color: #bfaf7f;
   color: white; }
-
-.section--highlight {
-  background-color: #f2eeb3; }
 
 .section--offset-alert {
   padding-top: 7.2rem; }

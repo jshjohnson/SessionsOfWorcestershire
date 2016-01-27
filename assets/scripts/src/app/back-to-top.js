@@ -21,13 +21,13 @@ require(['modernizr'], function(Modernizr) {
                     // If screen is not ridicously small
                     if (scrollBarPosition > offset) {
                         if (el.classList) {
-                            el.classList.add('visible');
+                            el.classList.add('is-active');
                         } else {
-                            el.className += ' ' + 'visible';
+                            el.className += ' ' + 'is-active';
                         }
                     } else {
-                        if(el.classList.contains('visible')) {
-                            el.classList.remove('visible');
+                        if(el.classList.contains('is-active')) {
+                            el.classList.remove('is-active');
                         }
                     }
                 };

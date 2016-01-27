@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/styles/css/main.min.css">
 </head>
 <body>
-    <div class="off-canvas js-canvas">
+    <div id="top" class="off-canvas js-canvas">
         <div class="off-canvas__inner">
             <div class="alert js-collision-alert">
                 <a href="" class="alert__link" aria-hidden="true"></a>
@@ -140,6 +140,11 @@
                 </div>
             </footer>
         </div>
+    </div>
+    <div class="back-to-top back-to-top--static js-back-to-top" aria-hidden="true" data-scroll>
+        <a href="#top" data-scroll title="Back to top">
+            <svg width="20" height="20" viewBox="0 0 413 262" xmlns="http://www.w3.org/2000/svg"><path d="M55.302 261.084L.416 205.936l206-205.02 206 205.02-54.887 55.148L206.415 110.69 55.302 261.083z"></path></svg>
+        </a>
     </div>
     <script async src="assets/scripts/dist/libs/modernizr-dev.min.js"></script>
     <script src="assets/scripts/dist/libs/require.min.js" data-main="assets/scripts/dist/main.min"></script>

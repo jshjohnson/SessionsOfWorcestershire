@@ -44,11 +44,11 @@ $section-alert-offset-sm: 4.2rem;
 .section--primary { background-color: $brand-primary; }
 .section--secondary { background-color: $brand-secondary; }
 .section--tertiary { background-color: $brand-tertiary; }
+.section--highlight { background-color: $brand-highlight; }
 .section--lowlight { 
     background-color: $brand-lowlight; 
     color: $brand-white;
 }
-.section--highlight { background-color: $brand-highlight; }
 
 .section--offset-alert { 
     padding-top: $global-guttering*1.25 + $section-alert-offset-sm;
