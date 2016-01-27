@@ -1826,8 +1826,8 @@ textarea.form-control {
   padding: 0.4rem 1.5rem; }
 
 .btn--primary {
-  background-color: #641c31;
-  border-color: #501627;
+  background-color: #861e41;
+  border-color: #641c31;
   color: white; }
   .btn--primary:hover, .btn--primary:active, .btn--primary:focus {
     color: white; }
@@ -2147,12 +2147,13 @@ svg {
       .nav--primary .nav__item {
         margin-left: 3.6rem;
         margin-right: 0;
-        font-size: 2rem; } }
+        font-size: 1.8rem; } }
     @media (max-width: 699px) {
       .nav--primary .nav__item {
         display: block;
         margin-left: 0;
-        padding: 1.6rem 0; } }
+        padding: 1.6rem 0;
+        font-size: 2rem; } }
   @media (max-width: 699px) {
     .nav--primary .nav__item--icon {
       display: inline-block;
@@ -2401,6 +2402,8 @@ svg {
 .alert--primary {
   background-color: rgba(100, 28, 49, 0.85);
   color: white; }
+  .alert--primary:hover {
+    background-color: rgba(100, 28, 49, 0.95); }
 
 /* 
 * Name: Off canvas 

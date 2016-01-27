@@ -102,9 +102,13 @@ gulp.task('styles', function() {
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.csso())
-        .pipe(plugins.pixrem('62.5%', { atrules: true}))
         .pipe(plugins.rename({suffix: '.min'}))
         .pipe(plugins.header(banner, { package : package }))
+        .pipe(plugins.pixrem({
+            rootValue: '62.5%%',
+            replace: false,
+            atrules: true,
+         }))
         .pipe(gulp.dest('assets/styles/css/'))
         .pipe(plugins.connect.reload());
 });

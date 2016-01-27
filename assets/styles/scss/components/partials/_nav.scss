@@ -9,7 +9,8 @@ $nav-button-height: 20px;
 $nav-primary-height: 80px;
 $nav-primary-font-size-lg: 2.2rem;
 $nav-primary-font-size-md: 2rem;
-$nav-primary-font-size-sm: 2rem;
+$nav-primary-font-size-sm: 1.8rem;
+$nav-primary-font-size-xs: 2rem;
 $nav-primary-off-canvas-width: 250px;
 
 .nav {
@@ -57,6 +58,7 @@ $nav-primary-off-canvas-width: 250px;
             display: block;
             margin-left: 0; 
             padding: $global-guttering/1.5 0;
+            font-size: $nav-primary-font-size-xs;
         }
     }
     .nav__item--icon {

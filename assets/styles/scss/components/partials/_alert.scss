@@ -46,4 +46,5 @@ $alert-height-sm: 4.2rem;
 .alert--primary {
     background-color: rgba($brand-primary, 0.85);
     color: $brand-white;
+    &:hover { background-color: rgba($brand-primary, 0.95); }
 }

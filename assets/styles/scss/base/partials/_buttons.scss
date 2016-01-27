@@ -57,8 +57,8 @@ $btn-state-color: $brand-white;
 
 // Colouring
 .btn--primary {
-    background-color: $brand-primary;
-    border-color: darken($brand-primary, 5%);
+    background-color: $brand-secondary;
+    border-color: $brand-primary;
     color: $brand-white;
     @include on-interaction { color: $brand-white; }
 }
