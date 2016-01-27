@@ -1,4 +1,4 @@
-/*! sessions-of-worcestershire v1.0.0 | (c) 2016 Josh Johnson | https://github.com/jshjohnson/SessionsOfWorcestershire#readme */
+/*! sessions-of-worcestershire v1.0.0 | (c) 2016 Josh Johnson, James Blizzard | https://github.com/jshjohnson/SessionsOfWorcestershire#readme */
 /* ==========================================================================
    Initialise smooth anchor scrolling
    ========================================================================== */
