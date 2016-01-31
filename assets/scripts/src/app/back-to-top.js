@@ -2,7 +2,7 @@
    Show back to top icon after scroll down
    ========================================================================== */
 
-require(['modernizr'], function(Modernizr) {
+require(['modernizr', 'app/utilities'], function(Modernizr, utils) {
     
     var app = {};
 
@@ -13,7 +13,7 @@ require(['modernizr'], function(Modernizr) {
             var backToTopLink = document.querySelectorAll('.js-back-to-top');
             var offset = 750;
 
-            var backToTopController = function() {
+            var backToTopController = utils.debounce(function() {
                 var scrollBarPosition = window.pageYOffset | document.body.scrollTop;
 
                 for (var i = backToTopLink.length - 1; i >= 0; i--) {
@@ -31,17 +31,11 @@ require(['modernizr'], function(Modernizr) {
                         }
                     }
                 };
-            };
+            }, 100);
 
-            if(window.attachEvent) {
-                document.attachEvent('onscroll', function() {
-                    backToTopController();
-                });
-            } else if(window.addEventListener) {
-                document.addEventListener('scroll', function(){
-                    backToTopController();
-                });
-            }
+            document.addEventListener('scroll', function(){
+                backToTopController();
+            });
 
             backToTopController();
         };
