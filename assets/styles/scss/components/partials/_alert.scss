@@ -3,17 +3,14 @@
 * Note: N/A
 -------------------------------------------------------------- */
 
-$alert-height: 4.8rem;
-$alert-height-sm: 4.2rem;
-
 .alert {
-    position: absolute;
+    position: relative;
     background-color: rgba($brand-black, 0.35);
     color: white;
     text-align: center;
-    padding: $global-guttering/2.4;
+    padding: $global-guttering/1.5;
     display: inline-block;
-    height: $alert-height;
+    vertical-align: top;
     z-index: $global-zindex-alert;
     text-shadow: 0 1px 4px rgba($brand-black, .25);
     width: 100%;
@@ -21,13 +18,13 @@ $alert-height-sm: 4.2rem;
     will-change: transform;
     @include respond-max($global-screen-sm) {
         font-size: $global-font-size-xs;
-        height: $alert-height-sm;
     }
 }
 
 .alert--fixed {
     z-index: $global-zindex-alert-fixed;
     position: absolute;
+    animation: fadeInDown .2s ease-in-out;
     @include respond-min($global-screen-sm) { position: fixed; }
 }
 
@@ -44,7 +41,7 @@ $alert-height-sm: 4.2rem;
 }
 
 .alert--primary {
-    background-color: rgba($brand-primary, 0.85);
+    background-color: rgba($brand-primary, 0.9);
     color: $brand-white;
-    &:hover { background-color: rgba($brand-primary, 0.95); }
+    &:hover { background-color: rgba($brand-primary, 1); }
 }

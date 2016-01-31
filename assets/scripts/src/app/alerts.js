@@ -12,14 +12,23 @@ require(['app/utilities'], function(utils) {
         var module = {};
 
         module.init = function () {
+            var body = document.body;
             var collisionArea = document.querySelector('.js-collision-area');
             var alert = document.querySelector('.js-collision-alert');
+            var headerSpacer = document.createElement('div');
+                headerSpacer.classList.add('alert', 'alert--spacer', 'js-alert-spacer');
+                headerSpacer.style.height = alert.offsetHeight + "px";
 
             var handleCollision = function(el) {
+                el.parentNode.insertBefore(headerSpacer, el)
                 el.classList.add('alert--primary', 'alert--fixed');
             };
 
             var revertCollision = function(el) {
+                var space = document.querySelector('.js-alert-spacer');
+                if(space) {
+                    space.parentNode.removeChild(space);    
+                }
                 el.classList.remove('alert--primary', 'alert--fixed');
             };
 

@@ -28,14 +28,16 @@ $off-canvas-width: 250px;
 }
 
 .off-canvas__inner {
-    box-shadow: 0px 0px 10px rgba($brand-black, 0.4);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translate3d(0);
-    transform: translate3d(0);
-    transition: transform .3s ease-in-out;
-    .no-csstransforms3d & {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+    @include respond-max($global-screen-offcanvas) {
+        box-shadow: 0px 0px 10px rgba($brand-black, 0.4);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translate3d(0);
+        transform: translate3d(0);
+        transition: transform .3s ease-in-out;
+        .no-csstransforms3d & {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
 }
