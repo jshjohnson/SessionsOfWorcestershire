@@ -2380,11 +2380,11 @@ svg {
 
 .alert--fixed {
   z-index: 1050;
-  position: absolute;
-  -webkit-animation: fadeInDown .2s ease-in-out;
-          animation: fadeInDown .2s ease-in-out; }
+  position: absolute; }
   @media (min-width: 770px) {
     .alert--fixed {
+      -webkit-animation: fadeInDown .2s ease-in-out;
+              animation: fadeInDown .2s ease-in-out;
       position: fixed; } }
 
 .alert--fixed, .alert__link {

@@ -24,8 +24,10 @@
 .alert--fixed {
     z-index: $global-zindex-alert-fixed;
     position: absolute;
-    animation: fadeInDown .2s ease-in-out;
-    @include respond-min($global-screen-sm) { position: fixed; }
+    @include respond-min($global-screen-sm) { 
+        animation: fadeInDown .2s ease-in-out;
+        position: fixed; 
+    }
 }
 
 .alert--fixed, .alert__link {
