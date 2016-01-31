@@ -39,7 +39,10 @@ $content-quote-gutter: 5px;
         padding-right: 0;
         margin-left: 0;
     }
-    q { display: block; }
+    q { 
+        display: block; 
+        margin-bottom: $global-guttering;
+    }
     > q:first-child {
         position: relative;
         &:before, &:after {

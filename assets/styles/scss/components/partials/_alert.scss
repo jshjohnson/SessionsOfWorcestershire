@@ -5,10 +5,10 @@
 
 .alert {
     position: relative;
-    background-color: rgba($brand-black, 0.35);
+    background-color: darken($brand-primary, 7.5%);
     color: white;
     text-align: center;
-    padding: $global-guttering/1.5;
+    padding: $global-guttering/2;
     display: inline-block;
     vertical-align: top;
     z-index: $global-zindex-alert;

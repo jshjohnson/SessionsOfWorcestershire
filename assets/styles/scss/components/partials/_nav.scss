@@ -71,7 +71,7 @@ $nav-primary-off-canvas-width: 250px;
     .nav__link, .nav__btn {
         position: relative;
         color: $brand-white;
-        opacity: 0.75;
+        opacity: 0.6;
         text-decoration: none;
         transition: opacity .2s ease-in-out;
         @include on-interaction { 

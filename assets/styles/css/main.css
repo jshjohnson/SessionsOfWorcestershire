@@ -2156,7 +2156,7 @@ svg {
   .nav--primary .nav__link, .nav--primary .nav__btn {
     position: relative;
     color: white;
-    opacity: 0.75;
+    opacity: 0.6;
     text-decoration: none;
     transition: opacity .2s ease-in-out; }
     .nav--primary .nav__link:hover, .nav--primary .nav__link:active, .nav--primary .nav__link:focus, .nav--primary .nav__btn:hover, .nav--primary .nav__btn:active, .nav--primary .nav__btn:focus {
@@ -2291,7 +2291,8 @@ svg {
       padding-right: 0;
       margin-left: 0; } }
   .content__quote q {
-    display: block; }
+    display: block;
+    margin-bottom: 2.4rem; }
   .content__quote > q:first-child {
     position: relative; }
     .content__quote > q:first-child:before, .content__quote > q:first-child:after {
@@ -2362,10 +2363,10 @@ svg {
 -------------------------------------------------------------- */
 .alert {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: #461422;
   color: white;
   text-align: center;
-  padding: 1.6rem;
+  padding: 1.2rem;
   display: inline-block;
   vertical-align: top;
   z-index: 1010;
@@ -2417,28 +2418,22 @@ svg {
     .off-canvas.is-active {
       overflow: hidden; }
       .off-canvas.is-active .off-canvas__inner {
-        -webkit-transform: translate3d(-250px, 0, 0);
-                transform: translate3d(-250px, 0, 0);
+        -webkit-transform: translateX(-250px);
+                transform: translateX(-250px);
         transition: -webkit-transform .3s ease-in-out;
         transition: transform .3s ease-in-out;
-        transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
-        .no-csstransforms3d .off-canvas.is-active .off-canvas__inner {
-          -webkit-transform: translateX(-250px);
-          transform: translateX(-250px); } }
+        transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; } }
 
 @media (max-width: 699px) {
   .off-canvas__inner {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-transform: translate3d(0);
-    transform: translate3d(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
-    .no-csstransforms3d .off-canvas__inner {
-      -webkit-transform: translateX(0);
-      transform: translateX(0); } }
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; } }
 
 /*
 * Name: Product
