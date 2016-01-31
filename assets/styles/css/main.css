@@ -2290,25 +2290,27 @@ svg {
       padding-left: 2.4rem;
       padding-right: 0;
       margin-left: 0; } }
-  .content__quote > p:first-child {
+  .content__quote q {
+    display: block; }
+  .content__quote > q:first-child {
     position: relative; }
-    .content__quote > p:first-child:before, .content__quote > p:first-child:after {
+    .content__quote > q:first-child:before, .content__quote > q:first-child:after {
       content: "";
       position: absolute;
       width: 20px;
       height: 20px;
       background-repeat: no-repeat;
       background-size: 20px; }
-    .content__quote > p:first-child:before {
+    .content__quote > q:first-child:before {
       background-image: url("../../images/misc/open-quote.svg");
       top: 0;
       left: -25px; }
-    .content__quote > p:first-child:after {
+    .content__quote > q:first-child:after {
       background-image: url("../../images/misc/close-quote.svg");
       margin-top: 2.5px;
       margin-left: 5px; }
     @media (max-width: 479px) {
-      .content__quote > p:first-child:after {
+      .content__quote > q:first-child:after {
         content: none; } }
   .content__quote cite {
     font-size: 2rem;
@@ -2324,9 +2326,9 @@ svg {
 
 .content__quote--inverse {
   color: white; }
-  .content__quote--inverse > p:first-child:before {
+  .content__quote--inverse > q:first-child:before {
     background-image: url("../../images/misc/open-quote-inverse.svg"); }
-  .content__quote--inverse > p:first-child:after {
+  .content__quote--inverse > q:first-child:after {
     background-image: url("../../images/misc/close-quote-inverse.svg"); }
 
 .content__quote--unstyled {

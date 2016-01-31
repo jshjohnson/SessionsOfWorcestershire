@@ -15,8 +15,8 @@ $content-quote-gutter: 5px;
 
 .content {}
 
-.content__intro { 
-    font-size: $content-intro-font-size-lg; 
+.content__intro {
+    font-size: $content-intro-font-size-lg;
     @include respond-max($global-screen-sm) { font-size: $content-intro-font-size-sm; }
 }
 
@@ -28,18 +28,19 @@ $content-quote-gutter: 5px;
     border-bottom: 1px solid $brand-keyline;
     font-size: $content-quote-font-size-lg;
     font-style: italic;
-    @include respond-max($global-screen-md) { 
-        font-size: $content-quote-font-size-sm; 
+    @include respond-max($global-screen-md) {
+        font-size: $content-quote-font-size-sm;
         margin: $global-guttering*1.25 0;
         padding: $global-guttering*1.25 0 $global-guttering*1.25 $global-guttering;
     }
-    @include respond-max($global-screen-xs) { 
+    @include respond-max($global-screen-xs) {
         font-size: $content-quote-font-size-xs;
-        padding-left: $global-guttering; 
-        padding-right: 0; 
+        padding-left: $global-guttering;
+        padding-right: 0;
         margin-left: 0;
     }
-    > p:first-child {
+    q { display: block; }
+    > q:first-child {
         position: relative;
         &:before, &:after {
             content: "";
@@ -54,17 +55,17 @@ $content-quote-gutter: 5px;
             top: 0;
             left: -($content-quote-size + $content-quote-gutter);
         }
-        &:after { 
-            background-image: url('../../images/misc/close-quote.svg'); 
+        &:after {
+            background-image: url('../../images/misc/close-quote.svg');
             margin-top: $content-quote-gutter/2;
             margin-left: $content-quote-gutter;
         }
         @include respond-max($global-screen-xs) { &:after { content: none; }}
     }
-    cite { 
-        font-size: $global-font-size-lg; 
+    cite {
+        font-size: $global-font-size-lg;
         font-style: italic;
-        &:before { 
+        &:before {
             content: "—";
             width: 2.75rem;
             margin-left: -2.75rem;
@@ -79,7 +80,7 @@ $content-quote-gutter: 5px;
 
 .content__quote--inverse {
     color: $brand-white;
-    > p:first-child {
+    > q:first-child {
         &:before { background-image: url('../../images/misc/open-quote-inverse.svg'); }
         &:after { background-image: url('../../images/misc/close-quote-inverse.svg'); }
     }
@@ -99,13 +100,13 @@ $content-quote-gutter: 5px;
     margin-bottom: $global-guttering;
     width: 40rem;
     @include respond-max($global-screen-sm) { width: 20rem; }
-    @include respond-max($global-screen-xs) { 
+    @include respond-max($global-screen-xs) {
         float: none;
-        width: 100%; 
+        width: 100%;
     }
 }
 
-.content__aside--reverse { 
+.content__aside--reverse {
     float: right;
     margin-right: 0;
     margin-left: $global-guttering;
