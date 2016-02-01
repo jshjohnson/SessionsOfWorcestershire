@@ -25,8 +25,8 @@ ol {
             counter-increment: top;
             content: counter(top) ": ";
             font-weight: bold;
+            margin-right: $global-guttering/2;
         }
-        margin-bottom: $global-guttering/2;
     }
     ol {
         margin-top: $global-guttering/2;

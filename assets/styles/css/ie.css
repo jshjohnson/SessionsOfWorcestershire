@@ -542,12 +542,11 @@ ol {
   list-style-type: none;
   padding-left: 0;
   padding-bottom: 1.2rem; }
-  ol li {
-    margin-bottom: 1.2rem; }
-    ol li:before {
-      counter-increment: top;
-      content: counter(top) ": ";
-      font-weight: bold; }
+  ol li:before {
+    counter-increment: top;
+    content: counter(top) ": ";
+    font-weight: bold;
+    margin-right: 1.2rem; }
   ol ol {
     margin-top: 1.2rem;
     padding-left: 1em;
@@ -1818,6 +1817,7 @@ textarea.form-control {
   padding: 1rem 2.4rem; }
 
 .btn--sm {
+  font-size: 1.6rem;
   padding: 0.4rem 1.5rem; }
 
 .btn--primary {
@@ -2992,10 +2992,10 @@ svg {
     -webkit-transform: none;
             transform: none; } }
 
-.a-fade-in-down {
+.fade-in-down {
   -webkit-animation: fadeInDown .2s ease-in-out;
           animation: fadeInDown .2s ease-in-out; }
 
-.a-fade-out-up {
+.fade-out-up {
   -webkit-animation: fadeOutUp .2s ease-in-out;
           animation: fadeOutUp .2s ease-in-out; }

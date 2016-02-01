@@ -22,7 +22,7 @@ require(['app/utilities'], function(utils) {
 
             var handleCollision = function(el) {
                 el.parentNode.insertBefore(headerSpacer, el)
-                el.classList.add('alert--primary', 'alert--fixed');
+                el.classList.add('alert--fixed');
             };
 
             var revertCollision = function(el) {
@@ -30,7 +30,7 @@ require(['app/utilities'], function(utils) {
                 if(space) {
                     space.parentNode.removeChild(space);    
                 }
-                el.classList.remove('alert--primary', 'alert--fixed');
+                el.classList.remove('alert--fixed');
             };
 
             var collisionDetection = function() {

@@ -53,7 +53,10 @@ $btn-state-color: $brand-white;
 
 // Sizing
 .btn--lg { padding: $global-guttering/2.4 $global-guttering; }
-.btn--sm { padding: $global-guttering/6 $global-guttering/1.6; }
+.btn--sm { 
+    font-size: $global-font-size-sm;
+    padding: $global-guttering/6 $global-guttering/1.6; 
+}
 
 // Colouring
 .btn--primary {

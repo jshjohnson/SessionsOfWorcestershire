@@ -12,7 +12,7 @@
 <body>
     <div id="top" class="off-canvas js-canvas">
         <div class="off-canvas__inner">
-            <div class="alert js-collision-alert">
+            <div class="alert alert--primary js-collision-alert">
                 <a href="" class="alert__link" aria-hidden="true"></a>
                 Now taking orders for February 2016. Order <a href="content.html" class="text-inverse">now</a>
             </div>
@@ -83,7 +83,7 @@
                         <h5>Heading 5</h5>
                         <h6>Heading 6</h6>
                         <hr class="cf">
-                        <form action="">
+                        <form action="" class="zero-bottom">
                             <fieldset>
                                 <label for="">First name</label>
                                 <input type="text" placeholder="First name" class="form-control">
@@ -92,7 +92,7 @@
                             </fieldset>
                             <fieldset>
                                 <legend>Multiple choices</legend>
-                                <ul class="list-unstyled">
+                                <ul class="list-unstyled push-bottom">
                                     <li class="checkbox">
                                         <label for="checkbox1">Choice A</label>
                                         <input id="checkbox1" name="checkbox" type="checkbox" checked="checked">
@@ -107,7 +107,23 @@
                                     </li>
                                 </ul>
                             </fieldset>
-                            <input type="submit" value="Submit" class="btn btn--primary">
+                            <fieldset>
+                                <legend>Single choices</legend>
+                                <ul class="list-unstyled zero-bottom">
+                                    <li class="radio">
+                                        <label for="radio1">Choice A</label>
+                                        <input id="radio1" name="radio" type="radio" checked="checked">
+                                    </li>
+                                    <li class="radio">
+                                        <label for="radio2">Choice B</label>
+                                        <input id="radio2" name="radio" type="radio">
+                                    </li>
+                                    <li class="radio">
+                                        <label for="radio3">Choice C</label>
+                                        <input id="radio3" name="radio" type="radio">
+                                    </li>
+                                </ul>
+                            </fieldset>
                         </form>
                         <hr class="cf">
                         <div class="media">
@@ -124,6 +140,42 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque labore alias ipsum a voluptates itaque fugiat tenetur dignissimos quod adipisci, fuga asperiores quae in rerum dicta possimus odit aspernatur libero!</p>
                             </div>
                         </div>
+                        <hr class="cf">
+                        <h4>Button variations</h4>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="" class="btn btn--sm btn--primary">Smaller button</a>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn--primary">Normal button</a>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn--lg btn--primary">Larger button</a>
+                            </li>
+                        </ul>
+                        <hr class="cf">
+                        <h4>Button variations</h4>
+                        <h6 class="zero-bottom">Inline</h6>
+                        <ul class="list-inline push-bottom">
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ul>
+                        <h6 class="zero-bottom">Ticked</h6>
+                        <ul class="list-unstyled list-ticked push-bottom">
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ul>
+                        <h6 class="zero-bottom">Ordered</h6>
+                        <ol class="">
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
                     </article>
                 </div>
             </section>
