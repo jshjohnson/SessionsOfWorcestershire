@@ -22,17 +22,18 @@ $nav-primary-off-canvas-width: 250px;
 
 .nav--primary {
     height: $nav-primary-height;
-    @include respond-min($global-screen-md) { 
+    text-align: right;
+    @include respond-min($global-screen-md) {
         float: right;
         overflow: hidden;
+        text-align: center;
     }
-    @include respond-min($global-screen-offcanvas) { 
+    @include respond-min($global-screen-offcanvas) {
         display: table-cell;
         vertical-align: middle;
-        text-align: right; 
     }
-    .nav__list { 
-        @include respond-max($global-screen-sm) { margin: 0; } 
+    .nav__list {
+        @include respond-max($global-screen-sm) { margin: 0; }
         @include respond-max($global-screen-offcanvas) {
             width: $nav-primary-off-canvas-width;
             height: 100%;
@@ -44,54 +45,46 @@ $nav-primary-off-canvas-width: 250px;
             text-align: center;
         }
     }
-    .nav__item { 
+    .nav__item {
         font-family: $global-headings-font-family;
-        font-size: $nav-primary-font-size-lg; 
-        margin-right: $global-guttering*2;
+        font-size: $nav-primary-font-size-lg;
+        margin-right: 0;
         @include respond-max($global-screen-xl) { font-size: $nav-primary-font-size-md; }
-        @include respond-max($global-screen-md) { 
-            margin-left: $global-guttering*1.5; 
+        @include respond-max($global-screen-md) {
+            margin-left: $global-guttering*1.5;
             margin-right: 0;
-            font-size: $nav-primary-font-size-sm; 
+            font-size: $nav-primary-font-size-sm;
         }
-        @include respond-max($global-screen-offcanvas) { 
+        @include respond-max($global-screen-offcanvas) {
             display: block;
-            margin-left: 0; 
+            margin-left: 0;
             padding: $global-guttering/1.5 0;
             font-size: $nav-primary-font-size-xs;
         }
     }
+    .nav__item--default {
+        @include respond-min($global-screen-md) { width: 130px; }
+        @include respond-min($global-screen-lg) { width: 150px; }
+    }
     .nav__item--icon {
-        @include respond-max($global-screen-offcanvas) { 
+        @include respond-min($global-screen-md) { width: 75px; }
+        @include respond-max($global-screen-offcanvas) {
             display: inline-block;
             padding-left: $global-guttering/2;
             padding-right: $global-guttering/2;
         }
     }
+    .nav__link { display: block; }
     .nav__link, .nav__btn {
         position: relative;
         color: $brand-white;
         opacity: 0.6;
         text-decoration: none;
         transition: opacity .2s ease-in-out;
-        @include on-interaction { 
+        @include on-interaction {
             color: $brand-white;
             opacity: 1;
             transition: opacity .2s ease-in-out;
-        }
-    }
-    .nav__link--active { 
-        opacity: 1; 
-        &:after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            margin-left: -2.5px;
-            width: 5px;
-            height: 5px;
-            border-radius: 10px;
-            background-color: $brand-white;
         }
     }
     .nav__btn {
@@ -100,18 +93,73 @@ $nav-primary-off-canvas-width: 250px;
         top: 0;
         @include vertical-align-unprefixed();
     }
+    .nav__indicator {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 5px;
+        pointer-events: none;
+        transition: transform 0.5s;
+        transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+        @include respond-max($global-screen-md) { display: none; }
+        @include respond-min($global-screen-md) { width: 130px; }
+        @include respond-min($global-screen-lg) { width: 150px; }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            margin-left: -2.5px;
+            width: 5px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: $brand-white;
+        }
+    }
+    .nav__item--active {
+        .nav__link { opacity: 1; }
+    }
+
+    .nav__item--default:nth-child(1).nav__item--active ~ .nav__indicator,
+    .nav__item--default:nth-child(1):hover ~ .nav__indicator, {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .nav__item--default:nth-child(2).nav__item--active ~ .nav__indicator,
+    .nav__item--default:nth-child(2):hover ~ .nav__indicator, {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    .nav__item--default:nth-child(3).nav__item--active ~ .nav__indicator,
+    .nav__item--default:nth-child(3):hover ~ .nav__indicator, {
+        -webkit-transform: translate3d(200%, 0, 0);
+        transform: translate3d(200%, 0, 0);
+    }
+
+    .nav__item--default:nth-child(4).nav__item--active ~ .nav__indicator,
+    .nav__item--default:nth-child(4):hover ~ .nav__indicator, {
+        -webkit-transform: translate3d(300%, 0, 0);
+        transform: translate3d(300%, 0, 0);
+    }
+
+    .nav__item--default:nth-child(5).nav__item--active ~ .nav__indicator,
+    .nav__item--default:nth-child(5):hover ~ .nav__indicator, {
+        -webkit-transform: translate3d(400%, 0, 0);
+        transform: translate3d(400%, 0, 0);
+    }
 }
 
 .nav--secondary {
     padding: $global-guttering/2;
     .nav__list { margin-bottom: 0; }
-    .nav__item { 
+    .nav__item {
         @include respond-min($global-screen-sm) { margin-right: $global-guttering*2; }
     }
-    .nav__link { 
-        color: $brand-white; 
+    .nav__link {
+        color: $brand-white;
         text-decoration: none;
-    } 
+    }
 }
 
 
@@ -122,3 +170,5 @@ $nav-primary-off-canvas-width: 250px;
     @include on-interaction { outline: none; }
     @include respond-min($global-screen-offcanvas) { display: none; }
 }
+
+.nav__list { position: relative; }

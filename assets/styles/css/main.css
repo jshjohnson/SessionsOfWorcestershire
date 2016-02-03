@@ -2107,16 +2107,17 @@ svg {
     clear: both; }
 
 .nav--primary {
-  height: 80px; }
+  height: 80px;
+  text-align: right; }
   @media (min-width: 1000px) {
     .nav--primary {
       float: right;
-      overflow: hidden; } }
+      overflow: hidden;
+      text-align: center; } }
   @media (min-width: 700px) {
     .nav--primary {
       display: table-cell;
-      vertical-align: middle;
-      text-align: right; } }
+      vertical-align: middle; } }
   @media (max-width: 769px) {
     .nav--primary .nav__list {
       margin: 0; } }
@@ -2133,7 +2134,7 @@ svg {
   .nav--primary .nav__item {
     font-family: "Crimson Text", "Times New Roman", Times, serif;
     font-size: 2.2rem;
-    margin-right: 4.8rem; }
+    margin-right: 0; }
     @media (max-width: 1599px) {
       .nav--primary .nav__item {
         font-size: 2rem; } }
@@ -2148,11 +2149,22 @@ svg {
         margin-left: 0;
         padding: 1.6rem 0;
         font-size: 2rem; } }
+  @media (min-width: 1000px) {
+    .nav--primary .nav__item--default {
+      width: 130px; } }
+  @media (min-width: 1250px) {
+    .nav--primary .nav__item--default {
+      width: 150px; } }
+  @media (min-width: 1000px) {
+    .nav--primary .nav__item--icon {
+      width: 75px; } }
   @media (max-width: 699px) {
     .nav--primary .nav__item--icon {
       display: inline-block;
       padding-left: 1.2rem;
       padding-right: 1.2rem; } }
+  .nav--primary .nav__link {
+    display: block; }
   .nav--primary .nav__link, .nav--primary .nav__btn {
     position: relative;
     color: white;
@@ -2163,18 +2175,6 @@ svg {
       color: white;
       opacity: 1;
       transition: opacity .2s ease-in-out; }
-  .nav--primary .nav__link--active {
-    opacity: 1; }
-    .nav--primary .nav__link--active:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      margin-left: -2.5px;
-      width: 5px;
-      height: 5px;
-      border-radius: 10px;
-      background-color: white; }
   .nav--primary .nav__btn {
     position: absolute;
     right: 0;
@@ -2184,6 +2184,56 @@ svg {
             transform: translateY(-50%); }
     .no-csstransforms .nav--primary .nav__btn {
       top: auto; }
+  .nav--primary .nav__indicator {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 5px;
+    pointer-events: none;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22); }
+    @media (max-width: 999px) {
+      .nav--primary .nav__indicator {
+        display: none; } }
+    @media (min-width: 1000px) {
+      .nav--primary .nav__indicator {
+        width: 130px; } }
+    @media (min-width: 1250px) {
+      .nav--primary .nav__indicator {
+        width: 150px; } }
+    .nav--primary .nav__indicator:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      margin-left: -2.5px;
+      width: 5px;
+      height: 5px;
+      border-radius: 10px;
+      background-color: white; }
+  .nav--primary .nav__item--active .nav__link {
+    opacity: 1; }
+  .nav--primary .nav__item--default:nth-child(1).nav__item--active ~ .nav__indicator,
+  .nav--primary .nav__item--default:nth-child(1):hover ~ .nav__indicator {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  .nav--primary .nav__item--default:nth-child(2).nav__item--active ~ .nav__indicator,
+  .nav--primary .nav__item--default:nth-child(2):hover ~ .nav__indicator {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0); }
+  .nav--primary .nav__item--default:nth-child(3).nav__item--active ~ .nav__indicator,
+  .nav--primary .nav__item--default:nth-child(3):hover ~ .nav__indicator {
+    -webkit-transform: translate3d(200%, 0, 0);
+    transform: translate3d(200%, 0, 0); }
+  .nav--primary .nav__item--default:nth-child(4).nav__item--active ~ .nav__indicator,
+  .nav--primary .nav__item--default:nth-child(4):hover ~ .nav__indicator {
+    -webkit-transform: translate3d(300%, 0, 0);
+    transform: translate3d(300%, 0, 0); }
+  .nav--primary .nav__item--default:nth-child(5).nav__item--active ~ .nav__indicator,
+  .nav--primary .nav__item--default:nth-child(5):hover ~ .nav__indicator {
+    -webkit-transform: translate3d(400%, 0, 0);
+    transform: translate3d(400%, 0, 0); }
 
 .nav--secondary {
   padding: 1.2rem; }
@@ -2205,6 +2255,9 @@ svg {
   @media (min-width: 700px) {
     .nav__btn {
       display: none; } }
+
+.nav__list {
+  position: relative; }
 
 /*
 * Name: Hero
