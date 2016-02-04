@@ -95,7 +95,7 @@ a {
     transition: .15s color ease-in-out;
     color: $brand-link;
     text-decoration: none;
-    @include on-interaction { 
+    @include on-interaction {
         color: darken($brand-link, 5%);
         text-decoration: underline;
     }

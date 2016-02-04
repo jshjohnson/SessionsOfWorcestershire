@@ -28,7 +28,12 @@ $btn-state-color: $brand-white;
     text-decoration: none;
     line-height: $global-line-height-base;
     -webkit-appearance: none;
+    transition: all .2s ease-in-out;
     @include respond-max($global-screen-md) { font-size: $global-font-size-sm; }
+    @include on-interaction {
+        border-color: darken($global-input-bg, 15%);
+        transition: all .2s ease-in-out;
+    }
     &:focus { @include tab-focus; }
     &:hover,
     &:focus {
@@ -53,9 +58,9 @@ $btn-state-color: $brand-white;
 
 // Sizing
 .btn--lg { padding: $global-guttering/2.4 $global-guttering; }
-.btn--sm { 
+.btn--sm {
     font-size: $global-font-size-sm;
-    padding: $global-guttering/6 $global-guttering/1.6; 
+    padding: $global-guttering/6 $global-guttering/1.6;
 }
 
 // Colouring
@@ -63,20 +68,41 @@ $btn-state-color: $brand-white;
     background-color: $brand-secondary;
     border-color: $brand-primary;
     color: $brand-white;
-    @include on-interaction { color: $brand-white; }
+    @include on-interaction {
+        background-color: darken($brand-secondary, 2.5%);
+        color: $brand-white;
+        border-color: darken($brand-primary, 5%);
+        transition: all .2s ease-in-out;
+    }
 }
 
-.btn--light { 
+.btn--secondary {
+    background-color: $brand-highlight;
+    border-color: $brand-lowlight;
+    color: darken($brand-lowlight, 15%);
+    @include on-interaction {
+        background-color: darken($brand-highlight, 2.5%);
+        color: darken($brand-lowlight, 15%);
+        border-color: darken($brand-lowlight, 5%);
+        transition: all .2s ease-in-out;
+    }
+}
+
+.btn--light {
     border-color: $brand-white;
     color: $brand-white;
-    @include on-interaction { color: $brand-white; }
+    @include on-interaction {
+        color: $brand-white;
+        border-color: darken($brand-white, 5%);
+        transition: all .2s ease-in-out;
+    }
 }
 
-.btn--overlay { 
+.btn--overlay {
     background-color: rgba($brand-black, .2);
     transition: background-color .2s ease-in-out;
     color: $brand-white;
-    @include on-interaction { 
+    @include on-interaction {
         color: $brand-white;
         background-color: rgba($brand-black, .3);
         transition: background-color .2s ease-in-out;

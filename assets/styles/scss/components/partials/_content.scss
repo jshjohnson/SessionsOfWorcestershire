@@ -21,6 +21,7 @@ $content-quote-gutter: 5px;
 }
 
 .content__quote {
+    clear: both;
     position: relative;
     margin: $global-guttering*2 0 $global-guttering*2 $global-guttering;
     padding: $global-guttering*2;
@@ -39,8 +40,8 @@ $content-quote-gutter: 5px;
         padding-right: 0;
         margin-left: 0;
     }
-    q { 
-        display: block; 
+    q {
+        display: block;
         margin-bottom: $global-guttering;
     }
     > q:first-child {
@@ -100,7 +101,7 @@ $content-quote-gutter: 5px;
     position: relative;
     float: left;
     margin-right: $global-guttering;
-    margin-bottom: $global-guttering;
+    margin-bottom: $global-guttering*2;
     width: 40rem;
     @include respond-max($global-screen-sm) { width: 20rem; }
     @include respond-max($global-screen-xs) {

@@ -193,7 +193,7 @@ select[multiple], select[size] { height: auto; }
     -webkit-appearance: none;
     @include form-control-focus;
     @include placeholder($brand-text);
-    @include respond-max($global-screen-md) { 
+    @include respond-max($global-screen-md) {
         font-size: $global-font-size-sm;
         padding: $global-guttering/3 $global-guttering/1.5;
     }
@@ -245,7 +245,11 @@ textarea.form-control {
 .checkbox input[type="checkbox"] {
     position: absolute;
     top: 0;
-    .lt-ie9 & { outline: 0; }
+    left: 0;
+    .ie & {
+        top: 5px;
+        outline: 0;
+    }
 }
 
 

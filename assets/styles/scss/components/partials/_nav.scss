@@ -104,6 +104,7 @@ $nav-primary-off-canvas-width: 250px;
         @include respond-max($global-screen-md) { display: none; }
         @include respond-min($global-screen-md) { width: 130px; }
         @include respond-min($global-screen-lg) { width: 150px; }
+        .no-csstransforms &, .no-csstransitions & { display: none; }
         &:after {
             content: "";
             position: absolute;
@@ -117,6 +118,20 @@ $nav-primary-off-canvas-width: 250px;
     }
     .nav__item--active {
         .nav__link { opacity: 1; }
+        .no-csstransforms &, .no-csstransitions & {
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                margin-left: -2.5px;
+                width: 5px;
+                height: 5px;
+                border-radius: 10px;
+                background-color: $brand-white;
+            }
+        }
     }
 
     .nav__item--default:nth-child(1).nav__item--active ~ .nav__indicator,
