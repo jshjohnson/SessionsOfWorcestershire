@@ -9,7 +9,7 @@ define('modernizr', [], function() { return Modernizr; });
 
 require.config({
     paths: {
-        smoothScroll: 'libs/smoothscroll.min',
+        smoothScroll: 'libs/smoothscroll',
         fastclick: 'libs/fastclick',
     },
     shim: {

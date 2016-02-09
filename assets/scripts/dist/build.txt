@@ -3,7 +3,7 @@ main.js
 ----------------
 libs/fastclick.js
 app/click.js
-libs/smoothscroll.min.js
+libs/smoothscroll.js
 app/smooth.js
 app/polyfills.js
 app/utilities.js

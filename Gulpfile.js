@@ -88,8 +88,8 @@ gulp.task('scripts', function() {
         .pipe(plugins.plumber())
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/scripts/dist/'))
-        .pipe(plugins.rename({ suffix: '.min' }))
         .pipe(plugins.uglify())
+        .pipe(plugins.rename({ suffix: '.min' }))
         .pipe(plugins.header(banner, { package : package }))
         .pipe(gulp.dest('assets/scripts/dist/'))
         .pipe(plugins.connect.reload());
