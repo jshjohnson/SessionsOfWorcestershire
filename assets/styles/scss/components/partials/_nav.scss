@@ -46,9 +46,10 @@ $nav-primary-off-canvas-width: 250px;
         }
     }
     .nav__item {
+        display: inline-block;
+        margin-right: -4px; // https://css-tricks.com/fighting-the-space-between-inline-block-elements/
         font-family: $global-headings-font-family;
         font-size: $nav-primary-font-size-lg;
-        margin-right: 0;
         @include respond-max($global-screen-xl) { font-size: $nav-primary-font-size-md; }
         @include respond-max($global-screen-md) {
             margin-left: $global-guttering*1.5;

@@ -2153,9 +2153,10 @@ svg {
       display: block;
       text-align: center; } }
   .nav--primary .nav__item {
+    display: inline-block;
+    margin-right: -4px;
     font-family: "Crimson Text", "Times New Roman", Times, serif;
-    font-size: 2.2rem;
-    margin-right: 0; }
+    font-size: 2.2rem; }
     @media (max-width: 1599px) {
       .nav--primary .nav__item {
         font-size: 2rem; } }
